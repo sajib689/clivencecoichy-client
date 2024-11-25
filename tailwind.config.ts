@@ -15,6 +15,17 @@ export default {
         background: "var(--background)",
         foreground: "var(--foreground)",
       },
+      container: {
+        padding: "20px",
+        center: true,
+        screens: {
+          DEFAULT: "1140px",
+        },
+      },
+      backgroundImage: {
+        "banner-gradient":
+          "linear-gradient(270deg, rgba(0, 0, 0, 0.10) 0%, rgba(0, 0, 0, 0.60) 40%)",
+      },
     },
   },
   plugins: [],
