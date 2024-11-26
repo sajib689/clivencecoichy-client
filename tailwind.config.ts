@@ -12,6 +12,7 @@ export default {
         inter: ["var(--font-inter)"],
       },
       colors: {
+        "gray-light": "#86A0B0",
         background: "var(--background)",
         foreground: "var(--foreground)",
       },
