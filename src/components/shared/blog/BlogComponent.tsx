@@ -1,0 +1,51 @@
+import BlogCard from "@/components/cards/BlogCard/BlogCard";
+import MyButton from "@/components/ui/MyButton/MyButton";
+import TitleWithBorder from "@/components/ui/TitleWithBorder/TitleWithBorder";
+import { TBlog } from "@/interface/globalType";
+import Link from "next/link";
+import { FC } from "react";
+
+interface BlogComponentProps {
+  blogData: TBlog[];
+  smallTitle: string;
+  mainTitle: string;
+  topButtonText: string;
+  topButtonTextLink: string;
+}
+
+const BlogComponent: FC<BlogComponentProps> = ({
+  blogData,
+  smallTitle,
+  mainTitle,
+  topButtonText,
+  topButtonTextLink
+}) => {
+  return (
+    <div className="container">
+      <TitleWithBorder title={smallTitle} className="mb-2" />
+      <div className="flex flex-col md:flex-row justify-between items-center mb-6 md:mb-12">
+        <p className="text-2xl md:text-4xl font-extrabold md:max-w-[500px] text-blue-primary mb-2">
+          {mainTitle}
+        </p>
+        <Link href={topButtonTextLink}>
+        <MyButton title={topButtonText} />
+        </Link>
+      </div>
+      <div className="grid grid-cols-1 xs:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+        {blogData?.map((item, index) => (
+          <BlogCard
+            key={index}
+            imageSrc={item?.imageSrc}
+            author={item?.author}
+            date={item?.date}
+            title={item?.title}
+            description={item?.description}
+            readMoreLink={`/blog/${item?._id}`}
+          />
+        ))}
+      </div>
+    </div>
+  );
+};
+
+export default BlogComponent;

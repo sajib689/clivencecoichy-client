@@ -1,10 +1,10 @@
 "use client";
 import { cn } from "@/lib/utils"; // Ensure this utility exists or remove it
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 import React, { FC, useState } from "react";
 
 interface BlogCardProps {
-  imageSrc: string;
+  imageSrc: string | StaticImageData;
   className?: string;
   alt?: string;
 }
