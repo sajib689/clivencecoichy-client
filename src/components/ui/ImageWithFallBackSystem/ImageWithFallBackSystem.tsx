@@ -4,7 +4,7 @@ import Image, { StaticImageData } from "next/image";
 import React, { FC, useState } from "react";
 
 interface BlogCardProps {
-  imageSrc: string | StaticImageData;
+  imageSrc: string | StaticImageData ;
   className?: string;
   alt?: string;
 }

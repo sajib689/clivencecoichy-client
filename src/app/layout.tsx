@@ -24,7 +24,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.variable} antialiased`}>
+      <body
+        suppressHydrationWarning={true}
+        className={`${inter.variable} antialiased`}
+      >
         <NextUiProvider>{children}</NextUiProvider>
       </body>
     </html>

@@ -13,3 +13,9 @@ export type TBlog = {
   description: string;
   readMoreLink: string;
 };
+
+export interface TService {
+  image: string | StaticImageData;
+  title: string;
+  description: string;
+}

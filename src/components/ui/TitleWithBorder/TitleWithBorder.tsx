@@ -1,16 +1,29 @@
-import { cn } from '@/lib/utils'; // Assuming you have this utility function for conditional classnames
-import React from 'react';
+import { cn } from "@/lib/utils"; // Assuming you have this utility function for conditional classnames
+import React from "react";
 
 interface TitleWithBorderProps {
-  title: string;
-  className?: string; 
+  title?: string;
+  borderColor?: string;
+  className?: string;
 }
 
-const TitleWithBorder: React.FC<TitleWithBorderProps> = ({ title, className }) => {
+const TitleWithBorder: React.FC<TitleWithBorderProps> = ({
+  title,
+  className,
+  borderColor,
+}) => {
   return (
-    <div className={cn('flex items-center gap-5 text-blue-primary', className)}>
-      <div className="w-12 border border-blue-primary"></div> 
-      <p className="font-semibold">{title}</p>
+    <div className={cn("flex items-center gap-5 text-blue-primary", className)}>
+      {title ? (
+        <>
+          <div
+            className={cn("w-12 border border-blue-primary", borderColor)}
+          ></div>
+          <p className="font-semibold">{title}</p>
+        </>
+      ) : (
+        ""
+      )}
     </div>
   );
 };
