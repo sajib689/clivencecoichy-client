@@ -150,7 +150,7 @@ const AllBlogsGrid = () => {
       </div>
       <div className="flex justify-center">
 
-      <Pagination current={current} onChange={onChange} total={50} />
+      <Pagination current={current} onChange={onChange} total={50}  defaultPageSize={12}  />
       </div>
     </div>
   );
