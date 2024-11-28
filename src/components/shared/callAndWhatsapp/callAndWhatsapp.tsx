@@ -1,0 +1,30 @@
+import MyButton from "@/components/ui/MyButton/MyButton";
+import { cn } from "@/lib/utils";
+import React, { FC } from "react";
+import { IoIosCall } from "react-icons/io";
+
+interface CallAndWhatsappProps {
+  className?: string;
+  direction?: "row" | "column" 
+
+}
+const CallAndWhatsapp: FC<CallAndWhatsappProps> = ({ className, direction }) => {
+  return (
+    <div className={cn(className)}>
+      <p className="text-sm font-bold mb-2 ps-1">Call / Whatsapp</p>
+      <div className={cn("flex flex-wrap items-center gap-4", direction == "row" && "flex-row",  direction == "column" && "flex-col")}>
+        <div className="rounded-full border border-green-primary text-green-primary ps-2 pe-3 py-1 flex items-center gap-2">
+          <div className="bg-green-primary p-2 text-white rounded-full">
+            <IoIosCall />
+          </div>{" "}
+          0208 945 5711
+        </div>
+        <div>
+          <MyButton title="Get a Free Quote Today" />
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default CallAndWhatsapp;

@@ -29,7 +29,7 @@ const TitleAndDescription: FC<TitleAndDescriptionProps> = ({
           className
         )}
       >
-        <div className="w-full">
+        <div className={cn("w-full", mainTitleClassName)}>
           <TitleWithBorder
             title={smallTitle}
             className={smallTitleClassName}

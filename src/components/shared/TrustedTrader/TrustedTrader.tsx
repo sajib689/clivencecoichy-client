@@ -5,8 +5,8 @@ import ImageWithFallBackSystem from "@/components/ui/ImageWithFallBackSystem/Ima
 
 const TrustedTrader = () => {
   return (
-  <div className="container mb-5 lg:mb-20">
-      <div className="flex flex-col lg:flex-row justify-between items-center gap-4 my-5 lg:my-20">
+  <div className="container mb-10 md:mb-20">
+      <div className="flex flex-col lg:flex-row justify-between items-center gap-4 my-10 lg:my-32">
       <div className=" lg:h-44 flex flex-col justify-between">
         <p className="mb-2 text-2xl lg:text-4xl font-extrabold lg:max-w-[500px] text-blue-primary text-start">
           London Gutter Clean Ltd Recommended by

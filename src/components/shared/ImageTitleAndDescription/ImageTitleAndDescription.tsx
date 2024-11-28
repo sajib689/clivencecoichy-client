@@ -6,6 +6,7 @@ import { IoIosCall } from "react-icons/io";
 import MyButton from "@/components/ui/MyButton/MyButton";
 import { StaticImageData } from "next/image";
 import { cn } from "@/lib/utils";
+import CallAndWhatsapp from "../callAndWhatsapp/callAndWhatsapp";
 
 interface ImageTitleAndDescriptionProps {
   children?: ReactNode;
@@ -19,6 +20,7 @@ interface ImageTitleAndDescriptionProps {
   description: string;
   isShowCall?: boolean;
   direction? : "left" | "right" ;
+  position?: "center" | "top" | "bottom"
 }
 
 const ImageTitleAndDescription: FC<ImageTitleAndDescriptionProps> = ({
@@ -32,12 +34,13 @@ const ImageTitleAndDescription: FC<ImageTitleAndDescriptionProps> = ({
   mainTitle,
   description,
   isShowCall = true,
-  direction = "left"
+  direction = "left",
+  position = "center"
 }) => {
   return (
     <div className="">
       <div className="container  py-8">
-        <div className={cn("flex flex-col  items-center gap-3", direction == "left" && "md:flex-row", direction == "right" && "md:flex-row-reverse" )}>
+        <div className={cn("flex flex-col items-center  gap-5 md:gap-8 ", direction == "left" && "md:flex-row", direction == "right" && "md:flex-row-reverse", position == "center" && "items-center", position == "top" && "items-start", position == "bottom" && "items-end" )}>
           <div className="w-full">
             <div
               className={cn(
@@ -78,20 +81,7 @@ const ImageTitleAndDescription: FC<ImageTitleAndDescriptionProps> = ({
 
             {children}
             {isShowCall && (
-              <div className="container">
-                <p className="text-sm font-bold mb-2 ps-1">Call / Whatsapp</p>
-                <div className="flex flex-wrap items-center gap-4">
-                  <div className="rounded-full border border-green-primary text-green-primary ps-2 pe-3 py-1 flex items-center gap-2">
-                    <div className="bg-green-primary p-2 text-white rounded-full">
-                      <IoIosCall />
-                    </div>{" "}
-                    0208 945 5711
-                  </div>
-                  <div>
-                    <MyButton title="Get a Free Quote Today" />
-                  </div>
-                </div>
-              </div>
+              <CallAndWhatsapp/>
             )}
           </div>
         </div>

@@ -16,10 +16,12 @@ import TrustedProfessionals from "@/assets/icons/TrustedProfessionals.png";
 import QuickAndEfficientService from "@/assets/icons/QuickAndEfficientService.png";
 import ExceptionalCustomerSatisfaction from "@/assets/icons/ExceptionalCustomerSatisfaction.png";
 import ComprehensiveServices from "@/assets/icons/ComprehensiveServices.png";
-import ThoroughGutterCleaning from "@/assets/icons/ThoroughGutterCleaning.svg";
+import ThoroughGutterCleaning from "@/assets/icons/ThoroughGutterCleaning.png";
+import ExpertGutterRepairs from "@/assets/icons/ExpertGutterRepairs.png";
+import FreeMinorRepairsWithEveryClean from "@/assets/icons/FreeMinorRepairsWithEveryClean.png";
 import { IoIosCheckmarkCircleOutline } from "react-icons/io";
 import CardWithTitle from "@/components/cards/CardWithTitle/CardWithTitle";
-import OurService from "@/components/home/OurService/OurService";
+import OurService from "@/components/pages/home/OurService/OurService";
 
 const blogData = [
   {
@@ -72,13 +74,13 @@ const cardData = [
       "Backed by over a decade of experience, we are a Which? Trusted Trader, ensuring quality you can rely on.",
   },
   {
-    image: ExceptionalCustomerSatisfaction,
+    image: ExpertGutterRepairs,
     title: "Exceptional Customer Satisfaction",
     description:
       "With hundreds of positive reviews, our commitment to excellence speaks for itself.",
   },
   {
-    image: ComprehensiveServices,
+    image: FreeMinorRepairsWithEveryClean,
     title: "Comprehensive Services",
     description:
       "From gutter cleaning to high-rise solutions, we offer a one-stop shop for all your gutter needs.",
@@ -101,54 +103,33 @@ const TrustedByHundreds = [
 const TestPage = () => {
   return (
     <div>
-      {/* <TrustedTrader/> */}
-      {/* <BlogComponent blogData={blogData} smallTitle="Blog" mainTitle="Insights & Inspiration: The LondonGutterClean Blog" topButtonText="Read All" topButtonTextLink={"blog"}/> */}
+      <TrustedTrader/>
+      <BlogComponent blogData={blogData} smallTitle="Blog" mainTitle="Insights & Inspiration: The LondonGutterClean Blog" topButtonText="Read All" topButtonTextLink={"blog"}/>
       <OurService
         cardData={cardData}
-        imageClassName="h-10 w-16 bg-[#0F426214] p-2 rounded"
+        imageClassName="h-10 w-[64px] bg-[#0F426214] p-2 rounded"
         smallTitle="Our Service"
         mainTitle="We Are Here For All Your London Guttering Needs"
         topButtonText="Get a Free Quote"
         topButtonTextLink={"blog"}
       />
-      {/* <div className="container">
+      <div className="container">
         <TitleAndDescription
           smallTitle="Gutter Cleaning"
           smallTitleClassName="mb-1"
           mainTitle="Professional Gutter Cleaning for Your Home"
           description="Our Gutter service has been offering a professional gutter cleaning solution for well over the 13 year mark now. All our gutter cleaner engineers are fully insured and qualified to work up to 6 Storeys, our high level gutter cleaning specialists can clean guttering up to 4 storey without scaffolding. Anything taller will require scaffolding or cherry picker hire. All gutters and downpipes will be thoroughly flushed out and tested for leaks. If we find any minor leaks we will fix them as a special promotion with all gutter cleans."
         />
-      </div> */}
-      {/* <ImageTitleAndDescription
-        mainImage={trustedHuman}
-        mainImageClassName="max-h-[500px] max-w-[500px]"
-        optionalImage={establishedIn}
-        optionalImageClassName="h-[120px] w-[200px]"
-        TitleAndDescriptionClassName=""
-        smallTitle="Unbeatable Experience & Reputation"
-        mainTitle="Trusted by Hundreds of Happy Customers Across London."
-        description="With over a decade of experience, we’ve tackled all types of guttering issues in London. Browse through hundreds of positive reviews on Google and Which? Trusted Traders, dating back to 2013, to see what our satisfied customers say!"
-      >
-        <div className="py-5 container flex flex-col gap-3">
-          {TrustedByHundreds?.map((item, index) => (
-            <div key={index} className="flex items-center gap-2">
-              <IoIosCheckmarkCircleOutline
-                size={25}
-                className="text-green-primary"
-              />{" "}
-              <p className="text-blue-primary font-bold text-xl">{item}</p>
-            </div>
-          ))}
-        </div>
-      </ImageTitleAndDescription> */}
-      {/* <ImageTitleAndDescription
+      </div>
+     
+      <ImageTitleAndDescription
         mainImage={workingHuman}
         TitleAndDescriptionClassName="mb-7"
         smallTitle="Why Us"
         mainTitle="Why Choose Us for Domestic Gutter Cleaning?"
         description="London Gutter Cleaning prides itself on customer satisfaction and that’s why we are London’s most popular gutter cleaning business. You can rest assured whatever the problem we have the solution leaving your gutters and downpipes clean and clear."
-      /> */}
-      {/* <div className="bg-[#F1F4F6] py-10">
+      />
+      <div className="bg-[#F1F4F6] py-10">
         <ImageTitleAndDescription
           mainImage={GutterReplacementImage1}
           mainImageClassName="max-h-[400px] max-w-[450px]"
@@ -182,30 +163,8 @@ const TestPage = () => {
           mainTitle="Roof Cleaning"
           description="When it comes to roof cleaning, we know what our customers expect and always deliver. With staff with a vast amount of roofing expertise we can safely move over rooftops without causing damage. We will inspect the roof and the tiles and choose the best method to clean the rooftop, we can use a low power pressure washer or a wire brush to remove the moss. After completion we will clear all mess from around the property and gutters, finally applying a solution that will halt the moss from returning so soon."
         />
-      </div> */}
-      <div className="bg-[#0F4262] py-5 md:py-20">
-        <div className="container">
-          <div className="mb-4 md:mb-12">
-            <TitleAndDescription
-              smallTitle="Why Us"
-              mainTitle="Your Trusted Partner for Spotless Gutters"
-              className="text-white"
-              borderClassName="border-white"
-              smallTitleClassName="text-white"
-            />
-          </div>{" "}
-          <div className=" grid grid-cols-1 xs:grid-cols-2 lg:grid-cols-4 gap-x-4 gap-y-5">
-            {cardData?.map((item, i) => (
-              <CardWithTitle
-                key={i}
-                image={item?.image}
-                title={item?.title}
-                description={item?.description}
-              />
-            ))}
-          </div>
-        </div>
       </div>
+   
     </div>
   );
 };

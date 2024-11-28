@@ -1,6 +1,6 @@
 import ImageWithFallBackSystem from "@/components/ui/ImageWithFallBackSystem/ImageWithFallBackSystem";
 import { cn } from "@/lib/utils";
-import { StaticImageData } from "next/image";
+import Image, { StaticImageData } from "next/image";
 import React, { FC } from "react";
 
 interface CardWithTitleProps {
@@ -19,12 +19,12 @@ const CardWithTitle: FC<CardWithTitleProps> = ({
   imageClassName,
 }) => {
   return (
-    <div className={cn("text-white", className)}>
+    <div className={cn("text-white w-full", className)}>
       <ImageWithFallBackSystem
         imageSrc={image}
         className={cn("h-9 w-9 mb-3 md:mb-6", imageClassName)}
       />
-      <div>
+      <div className="w-full">
         <p className="font-bold text-xl mb-2 md:mb-4">{title}</p>
         <p className="text-sm font-medium text-gray-light">{description}</p>
       </div>
