@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import React, { useEffect, useState } from "react";
+import React, { ReactNode, useEffect, useState } from "react";
 import { Controller, useFormContext } from "react-hook-form";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
@@ -9,10 +9,12 @@ import { StaticImport } from "next/dist/shared/lib/get-img-props";
 type TImageUploadProps = {
   name: string;
   label?: string;
+  children?: ReactNode;
   size?: string;
   parentClassName?: string;
   labelClassName?: string;
   inputClassName?: string;
+  previewImageClassName?: string;
   defaultValue?: string | StaticImport;
   [key: string]: any; // Allow other props
 };
@@ -24,7 +26,9 @@ const MyFormImageUpload = ({
   parentClassName = "",
   labelClassName = "",
   inputClassName = "",
+  previewImageClassName = "",
   defaultValue,
+  children,
   ...rest
 }: TImageUploadProps) => {
   const { control, setValue, resetField } = useFormContext();
@@ -56,7 +60,7 @@ const MyFormImageUpload = ({
   }, [defaultValue]);
 
   return (
-    <div className={cn(`form-group ${size}`, parentClassName)}>
+    <div className={cn(`form-group h-full ${size}`, parentClassName)}>
       {label && <p className={cn("mb-2", labelClassName)}>{label}</p>}
       <Controller
         control={control}
@@ -64,13 +68,13 @@ const MyFormImageUpload = ({
         render={({ fieldState: { error } }) => (
           <>
             {preview ? (
-              <div className="mb-2 relative w-fit">
+              <div className={cn(" relative w-fit", previewImageClassName)}>
                 <Image
                   height={300}
                   width={300}
                   src={preview}
                   alt="Preview"
-                  className="h-32 w-32 rounded-md object-cover"
+                  className="h-full w-full rounded-md object-contain"
                 />
                 <button
                   type="button"
@@ -80,7 +84,13 @@ const MyFormImageUpload = ({
                   <RiDeleteBinLine size={20} className="hover:text-red-500" />
                 </button>
               </div>
-            ) : null}
+            ) :   <>
+            {children && (
+              <label htmlFor={name} className="h-full w-full">
+                {children}
+              </label>
+            )}
+
             <input
               key={fileInputKey} // Force reset of input field
               id={name}
@@ -94,10 +104,13 @@ const MyFormImageUpload = ({
               }}
               className={cn(
                 "w-full rounded-md border border-gray-300 p-2",
-                inputClassName
+                inputClassName,
+                children && "hidden"
               )}
               {...rest}
             />
+          </>}
+          
             {error && <small style={{ color: "red" }}>{error.message}</small>}
           </>
         )}

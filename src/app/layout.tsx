@@ -2,6 +2,9 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { NextUiProvider } from "@/lib/providers/NextUIProvider";
+import Navbar from "@/components/shared/Navbar/Navbar";
+import ScrollToTopButton from "@/components/ui/ScrollToTopButton/ScrollToTopButton";
+import Footer from "@/components/shared/Footer/Footer";
 
 const inter = Inter({
   weight: ["300", "400", "500", "600", "700"],
@@ -28,7 +31,14 @@ export default function RootLayout({
         suppressHydrationWarning={true}
         className={`${inter.variable} antialiased`}
       >
-        <NextUiProvider>{children}</NextUiProvider>
+        <NextUiProvider>
+          <>
+            <Navbar />
+            {children}
+            <Footer />
+            <ScrollToTopButton />
+          </>
+        </NextUiProvider>
       </body>
     </html>
   );

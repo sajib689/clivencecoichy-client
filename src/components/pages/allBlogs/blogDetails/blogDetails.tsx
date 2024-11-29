@@ -7,6 +7,7 @@ import SearchByEmail from "./SearchByEmail";
 import account_circle from "@/assets/icons/account_circle.svg";
 import calendar_month from "@/assets/icons/calendar_month.svg";
 import blogDetailsImage from "@/assets/blogDetailsImage.png";
+import LeaveAComment from "./LeaveAComment";
 
 const BlogDetails = () => {
   return (
@@ -193,6 +194,10 @@ const BlogDetails = () => {
 
       <div className="w-full border my-6"></div>
 
+      <h5 className="text-xl font-bold mt-4 mb-10">Leave a comment</h5>
+     <div className="mb-10 md:mb-20">
+     <LeaveAComment/>
+     </div>
     </div>
   );
 };
