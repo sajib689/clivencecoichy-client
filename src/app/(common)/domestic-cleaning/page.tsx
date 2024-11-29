@@ -1,16 +1,14 @@
-import SmallBanner from "@/components/shared/SmallBanner/SmallBanner";
-import TitleAndDescription from "@/components/shared/TitleAndDescription/TitleAndDescription";
-import React from "react";
-import bgImage from "@/assets/trustedHuman.png";
-import GutterCleaningComponent from "@/components/pages/DomesticCleaning/GutterCleaningComponent/GutterCleaningComponent";
 import domesticCleaningBanner from "@/assets/domesticCleaningBanner.png";
-import Image from "next/image";
+import bgImage from "@/assets/trustedHuman.png";
 import Features from "@/components/pages/DomesticCleaning/Features/Features";
-import WhyChooseUs from "@/components/pages/DomesticCleaning/WhyChooseUs/WhyChooseUs";
 import FlipCardForCleaning from "@/components/pages/DomesticCleaning/FlipCardForCleaning/FlipCardForCleaning";
-import TrustedTrader from "@/components/shared/TrustedTrader/TrustedTrader";
+import GutterCleaningComponent from "@/components/pages/DomesticCleaning/GutterCleaningComponent/GutterCleaningComponent";
+import WhyChooseUs from "@/components/pages/DomesticCleaning/WhyChooseUs/WhyChooseUs";
 import BlogComponent from "@/components/shared/blog/BlogComponent";
 import ImproveProperty from "@/components/shared/ImproveProperty/ImproveProperty";
+import SmallBanner from "@/components/shared/SmallBanner/SmallBanner";
+import TrustedTrader from "@/components/shared/TrustedTrader/TrustedTrader";
+import Image from "next/image";
 
 const DomesticCleaningPage = () => {
   return (

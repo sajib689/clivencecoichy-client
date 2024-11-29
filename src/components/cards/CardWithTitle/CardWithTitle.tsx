@@ -1,7 +1,7 @@
 import ImageWithFallBackSystem from "@/components/ui/ImageWithFallBackSystem/ImageWithFallBackSystem";
 import { cn } from "@/lib/utils";
-import Image, { StaticImageData } from "next/image";
-import React, { FC } from "react";
+import { StaticImageData } from "next/image";
+import { FC } from "react";
 
 interface CardWithTitleProps {
   image: string | StaticImageData;

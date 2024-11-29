@@ -1,13 +1,13 @@
 "use client";
-import { Drawer, Space } from "antd";
-import React, { useState } from "react";
-import { IoClose, IoLogOut, IoMenu } from "react-icons/io5";
-import NavMenu from "./NavMenu";
-import Image from "next/image";
 import logo from "@/assets/logo.png";
+import { Drawer, Space } from "antd";
+import Image from "next/image";
+import { useState } from "react";
+import { IoClose, IoMenu } from "react-icons/io5";
+import NavMenu from "./NavMenu";
 
-import Link from "next/link";
 import { Accordion, AccordionItem } from "@nextui-org/react";
+import Link from "next/link";
 const ForMobile = () => {
   const [open, setOpen] = useState(false);
 

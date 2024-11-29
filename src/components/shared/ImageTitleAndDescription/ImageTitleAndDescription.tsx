@@ -1,12 +1,10 @@
-import React, { FC, ReactNode } from "react";
+import { FC, ReactNode } from "react";
 
 import ImageWithFallBackSystem from "@/components/ui/ImageWithFallBackSystem/ImageWithFallBackSystem";
-import TitleAndDescription from "../TitleAndDescription/TitleAndDescription";
-import { IoIosCall } from "react-icons/io";
-import MyButton from "@/components/ui/MyButton/MyButton";
-import { StaticImageData } from "next/image";
 import { cn } from "@/lib/utils";
+import { StaticImageData } from "next/image";
 import CallAndWhatsapp from "../callAndWhatsapp/callAndWhatsapp";
+import TitleAndDescription from "../TitleAndDescription/TitleAndDescription";
 
 interface ImageTitleAndDescriptionProps {
   children?: ReactNode;

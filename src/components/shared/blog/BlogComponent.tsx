@@ -1,7 +1,6 @@
 import BlogCard from "@/components/cards/BlogCard/BlogCard";
 import MyButton from "@/components/ui/MyButton/MyButton";
 import TitleWithBorder from "@/components/ui/TitleWithBorder/TitleWithBorder";
-import { TBlog } from "@/interface/globalType";
 import Link from "next/link";
 import { FC } from "react";
 

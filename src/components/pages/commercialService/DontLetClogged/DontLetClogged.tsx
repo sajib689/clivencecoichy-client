@@ -1,8 +1,7 @@
-import { cn } from "@/lib/utils";
-import { StaticImageData } from "next/image";
-import React, { FC } from "react";
 import DontLetCloggedBG from "@/assets/DontLetCloggedBG.png";
 import CallAndWhatsapp from "@/components/shared/callAndWhatsapp/callAndWhatsapp";
+import { cn } from "@/lib/utils";
+import { FC } from "react";
 
 interface DontLetCloggedProps {
   title?: string;

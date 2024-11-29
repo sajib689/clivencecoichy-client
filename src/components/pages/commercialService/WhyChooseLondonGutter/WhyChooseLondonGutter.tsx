@@ -2,12 +2,7 @@ import TitleAndDescription from "@/components/shared/TitleAndDescription/TitleAn
 import React from "react";
 import { IoIosCheckmarkCircleOutline } from "react-icons/io";
 
-const TrustedByHundredsList = [
-  "Over a Decade of Excellence",
-  "Award-Winning Service",
-  "Highly Rated by Customers",
-  "Certified and Trusted",
-];
+
 const WhyUsList = [
   {
     title: "Guaranteed Satisfaction",

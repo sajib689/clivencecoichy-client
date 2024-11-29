@@ -1,16 +1,14 @@
-import ImageTitleAndDescription from "@/components/shared/ImageTitleAndDescription/ImageTitleAndDescription";
-import React from "react";
 import getQuoteImage from "@/assets/getQuoteImage.png";
-import Image from "next/image";
-import TitleAndDescription from "@/components/shared/TitleAndDescription/TitleAndDescription";
-import GetQuoteForm from "./getQuoteForm";
 import InfoCard from "@/components/cards/InfoCard/InfoCard";
-import { IoMdCall } from "react-icons/io";
-import { AiOutlineMail } from "react-icons/ai";
-import { LuMapPin } from "react-icons/lu";
-import TrustedTrader from "@/components/shared/TrustedTrader/TrustedTrader";
 import BlogComponent from "@/components/shared/blog/BlogComponent";
 import ImproveProperty from "@/components/shared/ImproveProperty/ImproveProperty";
+import TitleAndDescription from "@/components/shared/TitleAndDescription/TitleAndDescription";
+import TrustedTrader from "@/components/shared/TrustedTrader/TrustedTrader";
+import Image from "next/image";
+import { AiOutlineMail } from "react-icons/ai";
+import { IoMdCall } from "react-icons/io";
+import { LuMapPin } from "react-icons/lu";
+import GetQuoteForm from "./getQuoteForm";
 
 
 const informations  = [

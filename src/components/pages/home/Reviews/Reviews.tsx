@@ -1,12 +1,7 @@
-import ComprehensiveServices from "@/assets/icons/ComprehensiveServices.png";
-import ExceptionalCustomerSatisfaction from "@/assets/icons/ExceptionalCustomerSatisfaction.png";
-import QuickAndEfficientService from "@/assets/icons/QuickAndEfficientService.png";
-import TrustedProfessionals from "@/assets/icons/TrustedProfessionals.png";
-import CardWithTitle from "@/components/cards/CardWithTitle/CardWithTitle";
+import google from "@/assets/icons/google.png";
+import userImage from "@/assets/userImage.png";
 import ReviewCard from "@/components/cards/ReviewCard/ReviewCard";
 import TitleAndDescription from "@/components/shared/TitleAndDescription/TitleAndDescription";
-import google from "@/assets/icons/google.png"
-import userImage from "@/assets/userImage.png"
 
 const cardData = [
   {

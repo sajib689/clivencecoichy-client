@@ -1,14 +1,9 @@
-import ComprehensiveServices from "@/assets/icons/ComprehensiveServices.png";
-import ExceptionalCustomerSatisfaction from "@/assets/icons/ExceptionalCustomerSatisfaction.png";
-import QuickAndEfficientService from "@/assets/icons/QuickAndEfficientService.png";
-import TrustedProfessionals from "@/assets/icons/TrustedProfessionals.png";
-import CardWithTitle from "@/components/cards/CardWithTitle/CardWithTitle";
-import TitleAndDescription from "@/components/shared/TitleAndDescription/TitleAndDescription";
-import DigitalPhotosForYourPeaceOfMind from "@/assets/icons/DigitalPhotosForYourPeaceOfMind.png";
-import AllWorkGuaranteed from "@/assets/icons/AllWorkGuaranteed.png";
-import NoObligationQuote from "@/assets/icons/NoObligationQuote.png";
-import FullyInsuredAndTrainedStaff from "@/assets/icons/FullyInsuredAndTrainedStaff.png";
 import AllMinorRepairsIncluded from "@/assets/icons/AllMinorRepairsIncluded.png";
+import AllWorkGuaranteed from "@/assets/icons/AllWorkGuaranteed.png";
+import DigitalPhotosForYourPeaceOfMind from "@/assets/icons/DigitalPhotosForYourPeaceOfMind.png";
+import FullyInsuredAndTrainedStaff from "@/assets/icons/FullyInsuredAndTrainedStaff.png";
+import NoObligationQuote from "@/assets/icons/NoObligationQuote.png";
+import CardWithTitle from "@/components/cards/CardWithTitle/CardWithTitle";
 
 const cardData = [
   {

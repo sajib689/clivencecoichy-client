@@ -4,7 +4,7 @@ import propertyHuman from "@/assets/propertyHuman.png";
 
 const ImproveProperty = () => {
   return (
-    <div className=" lg:pt-20">
+    <div className="py-10 lg:py-20">
       <div className="bg-[#0F42620F]  lg:h-[340px] container relative">
         <div className="lg:absolute bottom-0">
           <ImageTitleAndDescription

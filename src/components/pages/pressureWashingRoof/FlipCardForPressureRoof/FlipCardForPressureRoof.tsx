@@ -1,11 +1,7 @@
-import PressureWashingRoofImage1 from "@/assets/PressureWashingRoofImage1.png";
-import PressureWashingRoofImage2 from "@/assets/PressureWashingRoofImage2.png";
-import GutterReplacementImage2 from "@/assets/GutterReplacementImage2.png";
-import repair1 from "@/assets/repair1.png";
-import repair2 from "@/assets/repair2.png";
 import GraffitiRemovalService1 from "@/assets/GraffitiRemovalService1.png";
 import GraffitiRemovalService2 from "@/assets/GraffitiRemovalService2.png";
-import RoofCleaning2 from "@/assets/RoofCleaning2.png";
+import PressureWashingRoofImage1 from "@/assets/PressureWashingRoofImage1.png";
+import PressureWashingRoofImage2 from "@/assets/PressureWashingRoofImage2.png";
 import ImageTitleAndDescription from "@/components/shared/ImageTitleAndDescription/ImageTitleAndDescription";
 
 const FlipCardForPressureRoof = () => {
