@@ -8,6 +8,7 @@ import ImproveProperty from "@/components/shared/ImproveProperty/ImproveProperty
 import TrustedTrader from "@/components/shared/TrustedTrader/TrustedTrader";
 
 const Home = () => {
+
   return (
     <>
       <Banner />
