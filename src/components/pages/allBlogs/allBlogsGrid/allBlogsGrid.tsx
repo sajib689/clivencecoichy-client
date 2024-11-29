@@ -26,9 +26,9 @@ const AllBlogsGrid: React.FC<AllBlogsGridProps> = ({ blogs, currentPage, totalBl
             key={item._id}
             imageSrc={item.banner}
             author={item.author}
-            date={item.date}
+            date={item.createdAt}
             title={item.title}
-            description={item.description}
+            description={item.content}
             readMoreLink={`/blog/${item._id}`}
           />
         ))}
