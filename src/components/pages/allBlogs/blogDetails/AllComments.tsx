@@ -25,8 +25,11 @@ const AllComments: FC<AllCommentsProps> = ({ blogId }) => {
   }
   return (
     <div>
-      <h5 className="text-xl font-bold my-4">Comments</h5>
-      {isNonEmptyArray(allComments?.data?.comments) &&
+      {allComments?.data?.comments?.length > 0 && (
+        <h5 className="text-xl font-bold my-4">Comments</h5>
+      )}
+      {allComments?.data?.comments?.length > 0 &&
+        isNonEmptyArray(allComments?.data?.comments) &&
         allComments?.data?.comments?.map((comment: any, i: number) => (
           <div
             key={i}

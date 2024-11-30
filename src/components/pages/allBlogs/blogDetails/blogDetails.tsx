@@ -1,6 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
-import blogDetailsImage from "@/assets/blogDetailsImage.png";
 import blogDetailsMainImage from "@/assets/blogDetailsMainImage.png";
 import account_circle from "@/assets/icons/account_circle.svg";
 import calendar_month from "@/assets/icons/calendar_month.svg";
@@ -14,9 +13,10 @@ import SubscribeToNewsLetter from "./SubscribeToNewsLetter";
 
 interface BlogDetailsProps {
   blog: TBlogPost;
-  blogId : string;
+  blogId: string;
 }
-const BlogDetails: FC<BlogDetailsProps> = ({ blog , blogId}) => {
+const BlogDetails: FC<BlogDetailsProps> = ({ blog, blogId }) => {
+
 
   return (
     <div className="container">
@@ -56,11 +56,9 @@ const BlogDetails: FC<BlogDetailsProps> = ({ blog , blogId}) => {
           <div className="w-full border my-6"></div>
           <h5 className="text-xl font-bold mb-4">Subscribe to our news feed</h5>
           <SubscribeToNewsLetter />
-          
-          <div className="w-full border my-6"></div>
-          <AllComments blogId={blogId}/>
-         
 
+          <div className="w-full border my-6"></div>
+          <AllComments blogId={blogId} />
         </div>
         {/* left side end */}
         {/* right side start */}
@@ -93,15 +91,13 @@ const BlogDetails: FC<BlogDetailsProps> = ({ blog , blogId}) => {
           </div>
           <div className="mb-11">
             <h3 className="font-extrabold text-4xl mb-6">{blog?.title}</h3>
-            <p className="font-medium text-base text-gray-light">
-              Keeping your gutters clean is vital for protecting your home from
-              water damage. But when it comes to cleaning methods, there’s a
-              debate: hands-on or high-tech vacuums? While vacuums can seem like
-              a quicker option, we at London gutter clean strongly believe in
-              the power of a good old-fashioned hand cleaning. Here’s why:
-            </p>
+
+            <div
+              className="ql-editor disable-tailwind "
+              dangerouslySetInnerHTML={{ __html: blog?.content }}
+            />
           </div>
-          <div className="mb-11">
+          {/* <div className="mb-11">
             <h3 className="font-extrabold text-xl mb-6">
               A Deeper Clean, Every Time
             </h3>
@@ -112,8 +108,8 @@ const BlogDetails: FC<BlogDetailsProps> = ({ blog , blogId}) => {
               in there and scoop out every bit, leaving your gutters sparkling
               clean and ready for the next downpour.
             </p>
-          </div>
-          <div className="mb-11">
+          </div> */}
+          {/* <div className="mb-11">
             <h3 className="font-extrabold text-xl mb-6">
               Spotting Potential Problems Before They Become Big Ones
             </h3>
@@ -187,7 +183,7 @@ const BlogDetails: FC<BlogDetailsProps> = ({ blog , blogId}) => {
               expertise and good old-fashioned tools to ensure your gutters are
               completely clear and your downspouts are flowing freely.
             </p>
-          </div>
+          </div> */}
         </div>
       </div>
       {/* right side end */}
