@@ -1,8 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
-import { setUser } from "@/redux/features/auth/authSlice";
 import { toast } from "sonner";
-import { verifyToken } from "./verifyToken";
 
 // Now handleAsyncWithToast accepts dispatch as an argument
 export const handleAsyncWithToast = async (
@@ -10,35 +8,20 @@ export const handleAsyncWithToast = async (
   loadingMessage: string,
   successMessage?: string,
   errorMessage?: string,
-  isSetUserToRedux: boolean = false, // New parameter to determine if the user should be set
-  dispatch?: any, // Accept the dispatch function as a parameter
-  redirectTo?: string, // URL to redirect after success
-  router?: any // Accept the router instance as a parameter
 ) => {
   const toastInit = toast.loading(loadingMessage);
 
   try {
     const res = await asyncCallback();
-    console.log(res?.data);
+    const successData = res?.data?.success;
+    const successMessageFromResponse = res?.data?.message || successMessage;
+    
+    console.log(res?.data?.message);
 
-    if (res?.data?.success) {
-      toast.success(res.data.message || successMessage, {
+    if (successData) {
+      toast.success(successMessageFromResponse, {
         id: toastInit,
       });
-
-      // If isSetUserToRedux is true, dispatch the setUser action
-      if (isSetUserToRedux && dispatch && res?.data?.data?.accessToken) {
-        const user = await verifyToken(res?.data?.data?.accessToken);
-        await dispatch(
-          setUser({ user: user, token: res?.data?.data?.accessToken })
-        );
-        // dispatch(setUser({ user: res.data.user, token: res.data.accessToken }));
-      }
-
-        // Redirect if redirectTo is provided
-        if (redirectTo && router) {
-          router.push(redirectTo);
-        }
     }
 
     if (res?.message) {
@@ -47,8 +30,8 @@ export const handleAsyncWithToast = async (
       });
     }
 
-    if (!res?.data?.success) {
-      toast.error(res?.error?.data?.errorSources?.[0]?.message, {
+    if (!successData) {
+      toast.error(res?.error?.data?.errorSources?.[0]?.message || errorMessage, {
         id: toastInit,
       });
     }
@@ -56,7 +39,9 @@ export const handleAsyncWithToast = async (
     return res; // Return response if needed
   } catch (error) {
     toast.error(
-      (error as any)?.errorSources?.[0]?.message || errorMessage || "Something went wrong",
+      (error as any)?.errorSources?.[0]?.message ||
+        errorMessage ||
+        "Something went wrong",
       {
         id: toastInit,
       }

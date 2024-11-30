@@ -113,7 +113,7 @@ const Footer = () => {
           {thirdRow?.map((item, i) => (
             <div
               key={i}
-              className="cursor-pointer text-white hover:text-green-primary p-4 rounded"
+              className="cursor-pointer text-white hover:text-green-primary pb-5 rounded"
             >
               {item?.title}
             </div>

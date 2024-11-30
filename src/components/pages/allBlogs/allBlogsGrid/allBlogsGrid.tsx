@@ -1,20 +1,19 @@
 // components/pages/allBlogs/allBlogsGrid/allBlogsGrid.tsx
 'use client'
-import React, { useState } from 'react';
-import { Pagination, PaginationProps } from 'antd';
 import BlogCard from '@/components/cards/BlogCard/BlogCard';
-import { isNonEmptyArray } from '@/utils/isNonEmptyArray';
-import { useRouter } from 'next/navigation';
 import MyPagination from '@/components/ui/MyPagination/MyPagination';
 import { TBlogPost } from '@/interface/globalType';
+import { isNonEmptyArray } from '@/utils/isNonEmptyArray';
+import React from 'react';
 
 interface AllBlogsGridProps {
   blogs: TBlogPost[];
   currentPage: number;
   totalBlogs: number;
+  defaultPageSize: number;
 }
 
-const AllBlogsGrid: React.FC<AllBlogsGridProps> = ({ blogs, currentPage, totalBlogs }) => {
+const AllBlogsGrid: React.FC<AllBlogsGridProps> = ({ blogs, currentPage, totalBlogs , defaultPageSize}) => {
 
 
 
@@ -25,7 +24,7 @@ const AllBlogsGrid: React.FC<AllBlogsGridProps> = ({ blogs, currentPage, totalBl
           <BlogCard
             key={item._id}
             imageSrc={item.banner}
-            author={item.author}
+            author={item?.authorId?.username}
             date={item.createdAt}
             title={item.title}
             description={item.content}
@@ -33,7 +32,7 @@ const AllBlogsGrid: React.FC<AllBlogsGridProps> = ({ blogs, currentPage, totalBl
           />
         ))}
       </div>
-    <MyPagination currentPage={currentPage} totalBlogs={totalBlogs} defaultPageSize={10}/>
+    <MyPagination currentPage={currentPage} totalBlogs={totalBlogs} defaultPageSize={defaultPageSize}/>
     </div>
   );
 };

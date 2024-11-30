@@ -21,7 +21,7 @@ export interface TService {
 }
 
 export interface TBlogPost {
-  authorId: string | null; // authorId can be null or a string representing the author
+  _id: string; // Unique identifier for the blog post (MongoDB ObjectId)
   banner: string; // URL to the banner image
   category: string; // The category of the blog post (e.g., Technology)
   content: string; // The actual content or body of the blog post
@@ -29,5 +29,13 @@ export interface TBlogPost {
   title: string; // The title of the blog post
   updatedAt: string; // The date when the post was last updated, in ISO 8601 format
   __v: number; // Version key, typically used in MongoDB
-  _id: string; // Unique identifier for the blog post (MongoDB ObjectId)
+  authorId: {
+    _id: string; // Author's unique ID
+    email: string; // Author's email
+    username: string | undefined; // Author's username
+    role: string; // Author's role (e.g., admin)
+    profileImage: string; // URL to the author's profile image
+    createdAt: string; // The date when the author was created, in ISO 8601 format
+    updatedAt: string; // The date when the author was last updated, in ISO 8601 format
+  } | null; // The author can be null or an object containing author details
 }

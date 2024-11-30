@@ -1,15 +1,23 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
+import blogDetailsImage from "@/assets/blogDetailsImage.png";
 import blogDetailsMainImage from "@/assets/blogDetailsMainImage.png";
-import ImageWithFallBackSystem from "@/components/ui/ImageWithFallBackSystem/ImageWithFallBackSystem";
-import Image from "next/image";
-import SearchByEmail from "./SearchByEmail";
 import account_circle from "@/assets/icons/account_circle.svg";
 import calendar_month from "@/assets/icons/calendar_month.svg";
-import blogDetailsImage from "@/assets/blogDetailsImage.png";
-import LeaveAComment from "./LeaveAComment";
+import ImageWithFallBackSystem from "@/components/ui/ImageWithFallBackSystem/ImageWithFallBackSystem";
+import { TBlogPost } from "@/interface/globalType";
+import dayjs from "dayjs";
+import Image from "next/image";
+import { FC } from "react";
+import AllComments from "./AllComments";
+import SubscribeToNewsLetter from "./SubscribeToNewsLetter";
 
-const BlogDetails = () => {
+interface BlogDetailsProps {
+  blog: TBlogPost;
+  blogId : string;
+}
+const BlogDetails: FC<BlogDetailsProps> = ({ blog , blogId}) => {
+
   return (
     <div className="container">
       <div className="md:flex items-start gap-6">
@@ -17,7 +25,7 @@ const BlogDetails = () => {
         <div className="md:w-4/12">
           <div className="h-full max-h-96 w-full max-w-72 overflow-hidden mb-5">
             <Image
-              src={blogDetailsMainImage}
+              src={blog?.banner}
               width={400}
               height={600}
               alt="image"
@@ -33,38 +41,26 @@ const BlogDetails = () => {
               />
             </div>
             <div>
-              <p className="text-base font-bold ">David London NW3</p>
+              <p className="text-base font-bold ">{blog?.authorId?.username}</p>
               <p className="text-sm font-medium text-gray-light">
-                September 12, 2022
+                {blog?.authorId?.createdAt ? (
+                  <span className="font-medium text-sm whitespace-nowrap">
+                    {dayjs(blog?.authorId?.createdAt, "D MMMM, YYYY").format(
+                      "D MMMM YYYY"
+                    )}
+                  </span>
+                ) : null}
               </p>
             </div>
           </div>
           <div className="w-full border my-6"></div>
           <h5 className="text-xl font-bold mb-4">Subscribe to our news feed</h5>
-          <SearchByEmail />
-          <h5 className="text-xl font-bold my-4">Comments</h5>
-
-          <div className="flex flex-col md:flex-row md:items-start gap-3">
-            <div className="rounded-full overflow-hidden h-9 w-10">
-              <ImageWithFallBackSystem
-                imageSrc={blogDetailsMainImage}
-                alt="Review Card Image"
-              />
-            </div>
-            <div className="w-full">
-              <p className="text-base font-bold ">Olivia Clark</p>
-              <p className="text-sm font-medium text-gray-light">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
-                in reprehenderit in voluptate velit esse cillum dolore eu fugiat
-                nulla pariatur.
-              </p>
-            </div>
-          </div>
-
+          <SubscribeToNewsLetter />
+          
           <div className="w-full border my-6"></div>
+          <AllComments blogId={blogId}/>
+         
+
         </div>
         {/* left side end */}
         {/* right side start */}
@@ -75,22 +71,28 @@ const BlogDetails = () => {
                 <ImageWithFallBackSystem imageSrc={account_circle} />
               </div>
               <span className="font-medium text-sm whitespace-nowrap">
-                James Charls
+                {blog?.authorId?.username}
               </span>
             </span>
             <span className="flex items-center space-x-1">
-              <div className="w-5 h-5  overflow-hidden">
-                <ImageWithFallBackSystem imageSrc={calendar_month} />
-              </div>
               <span className="font-medium text-sm  whitespace-nowrap">
-                12 July, 2024
+                {blog?.createdAt ? (
+                  <span className="flex items-center space-x-1">
+                    <div className="w-5 h-5 overflow-hidden">
+                      <ImageWithFallBackSystem imageSrc={calendar_month} />
+                    </div>
+                    <span className="font-medium text-sm whitespace-nowrap">
+                      {dayjs(blog?.createdAt, "D MMMM, YYYY").format(
+                        "D MMMM YYYY"
+                      )}
+                    </span>
+                  </span>
+                ) : null}
               </span>
             </span>
           </div>
           <div className="mb-11">
-            <h3 className="font-extrabold text-4xl mb-6">
-              Gutter Vacuums Review From The Professionals
-            </h3>
+            <h3 className="font-extrabold text-4xl mb-6">{blog?.title}</h3>
             <p className="font-medium text-base text-gray-light">
               Keeping your gutters clean is vital for protecting your home from
               water damage. But when it comes to cleaning methods, there’s a
@@ -178,9 +180,7 @@ const BlogDetails = () => {
             problems again soon.
           </p>
           <div className="mb-11">
-            <h3 className="font-bold text-xl mb-2">
-              The Hands-On Advantage
-            </h3>
+            <h3 className="font-bold text-xl mb-2">The Hands-On Advantage</h3>
             <p className="font-medium text-base text-gray-light">
               Our experienced technicians can identify these limitations and
               adjust their cleaning approach accordingly. They’ll use their
@@ -193,11 +193,6 @@ const BlogDetails = () => {
       {/* right side end */}
 
       <div className="w-full border my-6"></div>
-
-      <h5 className="text-xl font-bold mt-4 mb-10">Leave a comment</h5>
-     <div className="mb-10 md:mb-20">
-     <LeaveAComment/>
-     </div>
     </div>
   );
 };

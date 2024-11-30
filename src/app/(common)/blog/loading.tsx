@@ -1,6 +1,4 @@
-
 // import { TBlogPost } from "@/interface/globalType";
-
 
 // const BlogLoadingPage = async () => {
 //   const res = await fetch(`${process?.env?.BASE_URL}/api/blog`, );
@@ -18,12 +16,16 @@
 
 // export default BlogLoadingPage;
 
-import React from 'react';
+"use client";
+import MyLoading from "@/components/ui/MyLoading";
+import ScrollToTop from "@/components/ui/ScrollToTop";
+import React from "react";
 
 const loading = () => {
   return (
-    <div>
-      
+    <div className="h-screen w-full">
+      <ScrollToTop />
+      <MyLoading />
     </div>
   );
 };
