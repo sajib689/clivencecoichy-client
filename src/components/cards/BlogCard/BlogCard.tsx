@@ -57,13 +57,23 @@ const BlogCard: FC<BlogCardProps> = ({
             <span>{title}</span>
           )}
         </h2>
-        <p className="text-sm font-medium text-gray-light mt-1 h-14 overflow-hidden">
+        {/* <p className="text-sm font-medium text-gray-light mt-1 h-14 overflow-hidden">
           {description?.length > 85 ? (
             <span>{description?.substring(0, 85)}...</span>
           ) : (
             <span>{description}</span>
           )}
-        </p>
+        </p> */}
+
+<div
+  className="ql-editor disable-tailwind"
+  dangerouslySetInnerHTML={{
+    __html: description?.length > 85
+      ? `${description?.substring(0, 85)}...`
+      : description || ''
+  }}
+/>
+
         <Link href={readMoreLink}>
           <p className="text-base font-bold mt-4 text-[#84AA12] flex items-center gap-1 cursor-pointer">
             Read More{" "}

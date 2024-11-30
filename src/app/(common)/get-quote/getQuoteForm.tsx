@@ -3,6 +3,8 @@
 import MyFormInput from "@/components/ui/MyForm/MyFormInput/MyFormInput";
 import MyFormTextArea from "@/components/ui/MyForm/MyFormTextArea/MyFormTextArea";
 import MyFormWrapper from "@/components/ui/MyForm/MyFormWrapper/MyFormWrapper";
+import { useRequestQuoteOrSupportMutation } from "@/redux/features/getQuoteAsSupport/getQuoteAsSupportApi";
+import { handleAsyncWithToast } from "@/utils/handleAsyncWithToast";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Button } from "@nextui-org/react";
 import React from "react";
@@ -25,7 +27,7 @@ const validationSchema = z.object({
     .string({
       required_error: "Phone number is required",
     }).min(1, "Phone number is required"),
-    comment: z
+    message: z
     .string({
       required_error: "Comment is required",
     })
@@ -34,22 +36,22 @@ const validationSchema = z.object({
 });
 
 const GetQuoteForm = () => {
+
+ const [requestQuoteOrSupportMutation] = useRequestQuoteOrSupportMutation()
   const handleSubmit = async (formData: any) => {
     console.log(formData);
-    // const res = await handleAsyncWithToast(
-    //   async () => {
-    //     return login(formData); // Replace with your actual login function
-    //   },
-    //   "Logging in...",
-    //   "Login successful!",
-    //   "Login failed. Please try again.",
-    //   true,
-    //   dispatch
-    // );
+    const res = await handleAsyncWithToast(
+      async () => {
+        return requestQuoteOrSupportMutation(formData); // Replace with your actual login function
+      },
+      "Requesting...",
+      "Request successful!",
+      "Request failed. Please try again.",
+    );
 
-    // if (res?.data?.success) {
-    //   router.push("/");
-    // }
+    if (res?.data?.success) {
+      // router.push("/");
+    }
   };
 
   return (
@@ -70,7 +72,7 @@ const GetQuoteForm = () => {
             <MyFormInput label="Phone Number" name={"phone"} type="number" />
           </div>
           <div className="w-full ">
-            <MyFormTextArea label="How Can We Help You?" name={"comment"} />
+            <MyFormTextArea label="How Can We Help You?" name={"message"} />
           </div>
         </div>
 

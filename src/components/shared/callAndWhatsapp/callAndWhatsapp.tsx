@@ -1,5 +1,6 @@
 import MyButton from "@/components/ui/MyButton/MyButton";
 import { cn } from "@/lib/utils";
+import Link from "next/link";
 import React, { FC } from "react";
 import { IoIosCall } from "react-icons/io";
 
@@ -20,7 +21,9 @@ const CallAndWhatsapp: FC<CallAndWhatsappProps> = ({ className, direction }) => 
           0208 945 5711
         </div>
         <div>
+          <Link href={"/get-quote"}>
           <MyButton title="Get a Free Quote Today" />
+          </Link>
         </div>
       </div>
     </div>
