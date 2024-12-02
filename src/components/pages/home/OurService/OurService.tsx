@@ -62,7 +62,7 @@ const OurService = () => {
         <p className="text-2xl md:text-4xl font-extrabold md:max-w-[500px] text-blue-primary mb-2">
           {"We Are Here For All Your London Guttering Needs"}
         </p>
-        <Link href={"/blog"}>
+        <Link href={"/get-quote"}>
           <MyButton title={"Get a Free Quote"} />
         </Link>
       </div>

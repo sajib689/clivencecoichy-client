@@ -1,100 +1,54 @@
+import { useGetAllServiceAreasQuery } from "@/redux/features/serviceArea/serviceAreaApi";
 import React from "react";
 
 type Route = {
+  _id?: string;
   code: string;
   name: string;
 };
 
 type RouteList = {
+  _id?: string;
   name: string;
   routes: Route[];
 };
 
 type RouteSection = {
+  _id?: string;
   section: string;
   list: RouteList[];
 };
 
-const sections: RouteSection[] = [
-  {
-    section: "section 1",
-    list: [
-      {
-        name: "Central",
-        routes: [
-          { code: "WC1", name: "Camden" },
-          { code: "WC2", name: "Strand" },
-          { code: "EC1", name: "Clerkenwell" },
-          { code: "EC2", name: "Bishopsgate" },
-          { code: "EC3", name: "Fenchurch Street" },
-          { code: "EC4", name: "Fleet Street" },
-        ],
-      },
-      {
-        name: "Eastern",
-        routes: [
-          { code: "E1", name: "Whitechapel" },
-          { code: "WC2", name: "Strand" },
-          { code: "EC1", name: "Clerkenwell" },
-          { code: "EC2", name: "Bishopsgate" },
-          { code: "EC3", name: "Fenchurch Street" },
-          { code: "EC4", name: "Fleet Street" },
-        ],
-      },
-    ],
-  },
-  {
-    section: "section 2",
-    list: [
-      {
-        name: "Central 3",
-        routes: [
-          { code: "WC1", name: "Camden" },
-          { code: "WC2", name: "Strand" },
-          { code: "EC1", name: "Clerkenwell" },
-          { code: "EC2", name: "Bishopsgate" },
-          { code: "EC3", name: "Fenchurch Street" },
-          { code: "EC4", name: "Fleet Street" },
-        ],
-      },
-      {
-        name: "Central 4",
-        routes: [
-          { code: "WC1", name: "Camden" },
-          { code: "WC2", name: "Strand" },
-          { code: "EC1", name: "Clerkenwell" },
-          { code: "EC2", name: "Bishopsgate" },
-          { code: "EC3", name: "Fenchurch Street" },
-          { code: "EC4", name: "Fleet Street" },
-        ],
-      },
-    ],
-  },
-];
+
 
 const AreasWeServe = () => {
+  const { data: getAllServiceAreasQuery } =
+    useGetAllServiceAreasQuery(undefined);
+  console.log(getAllServiceAreasQuery);
   return (
     <div className="text-white">
       <h3 className="text-xl font-bold text-center mb-10 md:mb-20">
         Areas we serve
       </h3>
-      <div className="grid grid-cols-6 gap-4">
-        {sections?.map((section, i) => (
-          <div key={i}>
-            {section?.list?.map((item, j) => (
-              <div key={j} className="mb-12">
-                <p className="mb-6">
-                  {item?.name}
-                </p>
-                {item?.routes?.map((route, k) => (
-                  <p key={k} className="my-2 text-green-primary">
-                    {route?.code} {route?.name}
-                  </p>
-                ))}
-              </div>
-            ))}
-          </div>
-        ))}
+      <div
+  className={`grid grid-cols-1 xs:grid-cols-${getAllServiceAreasQuery?.data?.length > 2 ? 2 : getAllServiceAreasQuery?.data?.length}  md:grid-cols-${getAllServiceAreasQuery?.data?.length > 3 ? 3 : getAllServiceAreasQuery?.data?.length}  lg:grid-cols-${getAllServiceAreasQuery?.data?.length > 4 ? 4 : getAllServiceAreasQuery?.data?.length} xl:grid-cols-${getAllServiceAreasQuery?.data?.length > 6 ? 6 : getAllServiceAreasQuery?.data?.length} gap-4`}
+>
+     {getAllServiceAreasQuery?.data?.map(
+          (section: RouteSection) => (
+            <div key={section?._id}>
+              {section?.list?.map((item, ) => (
+                <div key={item?._id} className="mb-12">
+                  <p className="mb-6">{item?.name}</p>
+                  {item?.routes?.map((route) => (
+                    <p key={route?._id} className="my-2 text-green-primary">
+                      {route?.code} {route?.name}
+                    </p>
+                  ))}
+                </div>
+              ))}
+            </div>
+          )
+        )}
       </div>
     </div>
   );

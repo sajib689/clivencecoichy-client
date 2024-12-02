@@ -66,7 +66,7 @@ const BlogCard: FC<BlogCardProps> = ({
         </p> */}
 
 <div
-  className="ql-editor disable-tailwind"
+  className="ql-editor disable-tailwind text-sm font-medium text-gray-light mt-1 h-14 overflow-hidden text-wrap"
   dangerouslySetInnerHTML={{
     __html: description?.length > 85
       ? `${description?.substring(0, 85)}...`

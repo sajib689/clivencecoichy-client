@@ -9,7 +9,14 @@ import { AiOutlineMail } from "react-icons/ai";
 import { IoMdCall } from "react-icons/io";
 import { LuMapPin } from "react-icons/lu";
 import GetQuoteForm from "./getQuoteForm";
+import { Metadata } from "next";
 
+
+export const metadata: Metadata = {
+  title: "Get a Free Quote | London Gutter Cleaning",
+  description: "Request a free, no-obligation quote for gutter cleaning and maintenance services in London. Fast, easy, and affordable gutter solutions.",
+  keywords: "get a gutter quote, free gutter cleaning estimate, gutter service pricing, London gutter quotes",
+};
 
 const informations  = [
   {
@@ -63,8 +70,6 @@ const GetQuotePage = () => {
       <BlogComponent
         smallTitle="Blog"
         mainTitle="Insights & Inspiration: The LondonGutterClean Blog"
-        topButtonText="Read All"
-        topButtonTextLink={"blog"}
       />
       <ImproveProperty/>
     </div>

@@ -12,22 +12,17 @@ interface BlogComponentProps {
   // blogData: TBlog[];
   smallTitle: string;
   mainTitle: string;
-  topButtonText: string;
-  topButtonTextLink: string;
 }
 
 const BlogComponent: FC<BlogComponentProps> = async ({
   // blogData,
   smallTitle,
   mainTitle,
-  topButtonText,
-  topButtonTextLink,
 }) => {
   const res = await fetch(`${process.env.BASE_URL}/blog?page=${1}&limit=${4}`, {
     cache: "no-store", // Avoid caching to get fresh data on each request
   });
   const blogs = await res.json();
-  console.log(blogs);
   return (
     <div className="container">
       <TitleWithBorder title={smallTitle} className="mb-2" />
@@ -35,8 +30,8 @@ const BlogComponent: FC<BlogComponentProps> = async ({
         <p className="text-2xl md:text-4xl font-extrabold md:max-w-[500px] text-blue-primary mb-2">
           {mainTitle}
         </p>
-        <Link href={topButtonTextLink}>
-          <MyButton title={topButtonText} />
+        <Link href={"/blog"}>
+          <MyButton title={"Read All"} />
         </Link>
       </div>
       <div className="grid grid-cols-1 xs:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
