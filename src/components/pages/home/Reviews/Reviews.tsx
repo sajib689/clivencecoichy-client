@@ -1,31 +1,44 @@
 import google from "@/assets/icons/google.png";
-import userImage from "@/assets/userImage.png";
+import userImage1 from "@/assets/userImage.png";
+import userImage2 from "@/assets/userImage2.png";
+import userImage3 from "@/assets/userImage3.png";
+import userImage4 from "@/assets/userImage4.png";
 import ReviewCard from "@/components/cards/ReviewCard/ReviewCard";
 import TitleAndDescription from "@/components/shared/TitleAndDescription/TitleAndDescription";
 
 const cardData = [
   {
+    userName: "David London NW3",
+    date: "September 12, 2022",
     icon: google,
-    image: userImage,
+    image: userImage1,
     title: "Trusted Professionals",
     description:
       "Backed by over a decade of experience, we are a Which? Trusted Trader, ensuring quality you can rely on.",
   },
   {
+    userName: "Mark",
+    date: "February 5, 2024",
     icon: google,
-    image: userImage,
+    image: userImage2,
     title: "Exceptional Customer Satisfaction",
     description:
       "With hundreds of positive reviews, our commitment to excellence speaks for itself.",
   },
   {
-    icon: google,image: userImage,
+    userName: "Bo",
+    date: "September 12, 2022",
+    icon: google,
+    image: userImage3,
     title: "Comprehensive Services",
     description:
       "From gutter cleaning to high-rise solutions, we offer a one-stop shop for all your gutter needs.",
   },
   {
-    icon: google, image: userImage,
+    userName: "Oliver M",
+    date: "May 17, 2022",
+    icon: google,
+    image: userImage4,
     title: "Quick & Efficient Service",
     description:
       "We respect your time with prompt responses and swift service delivery.",
@@ -40,7 +53,6 @@ const Reviews = () => {
           <div className="mb-4 md:mb-12">
             <TitleAndDescription
               smallTitle="Reviews"
-
               mainTitle="See What Our Client Says About Us"
               mainTitleClassName="md:whitespace-nowrap"
               className="text-white"
@@ -52,6 +64,8 @@ const Reviews = () => {
             {cardData?.map((item, i) => (
               <ReviewCard
                 key={i}
+                userName={item?.userName}
+                date={item?.date}
                 icon={item?.icon}
                 image={item?.image}
                 title={item?.title}

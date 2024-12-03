@@ -1,3 +1,4 @@
+
 import React from "react";
 import trustedTraderImage from "@/assets/trustedTrader.png";
 import thumbWithImage from "@/assets/thumbWithLove.png";

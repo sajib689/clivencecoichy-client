@@ -1,3 +1,4 @@
+'use client'
 import { cn } from "@/lib/utils";
 import { StaticImageData } from "next/image";
 import Image from "next/image"; // Importing Image component from Next.js

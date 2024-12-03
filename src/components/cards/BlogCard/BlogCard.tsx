@@ -1,3 +1,4 @@
+'use client'
 import account_circle from "@/assets/icons/account_circle.svg";
 import calendar_month from "@/assets/icons/calendar_month.svg";
 import ImageWithFallBackSystem from "@/components/ui/ImageWithFallBackSystem/ImageWithFallBackSystem";

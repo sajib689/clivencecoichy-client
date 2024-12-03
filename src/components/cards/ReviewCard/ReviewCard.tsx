@@ -1,17 +1,21 @@
 "use client";
 import ImageWithFallBackSystem from "@/components/ui/ImageWithFallBackSystem/ImageWithFallBackSystem";
-import { Link } from "@nextui-org/react";
 import { Rate } from "antd";
+import dayjs from "dayjs";
 import { StaticImageData } from "next/image";
 import React, { FC } from "react";
 
 interface ReviewCardProps {
+  userName: string; 
+  date: string;  
   image: string | StaticImageData;
   icon: string | StaticImageData;
   title: string;
   description: string;
 }
 const ReviewCard: FC<ReviewCardProps> = ({
+  userName,
+  date,
   icon,
   image,
   title,
@@ -27,9 +31,10 @@ const ReviewCard: FC<ReviewCardProps> = ({
           <ImageWithFallBackSystem imageSrc={image} alt="Review Card Image" />
         </div>
         <div>
-          <p className="text-base font-bold text-white">David London NW3</p>
+          <p className="text-base font-bold text-white">{userName}</p>
           <p className="text-sm font-medium text-gray-light">
-            September 12, 2022
+           
+            {dayjs(date, "D MMMM, YYYY").format("D MMM YYYY")}
           </p>
         </div>
       </div>
@@ -54,13 +59,13 @@ const ReviewCard: FC<ReviewCardProps> = ({
             <span>{description}</span>
           )}
         </p>
-        {description?.length > 85 && (
+        {/* {description?.length > 85 && (
           <Link href={"readMoreLink"}>
             <p className="text-base font-bold mt-4 text-green-primary flex items-center gap-1 cursor-pointer">
               See More
             </p>
           </Link>
-        )}
+        )} */}
       </div>
     </div>
   );

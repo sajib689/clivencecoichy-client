@@ -6,7 +6,7 @@ import ImproveProperty from "@/components/shared/ImproveProperty/ImproveProperty
 import TrustedTrader from "@/components/shared/TrustedTrader/TrustedTrader";
 import { Metadata } from "next";
 
-export async function generateMetadata({ params }: { params: { blogId: string } }): Promise<Metadata> {
+export async function generateMetadata({ params }: any ): Promise<Metadata> {
   const { blogId } = params;
   
   const res = await fetch(`${process.env.BASE_URL}/blog/${blogId}`, {

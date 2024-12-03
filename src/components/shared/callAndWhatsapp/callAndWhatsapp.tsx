@@ -6,14 +6,26 @@ import { IoIosCall } from "react-icons/io";
 
 interface CallAndWhatsappProps {
   className?: string;
-  direction?: "row" | "column" 
-
+  direction?: "row" | "column";
+  isShowTitle?: boolean;
 }
-const CallAndWhatsapp: FC<CallAndWhatsappProps> = ({ className, direction }) => {
+const CallAndWhatsapp: FC<CallAndWhatsappProps> = ({
+  className,
+  direction,
+  isShowTitle = true,
+}) => {
   return (
     <div className={cn(className)}>
-      <p className="text-sm font-bold mb-2 ps-1">Call / Whatsapp</p>
-      <div className={cn("flex flex-wrap items-center gap-4", direction == "row" && "flex-row",  direction == "column" && "flex-col")}>
+      {isShowTitle && (
+        <p className="text-sm font-bold mb-2 ps-1">Call / Whatsapp</p>
+      )}
+      <div
+        className={cn(
+          "flex flex-wrap items-center gap-4",
+          direction == "row" && "flex-row",
+          direction == "column" && "flex-col"
+        )}
+      >
         <div className="rounded-full border border-green-primary text-green-primary ps-2 pe-3 py-1 flex items-center gap-2">
           <div className="bg-green-primary p-2 text-white rounded-full">
             <IoIosCall />
@@ -22,7 +34,7 @@ const CallAndWhatsapp: FC<CallAndWhatsappProps> = ({ className, direction }) => 
         </div>
         <div>
           <Link href={"/get-quote"}>
-          <MyButton title="Get a Free Quote Today" />
+            <MyButton title="Get a Free Quote Today" />
           </Link>
         </div>
       </div>

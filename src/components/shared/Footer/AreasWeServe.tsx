@@ -23,21 +23,14 @@ type RouteSection = {
 const AreasWeServe = () => {
   const { data: getAllServiceAreasQuery } =
     useGetAllServiceAreasQuery(undefined);
-    const dataLength = getAllServiceAreasQuery?.data?.length || 0;
-    const gridCols = {
-      xs: dataLength > 2 ? 2 : dataLength,
-      md: dataLength > 3 ? 3 : dataLength,
-      lg: dataLength > 4 ? 4 : dataLength,
-      xl: dataLength > 6 ? 6 : dataLength,
-    };
+
   return (
     <div className="text-white">
       <h3 className="text-xl font-bold text-center mb-10 md:mb-20">
         Areas we serve
       </h3>
       <div
-         className={`grid grid-cols-1 xs:grid-cols-${gridCols.xs} md:grid-cols-${gridCols.md} lg:grid-cols-${gridCols.lg} xl:grid-cols-${gridCols.xl} gap-4`}
-
+        className={`grid grid-cols-1 xs:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-4`}
       >
         {getAllServiceAreasQuery?.data?.map((section: RouteSection) => (
           <div key={section?._id}>
