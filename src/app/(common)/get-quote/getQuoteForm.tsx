@@ -39,7 +39,7 @@ const GetQuoteForm = () => {
 
  const [requestQuoteOrSupportMutation] = useRequestQuoteOrSupportMutation()
   const handleSubmit = async (formData: any) => {
-    console.log(formData);
+ 
     const res = await handleAsyncWithToast(
       async () => {
         return requestQuoteOrSupportMutation(formData); // Replace with your actual login function

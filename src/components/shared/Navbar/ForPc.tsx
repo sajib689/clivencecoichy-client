@@ -6,9 +6,11 @@ import Link from "next/link";
 import NavMenu from "./NavMenu";
 import { FaCaretDown } from "react-icons/fa6";
 import { cn } from "@/lib/utils";
+import { usePathname } from "next/navigation";
 
 const ForPc = () => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
+  const pathname = usePathname();
   return (
     <div className="container hidden lg:flex items-center justify-between ">
       <Link href={"/"} className="">
@@ -30,7 +32,14 @@ const ForPc = () => {
           onMouseLeave={() => setDropdownOpen(false)}
           className="relative py-5 flex"
         >
-          <div className="cursor-pointer  hover:text-green-primary transition duration-200 flex gap-3 items-center">
+          <div 
+        // className="cursor-pointer  hover:text-green-primary transition duration-200 flex gap-3 items-center"
+          
+          className={cn(
+            "cursor-pointer  hover:text-green-primary transition duration-200 flex gap-3 items-center",
+            pathname === "/gutter-fascia-soffit-repair-replacement" && "text-green-primary ",
+            pathname === "/pressure-washing" && "text-green-primary "
+          )}>
             <p> Other Service</p>{" "}
             <FaCaretDown className={cn(dropdownOpen && "rotate-180")} />
           </div>
@@ -39,12 +48,24 @@ const ForPc = () => {
           {dropdownOpen && (
             <div className="absolute -left-1/2 top-14 mt-2 bg-white shadow-md rounded-md w-72 p-2 z-[999999]">
               <Link href={"/gutter-fascia-soffit-repair-replacement"}>
-                <div className="cursor-pointer hover:text-green-primary hover:bg-slate-100 p-2 mb-2 rounded">
+                <div 
+                // className="cursor-pointer hover:text-green-primary hover:bg-slate-100 p-2 mb-2 rounded"
+                className={cn(
+                  "cursor-pointer hover:text-green-primary hover:bg-slate-100 p-2 mb-2 rounded transition duration-200",
+                  pathname === "/gutter-fascia-soffit-repair-replacement" && "text-green-primary bg-slate-100 p-2 mb-2 rounded font-semibold"
+                )}
+                >
                   Gutter, Fascia & Soffit Repair/Replacement
                 </div>
               </Link>
               <Link href={"/pressure-washing"}>
-                <div className="cursor-pointer hover:text-green-primary hover:bg-slate-100 p-2 rounded">
+                <div 
+                // className="cursor-pointer hover:text-green-primary hover:bg-slate-100 p-2 rounded"
+                className={cn(
+                  "cursor-pointer hover:text-green-primary hover:bg-slate-100 p-2 mb-2 rounded transition duration-200",
+                  pathname === "/pressure-washing" && "text-green-primary bg-slate-100 p-2 mb-2 rounded font-semibold"
+                )}
+                >
                   Pressure Washing
                 </div>
               </Link>

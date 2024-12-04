@@ -21,7 +21,7 @@ const validationSchema = z.object({
 const SubscribeToNewsLetter = () => {
   const [subscribeToNewsLetterMutation] = useSubscribeToNewsLetterMutation();
   const handleSubmit = async (formData: any, reset: () => void) => {
-    console.log(formData);
+
     const res = await handleAsyncWithToast(
       async () => {
         return subscribeToNewsLetterMutation(formData); // Replace with your actual login function

@@ -20,15 +20,15 @@ const BlogDetails: FC<BlogDetailsProps> = ({ blog, blogId }) => {
 
   return (
     <div className="container">
-      <div className="md:flex items-start gap-6">
+      <div className="md:flex items-start gap-6 md:gap-14">
         {/* left side start */}
         <div className="md:w-4/12">
           <div className="h-full max-h-96 w-full max-w-72 overflow-hidden mb-5">
             <Image
-              src={blog?.banner}
+              src={blog?.banner ? blog?.banner :  "https://img.freepik.com/premium-vector/photo-icon-picture-icon-image-sign-symbol-vector-illustration_64749-4409.jpg"}
               width={400}
               height={600}
-              alt="image"
+              alt="blog image"
               className="object-contain"
             />
           </div>

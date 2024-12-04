@@ -16,7 +16,6 @@ export const handleAsyncWithToast = async (
     const successData = res?.data?.success;
     const successMessageFromResponse = res?.data?.message || successMessage;
     
-    console.log(res?.data?.message);
 
     if (successData) {
       toast.success(successMessageFromResponse, {

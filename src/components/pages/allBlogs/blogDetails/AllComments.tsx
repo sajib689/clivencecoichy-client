@@ -18,7 +18,7 @@ const AllComments: FC<AllCommentsProps> = ({ blogId }) => {
     page,
     limit,
   });
-  console.log(allComments?.data?.comments, blogId);
+
 
   if (isLoading) {
     return <p>Loading...</p>;

@@ -26,12 +26,22 @@ const CallAndWhatsapp: FC<CallAndWhatsappProps> = ({
           direction == "column" && "flex-col"
         )}
       >
-        <div className="rounded-full border border-green-primary text-green-primary ps-2 pe-3 py-1 flex items-center gap-2">
+        {/* <div className="rounded-full border border-green-primary text-green-primary ps-2 pe-3 py-1 flex items-center gap-2">
           <div className="bg-green-primary p-2 text-white rounded-full">
             <IoIosCall />
           </div>{" "}
           0208 945 5711
-        </div>
+        </div> */}
+        {/* Clickable Call Button */}
+        <a
+          href="tel:02089455711"
+          className="rounded-full border border-green-primary text-green-primary ps-2 pe-3 py-1 flex items-center gap-2"
+        >
+          <div className="bg-green-primary p-2 text-white rounded-full">
+            <IoIosCall />
+          </div>
+          0208 945 5711
+        </a>
         <div>
           <Link href={"/get-quote"}>
             <MyButton title="Get a Free Quote Today" />
