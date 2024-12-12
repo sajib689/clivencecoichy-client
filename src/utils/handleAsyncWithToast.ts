@@ -10,7 +10,7 @@ export const handleAsyncWithToast = async (
   errorMessage?: string,
 ) => {
   const toastInit = toast.loading(loadingMessage);
- 
+
   try {
     const res = await asyncCallback();
     const successData = res?.data?.success;
