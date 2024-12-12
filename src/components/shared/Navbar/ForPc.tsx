@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from "react";
-import logo from "@/assets/logo.png";
+import logo from "@/assets/logo/logo.png";
 import Image from "next/image";
 import Link from "next/link";
 import NavMenu from "./NavMenu";
@@ -8,18 +8,19 @@ import { FaCaretDown } from "react-icons/fa6";
 import { cn } from "@/lib/utils";
 import { usePathname } from "next/navigation";
 
+
 const ForPc = () => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const pathname = usePathname();
   return (
     <div className="container hidden lg:flex items-center justify-between ">
       <Link href={"/"} className="">
-        <div className="flex items-center gap-2 h-20 w-20">
+        <div className="flex items-center gap-2 h-20 w-40">
           <Image
             src={logo}
             alt="Booksy.buzz"
-            width={200}
-            height={200}
+            width={400}
+            height={400}
             className="rounded object-contain"
           />
         </div>

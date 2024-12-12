@@ -12,36 +12,36 @@ const cardData = [
     date: "September 12, 2022",
     icon: google,
     image: userImage1,
-    title: "Trusted Professionals",
+    title: "Gutter Cleaning - Excellent Service",
     description:
-      "Backed by over a decade of experience, we are a Which? Trusted Trader, ensuring quality you can rely on.",
+      "We use high-quality materials to install long-lasting gutters on your London property.",
   },
   {
     userName: "Mark",
     date: "February 5, 2024",
     icon: google,
     image: userImage2,
-    title: "Exceptional Customer Satisfaction",
+    title: "Excellent service - highly recommended",
     description:
-      "With hundreds of positive reviews, our commitment to excellence speaks for itself.",
+      "Excellent, helpful and friendly service. They not only cleaned the gutters, they reattach...",
   },
   {
     userName: "Bo",
     date: "September 12, 2022",
     icon: google,
     image: userImage3,
-    title: "Comprehensive Services",
+    title: "Very informative, quick and easy to deal with",
     description:
-      "From gutter cleaning to high-rise solutions, we offer a one-stop shop for all your gutter needs.",
+      "Was very easy to book a job, they explained the whole process from start to end on the phon...",
   },
   {
     userName: "Oliver M",
     date: "May 17, 2022",
     icon: google,
     image: userImage4,
-    title: "Quick & Efficient Service",
+    title: "Quick and excellent service",
     description:
-      "We respect your time with prompt responses and swift service delivery.",
+      "Extremely pleased with the excellent service from the London Gutter Clean team – arriv...",
   },
 ];
 

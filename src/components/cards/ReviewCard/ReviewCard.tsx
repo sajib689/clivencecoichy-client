@@ -45,7 +45,7 @@ const ReviewCard: FC<ReviewCardProps> = ({
         className="mt-2 mb-3"
       />
       <div>
-        <h2 className="text-xl font-bold text-white h-14 overflow-hidden">
+        <h2 className="text-base font-bold text-white h-14 overflow-hidden">
           {title?.length > 35 ? (
             <span>{title?.substring(0, 35)}...</span>
           ) : (

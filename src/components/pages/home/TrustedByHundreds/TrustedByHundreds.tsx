@@ -1,5 +1,5 @@
 import establishedIn from "@/assets/establishedIn.png";
-import trustedHuman from "@/assets/trustedHuman.png";
+import trustedHuman from "@/assets/home/EnjoyFreeBasicRepairs.png";
 import ImageTitleAndDescription from "@/components/shared/ImageTitleAndDescription/ImageTitleAndDescription";
 import { IoIosCheckmarkCircleOutline } from "react-icons/io";
 
@@ -15,12 +15,12 @@ const TrustedByHundreds = () => {
     <div className="py- md:py-20">
       <ImageTitleAndDescription
         mainImage={trustedHuman}
-        mainImageClassName="max-h-[500px] max-w-[500px]"
+        mainImageClassName="h-[300px] xs:h-[400px] md:h-[600px] max-w-[500px] object-top"
         optionalImage={establishedIn}
-        optionalImageClassName="h-[120px] w-[200px]"
+        optionalImageClassName="h-[60px] w-[100px] md:h-[120px] md:w-[200px] lg:bottom-[100px] shadow-lg"
         TitleAndDescriptionClassName=""
         smallTitle="Unbeatable Experience & Reputation"
-        mainTitle="Trusted by Hundreds of Happy Customers Across London."
+        mainTitle="Enjoy free basic repairs with every gutter cleant We'll seal drips and mako minor adjustments to koop your gutters in top shape"
         description="With over a decade of experience, we’ve tackled all types of guttering issues in London. Browse through hundreds of positive reviews on Google and Which? Trusted Traders, dating back to 2013, to see what our satisfied customers say!"
       >
         <div className="pt-5 pb-8 container flex flex-col gap-3">
@@ -30,7 +30,7 @@ const TrustedByHundreds = () => {
                 size={25}
                 className="text-green-primary"
               />{" "}
-              <p className="text-blue-primary font-bold text-xl">{item}</p>
+              <p className="text-blue-primary font-bold text-sm sm:text-xl">{item}</p>
             </div>
           ))}
         </div>

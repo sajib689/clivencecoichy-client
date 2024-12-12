@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import logo from "@/assets/logo.png";
+import logo from "@/assets/logo/footerLogo.png";
 import Image from "next/image";
 import { FaFacebookF } from "react-icons/fa6";
 import { RiHomeOfficeLine, RiLinkedinFill } from "react-icons/ri";
@@ -57,12 +57,12 @@ const Footer = () => {
      <div className="container">
      <div className=" grid grid-cols-1 xs:grid-cols-2 lg:grid-cols-4 gap-5">
         <div className="flex flex-col gap-6">
-          <div className="h-28 w-28 ">
+          <div className="h-24 w-56 ">
             <Image
               src={logo}
               className="object-contain"
-              height={200}
-              width={200}
+              height={400}
+              width={400}
               alt="image"
             />
           </div>
