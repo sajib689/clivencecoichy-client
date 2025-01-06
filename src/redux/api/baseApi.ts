@@ -1,7 +1,7 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
 const baseQuery = fetchBaseQuery({
-  baseUrl: `https://gutter-clean.vercel.app/api`,
+  baseUrl: `https://gutterwizard.vercel.app/api`,
   credentials: "include",
 });
 

@@ -19,7 +19,7 @@ const thirdRow = [
   },
   {
     title: "Reviews",
-    link: "/",
+    link: "/#review-section",
   },
   {
     title: "Terms and Conditions",
@@ -27,10 +27,6 @@ const thirdRow = [
   },
   {
     title: "Important information",
-    link: "/",
-  },
-  {
-    title: "The Which?",
     link: "/",
   },
 ];

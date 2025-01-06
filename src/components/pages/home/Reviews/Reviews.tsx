@@ -47,7 +47,7 @@ const cardData = [
 
 const Reviews = () => {
   return (
-    <div>
+    <div id="review-section">
       <div className="bg-[#0F4262] py-10 md:py-20 ">
         <div className="container">
           <div className="mb-4 md:mb-12">
