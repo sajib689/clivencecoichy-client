@@ -15,18 +15,23 @@ import AreasWeServe from "./AreasWeServe";
 const thirdRow = [
   {
     title: "Blog",
+    link: "blog",
   },
   {
     title: "Reviews",
+    link: "/",
   },
   {
     title: "Terms and Conditions",
+    link: "/",
   },
   {
     title: "Important information",
+    link: "/",
   },
   {
     title: "The Which?",
+    link: "/",
   },
 ];
 const forthRow = [
@@ -111,12 +116,14 @@ const Footer = () => {
         </div>
         <div>
           {thirdRow?.map((item, i) => (
+            <Link href={item?.link}    key={i} >
             <div
-              key={i}
+           
               className="cursor-pointer text-white hover:text-green-primary pb-5 rounded"
-            >
+              >
               {item?.title}
             </div>
+              </Link>
           ))}
         </div>
         <div className="text-white">
