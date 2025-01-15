@@ -9,22 +9,22 @@ import { Metadata } from "next";
 export async function generateMetadata({ params }: any ): Promise<Metadata> {
   const { blogId } = params;
   
-  const res = await fetch(`${process.env.BASE_URL}/blog/${blogId}`, {
+  const res = await fetch(`https://gutterwizard.vercel.app/api/blog/${blogId}`, {
     cache: 'no-store', 
   });
   const blogData: { data: any } = await res.json();
 
   return {
     title: `${blogData?.data?.title} | London Gutter Cleaning`,
-    description: `Read our detailed post on ${blogData?.data?.topic}. Learn more about gutter cleaning, maintenance, and how to protect your home or business from water damage.`,
-    keywords: `${blogData?.data?.topic}, gutter cleaning, home maintenance, property care, London`,
+    description: `${blogData?.data?.metaDescription}`,
+    keywords: `${blogData?.data?.tags}`,
   };
 }
 
 
 const BlogDetailsPage = async ({ params }: any) => {
   const { blogId } = await params;
-    const res = await fetch(`${process.env.BASE_URL}/blog/${blogId}`, {
+    const res = await fetch(`https://gutterwizard.vercel.app/api/blog/${blogId}`, {
       cache: 'no-store', 
     });
     const blogData = await res.json();

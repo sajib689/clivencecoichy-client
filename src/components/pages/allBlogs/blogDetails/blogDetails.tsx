@@ -16,7 +16,7 @@ interface BlogDetailsProps {
   blogId: string;
 }
 const BlogDetails: FC<BlogDetailsProps> = ({ blog, blogId }) => {
-
+  console.log(blog);
 
   return (
     <div className="container">
@@ -25,7 +25,11 @@ const BlogDetails: FC<BlogDetailsProps> = ({ blog, blogId }) => {
         <div className="md:w-4/12">
           <div className="h-full max-h-96 w-full max-w-72 overflow-hidden mb-5">
             <Image
-              src={blog?.banner ? blog?.banner :  "https://img.freepik.com/premium-vector/photo-icon-picture-icon-image-sign-symbol-vector-illustration_64749-4409.jpg"}
+              src={
+                blog?.banner
+                  ? blog?.banner
+                  : "https://img.freepik.com/premium-vector/photo-icon-picture-icon-image-sign-symbol-vector-illustration_64749-4409.jpg"
+              }
               width={400}
               height={600}
               alt="blog image"
@@ -94,7 +98,7 @@ const BlogDetails: FC<BlogDetailsProps> = ({ blog, blogId }) => {
 
             <div
               className="ql-editor disable-tailwind "
-              dangerouslySetInnerHTML={{ __html: blog?.content }}
+              dangerouslySetInnerHTML={{ __html: blog?.content || "" }}
             />
           </div>
           {/* <div className="mb-11">

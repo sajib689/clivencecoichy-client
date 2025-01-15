@@ -19,7 +19,7 @@ const BlogComponent: FC<BlogComponentProps> = async ({
   smallTitle,
   mainTitle,
 }) => {
-  const res = await fetch(`${process.env.BASE_URL}/blog?page=${1}&limit=${4}`, {
+  const res = await fetch(`https://gutterwizard.vercel.app/api/blog?page=${1}&limit=${4}`, {
     cache: "no-store", // Avoid caching to get fresh data on each request
   });
   const blogs = await res.json();

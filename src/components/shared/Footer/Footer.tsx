@@ -15,7 +15,7 @@ import AreasWeServe from "./AreasWeServe";
 const thirdRow = [
   {
     title: "Blog",
-    link: "blog",
+    link: "/blog",
   },
   {
     title: "Reviews",

@@ -9,7 +9,7 @@ import { useState } from "react";
 
 const AllBlogsList = () => {
   const [page, setPage] = useState(1);
-  const { data: getAllBlogs } = useGetAllBlogsQuery({
+  const { data: getAllBlogs, isLoading } = useGetAllBlogsQuery({
     page,
     limit: 10,
   });
@@ -18,6 +18,9 @@ const AllBlogsList = () => {
     setPage(page);
   };
 
+  if (isLoading) {
+    return <div className="loader mx-auto  text-xl md:text-5xl my-5"></div>;
+  }
   return (
     <div>
       {isNonEmptyArray(getAllBlogs?.data?.blogs) ? (
@@ -45,7 +48,9 @@ const AllBlogsList = () => {
         </>
       ) : (
         <div className="">
-          <h3 className="text-lg text-center">No blogs available at the moment.</h3>
+          <h3 className="text-lg text-center">
+            No blogs available at the moment.
+          </h3>
         </div>
       )}
     </div>
