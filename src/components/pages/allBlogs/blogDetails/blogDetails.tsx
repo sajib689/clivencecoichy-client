@@ -19,7 +19,7 @@ const BlogDetails: FC<BlogDetailsProps> = ({ blog, blogId }) => {
   console.log(blog);
 
   return (
-    <div className="container">
+    <div className="container md:pt-8">
       <div className="md:flex items-start gap-6 md:gap-14">
         {/* left side start */}
         <div className="md:w-4/12">

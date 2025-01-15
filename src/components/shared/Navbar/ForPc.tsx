@@ -78,7 +78,13 @@ const ForPc = () => {
       <div className="h-[80px] w-[220px] bg-green-primary flex items-center ps-5">
         <div>
           <p className="text-sm font-medium text-white ">Call us on</p>
-          <h4 className="text-white text-2xl font-bold">0208 945 5711</h4>
+     
+            <a
+                    href="tel:02089455711"
+                   
+                  >
+                       <h4 className="text-white text-2xl font-bold">0208 945 5711</h4>
+                  </a>
         </div>
       </div>
     </div>
