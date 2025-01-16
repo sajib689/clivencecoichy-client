@@ -32,7 +32,7 @@ const BlogDetails: FC<BlogDetailsProps> = ({ blog, blogId }) => {
               }
               width={400}
               height={600}
-              alt="blog image"
+              alt={blog?.title}
               className="object-contain"
             />
           </div>

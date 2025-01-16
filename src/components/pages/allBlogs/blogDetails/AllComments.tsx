@@ -39,7 +39,7 @@ const AllComments: FC<AllCommentsProps> = ({ blogId }) => {
               <div className="rounded-full overflow-hidden h-9 w-10">
                 <ImageWithFallBackSystem
                   imageSrc={comment?.image}
-                  alt="Review Card Image"
+                  alt={comment?.name}
                 />
               </div>
             ) : (

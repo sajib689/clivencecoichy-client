@@ -28,13 +28,13 @@ const BlogCard: FC<BlogCardProps> = ({
   return (
     <div className="   overflow-hidden h-full">
       <div className="relative w-full h-40 rounded-md overflow-hidden">
-        <ImageWithFallBackSystem imageSrc={imageSrc} alt="Blog Card Image" />
+        <ImageWithFallBackSystem imageSrc={imageSrc} alt={title} />
       </div>
       <div className="p-4">
         <div className="flex items-center text-sm text-gray-light space-x-2">
           <span className="flex items-center space-x-1">
             <div className="w-5 h-5 rounded-full overflow-hidden">
-              <ImageWithFallBackSystem imageSrc={account_circle} />
+              <ImageWithFallBackSystem imageSrc={account_circle} alt={title}/>
             </div>
             <span className="font-medium text-sm whitespace-nowrap">
               {author}
@@ -43,7 +43,7 @@ const BlogCard: FC<BlogCardProps> = ({
           {date ? (
             <span className="flex items-center space-x-1">
               <div className="w-5 h-5 overflow-hidden">
-                <ImageWithFallBackSystem imageSrc={calendar_month} />
+                <ImageWithFallBackSystem imageSrc={calendar_month} alt={title}/>
               </div>
               <span className="font-medium text-sm whitespace-nowrap">
                 {dayjs(date, "D MMMM, YYYY").format("D MMM YYYY")}

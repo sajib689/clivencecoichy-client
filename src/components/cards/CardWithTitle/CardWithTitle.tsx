@@ -23,6 +23,7 @@ const CardWithTitle: FC<CardWithTitleProps> = ({
       <ImageWithFallBackSystem
         imageSrc={image}
         className={cn("h-9 w-9 mb-3 md:mb-6", imageClassName)}
+        alt={title}
       />
       <div className="w-full">
         <p className="font-bold text-xl mb-2 md:mb-4">{title}</p>
