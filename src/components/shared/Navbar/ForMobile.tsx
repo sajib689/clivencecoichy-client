@@ -67,12 +67,12 @@ const ForMobile = () => {
                           <Link
                             href={"/gutter-fascia-soffit-repair-replacement"}
                           >
-                            <div className="cursor-pointer hover:text-green-primary hover:bg-slate-100 p-2 mb-2 rounded">
+                            <div className="cursor-pointer hover:text-red-primary hover:bg-slate-100 p-2 mb-2 rounded">
                               Gutter, Fascia & Soffit Repair/Replacement
                             </div>
                           </Link>{" "}
                           <Link href={"/pressure-washing"}>
-                            <div className="cursor-pointer hover:text-green-primary hover:bg-slate-100 p-2 rounded">
+                            <div className="cursor-pointer hover:text-red-primary hover:bg-slate-100 p-2 rounded">
                               Pressure Washing
                             </div>
                           </Link>
@@ -85,7 +85,7 @@ const ForMobile = () => {
             </div>
 
             <div className="mb-8 w-full">
-              <div className="h-[80px]  bg-green-primary flex items-center ps-5">
+              <div className="h-[80px]  bg-red-primary flex items-center ps-5">
                 <div>
                   <p className="text-sm font-medium text-white ">Call us on</p>
 

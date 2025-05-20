@@ -13,36 +13,40 @@ const NavMenu = ({
   const pathname = usePathname();
   return (
     <div className={cn("flex  gap-6  font-normal ps-3", className)}>
-      <Link href={"/"}>
-        <div 
-        // className="cursor-pointer hover:text-green-primary transition duration-200"
-         className={cn(
-          "cursor-pointer hover:text-green-primary transition duration-200",
-          pathname === "/" && "text-green-primary font-semibold"
-        )}
+      <Link href={"/roofing"}>
+        <div
+          // className="cursor-pointer hover:text-red-primary transition duration-200"
+          className={cn(
+            "cursor-pointer hover:text-red-primary transition duration-200",
+            pathname === "/roofing" && "text-red-primary font-semibold"
+          )}
         >
-          Home
+          Roofing
         </div>
       </Link>
-      {isShowBorder && <div className="h-7 border "></div>}
-      <Link href={"/domestic-cleaning"}>
-        <div  className={cn(
-            "cursor-pointer hover:text-green-primary transition duration-200",
-            pathname === "/domestic-cleaning" && "text-green-primary font-semibold"
-          )}>
-          Domestic Cleaning
+      {isShowBorder && <div className="h-5 border "></div>}
+      <Link href={"/indurance-claims"}>
+        <div
+          className={cn(
+            "cursor-pointer hover:text-red-primary transition duration-200",
+            pathname === "/indurance-claims" && "text-red-primary font-semibold"
+          )}
+        >
+          Insurance Claims
         </div>
       </Link>
-    {isShowBorder && <div className="h-7 border "></div>}
-      <Link href={"/commercial-service"}>
-        <div  className={cn(
-            "cursor-pointer hover:text-green-primary transition duration-200",
-            pathname === "/commercial-service" && "text-green-primary font-semibold"
-          )}>
-          Commercial Service
+      {isShowBorder && <div className="h-5 border "></div>}
+      <Link href={"/sliding"}>
+        <div
+          className={cn(
+            "cursor-pointer hover:text-red-primary transition duration-200",
+            pathname === "/sliding" && "text-red-primary font-semibold"
+          )}
+        >
+          Siding
         </div>
       </Link>
-    {isShowBorder && <div className="h-7 border "></div>}
+      {isShowBorder && <div className="h-5 border "></div>}
     </div>
   );
 };

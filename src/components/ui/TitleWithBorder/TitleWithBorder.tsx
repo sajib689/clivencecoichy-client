@@ -13,12 +13,10 @@ const TitleWithBorder: React.FC<TitleWithBorderProps> = ({
   borderColor,
 }) => {
   return (
-    <div className={cn("flex items-center gap-5 text-blue-primary", className)}>
+    <div className={cn("flex items-center gap-5 text-black", className)}>
       {title ? (
         <>
-          <div
-            className={cn("w-12 border border-blue-primary", borderColor)}
-          ></div>
+          <div className={cn("w-12 border border-black", borderColor)}></div>
           <p className="font-semibold">{title}</p>
         </>
       ) : (

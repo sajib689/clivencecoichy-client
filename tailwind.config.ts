@@ -6,7 +6,7 @@ export default {
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
-    "./node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}"
+    "./node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
     extend: {
@@ -14,9 +14,9 @@ export default {
         inter: ["var(--font-inter)"],
       },
       colors: {
-        "gray-light": "#86A0B0",
-        "blue-primary": "#0F4262",
-        "green-primary": "#9BC234",
+        "gray-light": "#f1f1f1",
+        black: "#000",
+        "red-primary": "#DD2D2C",
         background: "var(--background)",
         foreground: "var(--foreground)",
       },
@@ -32,10 +32,10 @@ export default {
       },
       backgroundImage: {
         "banner-gradient":
-          "linear-gradient(270deg, rgba(0, 0, 0, 0.10) 0%, rgba(0, 0, 0, 0.60) 40%)",
+          "linear-gradient(270deg, rgba(255,255,255, 1) 0%, rgba(255, 255,255,1) 40%)",
       },
     },
   },
   darkMode: "class",
-  plugins: [nextui()]
+  plugins: [nextui()],
 } satisfies Config;

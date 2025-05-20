@@ -17,9 +17,9 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "London Gutter Cleaning Service",
+  title: "ARC (Allied Restoration Contractors)",
   description:
-    "Award Winning Service For London Gutter Cleaning, Repairs & Replacement",
+    "Award Winning Service Allied Restoration Contractors, Repairs & Replacement",
 };
 
 export default function RootLayout({
@@ -36,12 +36,14 @@ export default function RootLayout({
         <NextUiProvider>
           <ReduxStoreProvider>
             <>
-            <Toaster />
-              <Navbar />
-              {children}
+              <div className="min-h-screen grid grid-rows-[auto_1fr_auto]">
+                <Navbar />
+                {children}
 
-              <Footer />
+                <Footer />
+              </div>
               <ScrollToTopButton />
+              <Toaster />
             </>
           </ReduxStoreProvider>
         </NextUiProvider>

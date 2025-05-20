@@ -1,6 +1,4 @@
-import { useGetAllServiceAreasQuery } from "@/redux/features/serviceArea/serviceAreaApi";
 import Link from "next/link";
-import React from "react";
 
 type Route = {
   _id?: string;
@@ -21,33 +19,30 @@ type RouteSection = {
 };
 
 const AreasWeServe = () => {
-  const { data: getAllServiceAreasQuery } =
-    useGetAllServiceAreasQuery(undefined);
-
   return (
     <div className="text-white">
-      <h3 className="text-xl font-bold text-center mb-10 md:mb-20">
-        Areas we serve
-      </h3>
+      <h3 className="text-xl font-bold text-center mb-10">Areas we serve</h3>
       <div
         className={`grid grid-cols-1 xs:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-4`}
       >
-        {getAllServiceAreasQuery?.data?.map((section: RouteSection) => (
-          <div key={section?._id}>
-            {section?.list?.map((item) => (
-              <div key={item?._id} className="mb-12">
-                <p className="mb-6">{item?.name}</p>
-                {item?.routes?.map((route) => (
-                  <Link key={route?._id} href={"/get-quote"}>
-                    <p className="my-2 text-green-primary">
-                      {route?.code} {route?.name}
-                    </p>
-                  </Link>
-                ))}
-              </div>
-            ))}
-          </div>
-        ))}
+        <div>
+          <h2 className="font-bold text-lg">ILLINOIS</h2>
+        </div>
+        <div>
+          <h2 className="font-bold text-lg">ILLINOIS</h2>
+        </div>
+        <div>
+          <h2 className="font-bold text-lg">Indiana</h2>
+        </div>
+        <div>
+          <h2 className="font-bold text-lg">Indiana</h2>
+        </div>
+        <div>
+          <h2 className="font-bold text-lg">Ohio</h2>
+        </div>
+        <div>
+          <h2 className="font-bold text-lg">Kentucky</h2>
+        </div>
       </div>
     </div>
   );
