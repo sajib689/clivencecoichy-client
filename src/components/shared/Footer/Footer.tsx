@@ -1,17 +1,16 @@
 "use client";
-import React from "react";
 import logo from "@/assets/logo/footerLogo.png";
-import Image from "next/image";
-import { FaFacebookF } from "react-icons/fa6";
-import { RiHomeOfficeLine, RiLinkedinFill } from "react-icons/ri";
-import { IoLocationOutline, IoLogoWhatsapp } from "react-icons/io5";
-import NavMenu from "../Navbar/NavMenu";
-import { Accordion, AccordionItem } from "@nextui-org/react";
-import Link from "next/link";
-import { PiBuildingOffice } from "react-icons/pi";
-import { MdMailOutline, MdOutlineCall } from "react-icons/md";
-import AreasWeServe from "./AreasWeServe";
 import { cn } from "@/lib/utils";
+import { Accordion, AccordionItem } from "@nextui-org/react";
+import Image from "next/image";
+import Link from "next/link";
+import { FaFacebookF } from "react-icons/fa6";
+import { IoLogoWhatsapp } from "react-icons/io5";
+import { MdMailOutline, MdOutlineCall } from "react-icons/md";
+import { PiBuildingOffice } from "react-icons/pi";
+import { RiHomeOfficeLine, RiLinkedinFill } from "react-icons/ri";
+import NavMenu from "../Navbar/NavMenu";
+import AreasWeServe from "./AreasWeServe";
 
 const thirdRow = [
   {
