@@ -18,6 +18,7 @@ export default {
         black: "#000",
         "red-primary": "#DD2D2C",
         background: "var(--background)",
+        title: "#011936",
         foreground: "var(--foreground)",
       },
       screens: {
