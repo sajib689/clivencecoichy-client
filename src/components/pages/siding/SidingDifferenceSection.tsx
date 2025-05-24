@@ -1,5 +1,4 @@
 import logo from "@/assets/logo/aboutLogo.png";
-import { Button } from "antd";
 import Image from "next/image";
 
 const SidingDifferenceSection = () => {
