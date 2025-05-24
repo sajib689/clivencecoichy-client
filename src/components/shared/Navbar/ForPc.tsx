@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from "react";
-import logo from "@/assets/logo/logo.png";
+import logo from "@/assets/logo/redTextLogo.png";
 import Image from "next/image";
 import Link from "next/link";
 import NavMenu from "./NavMenu";

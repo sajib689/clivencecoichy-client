@@ -8,7 +8,7 @@ const HeroSection = () => {
       {/* Background Video */}
       <video
         className="absolute top-0 left-0 w-full h-full object-cover z-[1]"
-        src="/heroVideo.mp4" // Replace with actual filename
+        src="/heroVideo.mov" // Replace with actual filename
         autoPlay
         muted
         loop
