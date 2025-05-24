@@ -20,7 +20,7 @@ const AboutUsSection = () => {
             <div className="w-[50px] h-[2px] bg-title"></div>
             <h2 className="text-title">About Us</h2>
           </div>
-          <h3 className="text-2xl md:text-3xl lg:text-4xl font-semibold text-title mt-5">
+          <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold text-title mt-5">
             The ARC Difference
           </h3>
           <p className="text-md mt-5">
