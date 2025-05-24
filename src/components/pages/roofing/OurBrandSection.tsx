@@ -11,7 +11,7 @@ import Marquee from "react-fast-marquee";
 const OurBrandSection = () => {
   return (
     <div className="py-20 !bg-[#FAFAFB]">
-      <div className="">
+      <div className="max-w-[100vw]">
         <h3 className="text-xl md:text-2xl xl:text-3xl text-title font-semibold text-center">
           Our Brands
         </h3>
