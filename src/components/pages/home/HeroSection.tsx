@@ -21,7 +21,7 @@ const HeroSection = () => {
           <h2 className="text-white font-bold text-4xl md:text-5xl lg:text-6xl leading-tight">
             Your Local Family <br /> Roofing & Exterior <br /> Experts
           </h2>
-          <p className="text-white mt-8 text-lg">
+          <p className="text-white mt-8 text-lg max-w-xl">
             Our friendly, experienced team is ready to work with you.
           </p>
           <div className="mt-8 flex flex-wrap gap-8 items-center">
