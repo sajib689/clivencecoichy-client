@@ -1,3 +1,4 @@
+import TestimonialSection from "@/components/pages/home/TestimonialSection";
 import BeforeAfterSection from "@/components/pages/roofing/BeforeAfterSection";
 import CertificationAndAwardSection from "@/components/pages/roofing/CertificationAndAwardSection";
 import DifferenceSection from "@/components/pages/roofing/DifferenceSection";
@@ -11,6 +12,7 @@ const RoofingPage = () => {
       <CertificationAndAwardSection />
       <DifferenceSection />
       <BeforeAfterSection />
+      <TestimonialSection />
     </div>
   );
 };
