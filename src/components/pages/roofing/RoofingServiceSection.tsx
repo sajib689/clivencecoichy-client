@@ -6,7 +6,7 @@ import bgImage3 from "@/assets/roofing/roofingService3.png";
 
 const RoofingServiceSection = () => {
   return (
-    <div className="py-20">
+    <div className="py-20 max-w-[100vw]">
       <div className="container">
         {/* header */}
         <div>
@@ -14,10 +14,10 @@ const RoofingServiceSection = () => {
             <div className="w-[50px] h-[2px] bg-title"></div>
             <h2 className="text-title">Roofing Service</h2>
           </div>
-          <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold text-title mt-5">
+          <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold text-wrap max-w-[90vw] text-title mt-5">
             Quality Roofing for Protection <br /> and Peace of Mind
           </h3>
-          <p className="text-md mt-5 max-w-lg">
+          <p className="text-md mt-5 max-w-[90vw] sm:max-w-lg">
             From inspections to full roof replacements, we deliver quality
             workmanship backed by years of experience.
           </p>

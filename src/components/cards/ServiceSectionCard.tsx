@@ -5,7 +5,7 @@ import bgImage from "@/assets/service/service1.png";
 
 const ServiceSectionCard = ({ data }: any) => {
   return (
-    <div className="relative max-w-3xl bg-black w-full h-full min-h-[300px] hover:shadow-xl duration-300 rounded-xl overflow-hidden">
+    <div className="relative max-w-[90vw] sm:max-w-3xl bg-black w-full h-full min-h-[300px] hover:shadow-xl duration-300 rounded-xl overflow-hidden">
       <Image
         className="absolute z-0 w-full h-full object-cover"
         src={data?.image || bgImage}
