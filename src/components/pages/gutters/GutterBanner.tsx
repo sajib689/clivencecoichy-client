@@ -18,11 +18,11 @@ const GutterBanner = () => {
       <div className="absolute bg-black/30 w-full z-10 flex items-center justify-center h-full">
         <div className="container">
           <h2 className="text-white font-bold text-4xl md:text-5xl lg:text-6xl leading-tight">
-            Siding That <br /> Protects, Performs, <br /> and Lasts
+            Protect Your <br /> Foundation With <br /> Proper Drainage
           </h2>
           <p className="text-white mt-8 text-lg max-w-xl">
-            Restore your siding to protect your home from the elements while
-            delivering the clean, modern look that turns heads.
+            Protect your roof, walls, and foundation with gutters that work as
+            good as they look.
           </p>
           <div className="mt-8 flex flex-wrap gap-8 items-center">
             <Button
@@ -31,12 +31,12 @@ const GutterBanner = () => {
             >
               Free Estimate
             </Button>
-            <Button
+            {/* <Button
               size="large"
               className="bg-red-whtie border-none text-red-primary hover:!bg-red-primary  hover:!text-white p-6 text-lg"
             >
               Calculate Siding Cost
-            </Button>
+            </Button> */}
           </div>
         </div>
       </div>
