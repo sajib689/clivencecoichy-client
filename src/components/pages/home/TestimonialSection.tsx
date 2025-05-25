@@ -6,7 +6,7 @@ import Marquee from "react-fast-marquee";
 
 const TestimonialSection = () => {
   return (
-    <div className="py-20 max-w-[100vw]">
+    <div className="py-20 max-w-[100vw] bg-[#01193605]">
       <div className="container flex items-center gap-8 justify-between flex-wrap mb-20">
         <SectionHeader
           subTitle={"Testimonial"}
