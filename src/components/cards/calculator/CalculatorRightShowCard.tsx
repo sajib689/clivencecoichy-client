@@ -5,7 +5,7 @@ import asphaltImage from "@/assets/Pricing-cost-calculator/roofing/asphaltSingle
 const CalculatorRightShowCard = () => {
   return (
     <div className="grid grid-cols-12 gap-4 p-5 hover:bg-white duration-300 rounded-xl cursor-pointer">
-      <div className="col-span-4">
+      <div className="col-span-4 p-3">
         <Image src={asphaltImage} className="w-full h-full" alt="image" />
       </div>
       <div className="col-span-8">
