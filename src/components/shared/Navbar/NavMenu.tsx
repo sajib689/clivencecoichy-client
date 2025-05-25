@@ -36,7 +36,7 @@ const NavMenu = ({
         </div>
       </Link>
       {isShowBorder && <div className="h-5 border "></div>}
-      <Link href={"/sliding"}>
+      <Link href={"/siding"}>
         <div
           className={cn(
             "cursor-pointer hover:text-red-primary transition duration-200",
