@@ -1,0 +1,70 @@
+import SectionHeader from "@/components/shared/SectionHeader/SectionHeader";
+import { Button } from "antd";
+import Image from "next/image";
+import React from "react";
+import logo from "@/assets/logo/redTextLogo.png";
+
+const FinanceComponent = () => {
+  return (
+    <div className="py-20">
+      <div className="container">
+        <SectionHeader
+          subTitle="Step"
+          description="Your local contractors for roofing, siding, windows, and gutters in Illinois, Indiana, Ohio, and Kentucky."
+        >
+          3 ways to pay
+        </SectionHeader>
+
+        {/* buttons  */}
+        <div className="flex items-center gap-5 flex-wrap mt-8 ">
+          <Button
+            size="large"
+            className="flex-1 border-red-primary hover:!border-red-primary hover:!bg-red-primary bg-transparent border text-red-primary hover:!text-white text-lg"
+          >
+            Roofing Financing
+          </Button>
+          <Button
+            size="large"
+            className="flex-1  border-red-primary hover:!border-red-primary hover:!bg-red-primary bg-transparent border text-red-primary hover:!text-white text-lg"
+          >
+            Window Financing
+          </Button>
+          <Button
+            size="large"
+            className="flex-1  border-red-primary hover:!border-red-primary hover:!bg-red-primary bg-transparent border text-red-primary hover:!text-white text-lg"
+          >
+            Siding Financing
+          </Button>
+        </div>
+
+        {/* contents  */}
+        <div className="mt-12 grid grid-cols-12 gap-10">
+          {/* left  */}
+          <div className="col-span-12 md:col-span-6 lg:col-span-4 ">
+            <div className="flex flex-col items-center justify-center p-5 lg:p-8 rounded-xl gap-4 bg-gray-light">
+              <Button className="rounded-full w-8 h-8 p-1 mx-auto bg-red-primary text-white">
+                1
+              </Button>
+              <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-yellow-400">
+                PAY IN FULL
+              </h2>
+              <h3 className="text-xl md:text-2xl text-title font-semibold">
+                Done & done
+              </h3>
+              <p className="text-sm font-semibold">
+                Another project checked off the list.
+              </p>
+              <div className="p-8">
+                <Image src={logo} alt="logo" />
+              </div>
+            </div>
+          </div>
+          {/* right  */}
+          <div className="col-span-12 md:col-span-6 lg:col-span-8">Right</div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default FinanceComponent;
