@@ -41,6 +41,7 @@ const FinanceComponent = () => {
         <div className="mt-12 grid grid-cols-12 gap-10">
           {/* left  */}
           <div className="col-span-12 md:col-span-6 lg:col-span-4 ">
+            {/* card  */}
             <div className="flex flex-col items-center justify-center p-5 lg:p-8 rounded-xl gap-4 bg-gray-light">
               <Button className="rounded-full w-8 h-8 p-1 mx-auto bg-red-primary text-white">
                 1
@@ -60,7 +61,41 @@ const FinanceComponent = () => {
             </div>
           </div>
           {/* right  */}
-          <div className="col-span-12 md:col-span-6 lg:col-span-8">Right</div>
+          <div className="col-span-12 md:col-span-6 lg:col-span-8">
+            <div className="flex items-center gap-5 justify-between">
+              {/* 1  */}
+              <div className="flex flex-col items-center justify-center p-5 gap-5 rounded-xl">
+                <Button className="rounded-full w-8 h-8 p-1 mx-auto bg-red-primary text-white">
+                  2
+                </Button>
+                <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-red-primary">
+                  1 YEAR
+                </h2>
+                <h3 className="text-xl md:text-2xl text-title font-semibold">
+                  0% INTEREST
+                </h3>
+                <p className="text-sm font-semibold text-center">
+                  Enjoy 12 months of no mess no <br /> fuss payments
+                </p>
+              </div>
+              {/* 2  */}
+              <div className="flex flex-col items-center justify-center gap-5 p-5 rounded-xl">
+                <Button className="rounded-full w-8 h-8 p-1 mx-auto bg-red-primary text-white">
+                  3
+                </Button>
+                <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-red-primary">
+                  10 YEAR
+                </h2>
+                <h3 className="text-xl md:text-2xl text-title font-semibold">
+                  PAYMENT PLAN
+                </h3>
+                <p className="text-sm font-semibold">
+                  Caught off guard by your exterior project?
+                  <br /> Don&aps;t sweat it - we have your back!
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
