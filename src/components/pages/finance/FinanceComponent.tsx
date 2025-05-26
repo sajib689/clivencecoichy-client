@@ -1,8 +1,9 @@
 import SectionHeader from "@/components/shared/SectionHeader/SectionHeader";
-import { Button } from "antd";
+import { Button, Divider, Input } from "antd";
 import Image from "next/image";
 import React from "react";
 import logo from "@/assets/logo/redTextLogo.png";
+import { FaCalculator } from "react-icons/fa6";
 
 const FinanceComponent = () => {
   return (
@@ -93,6 +94,50 @@ const FinanceComponent = () => {
                   Caught off guard by your exterior project?
                   <br /> Don&aps;t sweat it - we have your back!
                 </p>
+              </div>
+            </div>
+            {/* divider  */}
+            <Divider className="my-10">
+              <p className="!text-sm font-normal flex items-center gap-2">
+                Payment <FaCalculator className="text-yellow-500" /> Estimator
+              </p>
+            </Divider>
+
+            <div className="flex flex-col items-center justify-center gap-5 mt-8">
+              <h2 className="text-sm font-normal text-title">
+                Enter estimated project cost:
+              </h2>
+              {/* input */}
+              <div className="flex items-center gap-2">
+                ${" "}
+                <Input
+                  type="number"
+                  placeholder="0.00"
+                  className="focus:!border-red-primary hover:!border-red-primary max-w-[200px] "
+                />
+              </div>
+            </div>
+            {/*  */}
+            <div className="grid grid-cols-2 gap-10 mt-10">
+              <div className="flex flex-col items-center justify-center p-5  gap-5 ">
+                <h2 className="text-2xl font-bold text-title text-center ">
+                  <span className="text-red-primary"> 1 YEAR,</span> <br /> +{" "}
+                  <span className="text-red-primary">$0</span> DOWN
+                </h2>
+                <h3 className="text-xl md:text-2xl text-title font-semibold">
+                  <span className="text-yellow-400">$1,250.00 </span>/{" "}
+                  <span className="text-[16px]">per month</span>
+                </h3>
+              </div>
+              <div className="flex flex-col items-center justify-center p-5  gap-5 ">
+                <h2 className="text-2xl font-bold text-title text-center ">
+                  <span className="text-red-primary"> 10 YEAR,</span> <br /> +{" "}
+                  <span className="text-red-primary">$0</span> DOWN
+                </h2>
+                <h3 className="text-xl md:text-2xl text-title font-semibold">
+                  <span className="text-yellow-400">$1,250.00 </span>/{" "}
+                  <span className="text-[16px]">per month</span>
+                </h3>
               </div>
             </div>
           </div>
