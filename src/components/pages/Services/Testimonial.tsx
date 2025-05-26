@@ -82,7 +82,7 @@ const Testimonial = () => {
                 <FaStar key={index} className="text-yellow-500" />
               ))}
             </p>
-            <p className="text-sm text-gray-600">"{testimonial.message}"</p>
+            <p className="text-sm text-gray-600">{testimonial.message}</p>
             <div className="mt-4 flex items-center gap-4">
               <Image
                 src={testimonial.imageUrl}
