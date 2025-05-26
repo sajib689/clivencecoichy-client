@@ -1,9 +1,9 @@
 import bannerImage from "@/assets/gutters/gutterBanner.png";
 import Image from "next/image";
 
-const CareerBanner = ({title}:{title:string}) => {
+const ReviewBanner = () => {
   return (
-    <section className="relative h-[calc(100vh-308px)] overflow-hidden">
+    <section className="relative h-[50vh] overflow-hidden">
       {/* Background Video */}
       <Image
         className="absolute top-0 left-0 w-full h-full object-cover z-[1]"
@@ -17,13 +17,16 @@ const CareerBanner = ({title}:{title:string}) => {
       <div className="absolute bg-black/30 w-full z-10 flex items-center text-left h-full">
         <div className="container">
           <h2 className="text-white font-bold text-4xl md:text-5xl lg:text-6xl ">
-         {title}
+            ARC Reviews
           </h2>
-          
+          <p className="mt-5 max-w-lg">
+            At ARC we always put reputation before profit. We take care of all
+            of our clients as if they are family.
+          </p>
         </div>
       </div>
     </section>
   );
 };
 
-export default CareerBanner;
+export default ReviewBanner;
