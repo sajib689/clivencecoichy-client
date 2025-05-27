@@ -4,7 +4,7 @@ import bannerImage from "@/assets/commercial/banner.png";
 
 const CommercialBanner = () => {
   return (
-    <div className="relative h-[calc(100vh-108px)] overflow-hidden">
+    <div className="relative h-[60vh] overflow-hidden">
       {/* Background Video */}
       <Image
         className="absolute top-0 left-0 w-full h-full object-cover z-[1]"
