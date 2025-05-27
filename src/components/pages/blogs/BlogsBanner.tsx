@@ -1,10 +1,10 @@
-const ReviewBanner = () => {
+const BLogsBanner = () => {
   return (
     <section className="relative h-[50vh] overflow-hidden bg-[#1E2228]">
       {/* Background Video */}
       {/* <Image
         className="absolute top-0 left-0 w-full h-full object-cover z-[1]"
-        src={bannerImage}
+        src={banner}
         width={2000}
         height={800}
         alt="window Imge"
@@ -14,16 +14,16 @@ const ReviewBanner = () => {
       <div className="absolute bg-black/30 w-full z-10 flex items-center text-left h-full">
         <div className="container">
           <h2 className="text-white font-bold text-4xl md:text-5xl lg:text-6xl ">
-            ARC Reviews
+            Expert Tips and <br /> Insights
           </h2>
-          <p className="mt-5 max-w-lg">
-            At ARC we always put reputation before profit. We take care of all
-            of our clients as if they are family.
-          </p>
+          {/* <p className="mt-5 max-w-lg text-white">
+            We are experts in exterior restoration whether it&apos;s from a
+            storm or the wear and tear of father time.
+          </p> */}
         </div>
       </div>
     </section>
   );
 };
 
-export default ReviewBanner;
+export default BLogsBanner;
