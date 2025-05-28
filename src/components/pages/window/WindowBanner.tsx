@@ -4,7 +4,7 @@ import bannerImage from "@/assets/windows/bannerImage.png";
 
 const WindowBanner = () => {
   return (
-    <div className="relative h-[calc(100vh-108px)] overflow-hidden">
+    <div className="relative min-h-[60vh] h-fit overflow-hidden">
       {/* Background Video */}
       <Image
         className="absolute top-0 left-0 w-full h-full object-cover z-[1]"

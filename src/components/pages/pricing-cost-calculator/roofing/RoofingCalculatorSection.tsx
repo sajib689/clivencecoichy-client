@@ -19,6 +19,7 @@ import iIcon from "@/assets/Pricing-cost-calculator/roofing/alert-circle.png";
 import Image from "next/image";
 import CalculatorRightShowCard from "@/components/cards/calculator/CalculatorRightShowCard";
 import { Button } from "antd";
+import Link from "next/link";
 
 const RoofingCalculatorSection = () => {
   return (
@@ -109,12 +110,14 @@ const RoofingCalculatorSection = () => {
               <CalculatorRightShowCard />
               <CalculatorRightShowCard />
 
-              <Button
-                size="large"
-                className="bg-red-primary w-full mt-8 border-none text-white hover:!text-red-primary p-6 text-lg"
-              >
-                Free Estimate
-              </Button>
+              <Link href={"/free-estimate"}>
+                <Button
+                  size="large"
+                  className="bg-red-primary w-full mt-8 border-none text-white hover:!text-red-primary p-6 text-lg"
+                >
+                  Free Estimate
+                </Button>
+              </Link>
             </div>
           </div>
         </div>

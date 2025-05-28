@@ -1,4 +1,5 @@
 import { Button } from "antd";
+import Link from "next/link";
 
 const ServiceBanner = () => {
   return (
@@ -25,12 +26,14 @@ const ServiceBanner = () => {
             your peace of mind.
           </p>
           <div className="mt-8 flex flex-wrap gap-8 items-center">
-            <Button
-              size="large"
-              className="bg-red-primary border-none text-white hover:!text-red-primary p-6 text-lg"
-            >
-              Free Estimate
-            </Button>
+            <Link href={"/free-estimate"}>
+              <Button
+                size="large"
+                className="bg-red-primary border-none text-white hover:!text-red-primary text-lg"
+              >
+                Free Estimate
+              </Button>
+            </Link>
             <Button
               size="large"
               className="bg-red-whtie border-none text-red-primary hover:!bg-red-primary  hover:!text-white p-6 text-lg"

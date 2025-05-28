@@ -1,10 +1,11 @@
 import { Button } from "antd";
 import Image from "next/image";
 import bannerImage from "@/assets/siding/sidingBanner.png";
+import Link from "next/link";
 
 const SidingBanner = () => {
   return (
-    <div className="relative h-[calc(100vh-108px)] overflow-hidden">
+    <div className="relative h-[60vh] overflow-hidden">
       {/* Background Video */}
       <Image
         className="absolute top-0 left-0 w-full h-full object-cover z-[1]"
@@ -25,12 +26,14 @@ const SidingBanner = () => {
             delivering the clean, modern look that turns heads.
           </p>
           <div className="mt-8 flex flex-wrap gap-8 items-center">
-            <Button
-              size="large"
-              className="bg-red-primary border-none text-white hover:!text-red-primary p-6 text-lg"
-            >
-              Free Estimate
-            </Button>
+            <Link href={"/free-estimate"}>
+              <Button
+                size="large"
+                className="bg-red-primary border-none text-white hover:!text-red-primary text-lg"
+              >
+                Free Estimate
+              </Button>
+            </Link>
             <Button
               size="large"
               className="bg-red-whtie border-none text-red-primary hover:!bg-red-primary  hover:!text-white p-6 text-lg"

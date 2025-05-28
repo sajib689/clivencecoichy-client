@@ -1,10 +1,11 @@
 import { Button } from "antd";
 import Image from "next/image";
 import bannerImage from "@/assets/commercial/banner.png";
+import Link from "next/link";
 
 const CommercialBanner = () => {
   return (
-    <div className="relative h-[60vh] overflow-hidden">
+    <div className="relative min-h-[60vh] h-fit overflow-hidden">
       {/* Background Video */}
       <Image
         className="absolute top-0 left-0 w-full h-full object-cover z-[1]"
@@ -25,12 +26,15 @@ const CommercialBanner = () => {
             team that gets the job done right—on time and on budget.
           </p>
           <div className="mt-8 flex flex-wrap gap-8 items-center">
-            <Button
-              size="large"
-              className="bg-red-primary border-none text-white hover:!text-red-primary p-6 text-lg"
-            >
-              Free Estimate
-            </Button>
+            <Link href={"/free-estimate"}>
+              {" "}
+              <Button
+                size="large"
+                className="bg-red-primary border-none text-white hover:!text-red-primary text-lg"
+              >
+                Free Estimate
+              </Button>
+            </Link>
             {/* <Button
               size="large"
               className="bg-red-whtie border-none text-red-primary hover:!bg-red-primary  hover:!text-white p-6 text-lg"

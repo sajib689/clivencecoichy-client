@@ -1,6 +1,7 @@
 import TestimonialCard from "@/components/cards/TestimonialCard";
 import SectionHeader from "@/components/shared/SectionHeader/SectionHeader";
 import { Button } from "antd";
+import Link from "next/link";
 import React from "react";
 import Marquee from "react-fast-marquee";
 
@@ -16,12 +17,13 @@ const TestimonialSection = () => {
         >
           We Are A Local Roofing Contractor <br /> You Can Trust
         </SectionHeader>
+        <Link href={"/reviews"}>
         <Button
           size="large"
           className="bg-red-primary text-white hover:!text-red-primary hover:!border-red-primary"
         >
           Read All Reviews
-        </Button>
+        </Button></Link>
       </div>
       <div className="space-y-12">
         <Marquee className="">

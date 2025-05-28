@@ -1,6 +1,5 @@
-import { Button } from "antd";
-import Image from "next/image";
 import bannerImage from "@/assets/gutters/gutterBanner.png";
+import Image from "next/image";
 
 const AboutBanner = () => {
   return (

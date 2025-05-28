@@ -18,7 +18,7 @@ const WindowCtaSection = () => {
           </h2>
           <Button
             size="large"
-            className="mt-10 bg-red-primary border-none text-white hover:!text-red-primary p-6 text-lg"
+            className="mt-10 bg-red-primary border-none text-white hover:!text-red-primary text-lg"
           >
             Calculate My Roof Cost
           </Button>

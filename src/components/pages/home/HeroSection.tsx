@@ -1,4 +1,5 @@
 import { Button } from "antd";
+import Link from "next/link";
 import React from "react";
 import { FaPlay } from "react-icons/fa6";
 
@@ -25,12 +26,14 @@ const HeroSection = () => {
             Our friendly, experienced team is ready to work with you.
           </p>
           <div className="mt-8 flex flex-wrap gap-8 items-center">
-            <Button
-              size="large"
-              className="bg-red-primary border-none text-white hover:!text-red-primary text-lg"
-            >
-              Free Estimate
-            </Button>
+            <Link href={"/free-estimate"}>
+              <Button
+                size="large"
+                className="bg-red-primary border-none text-white hover:!text-red-primary text-lg"
+              >
+                Free Estimate
+              </Button>
+            </Link>
             <Button
               size="large"
               type="text"

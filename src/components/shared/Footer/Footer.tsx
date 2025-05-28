@@ -19,23 +19,27 @@ const thirdRow = [
   },
   {
     title: "Blog",
-    link: "/blog",
+    link: "/blogs",
   },
   {
     title: "Reviews",
-    link: "/review",
+    link: "/reviews",
   },
-  {
-    title: "Certification",
-    link: "/certification",
-  },
+  // {
+  //   title: "Certification",
+  //   link: "/certification",
+  // },
   {
     title: "Careers",
     link: "/career",
   },
   {
     title: "Financing",
-    link: "/financing",
+    link: "/finance",
+  },
+  {
+    title: "Service Area",
+    link: "/service-area",
   },
 ];
 const forthRow = [
@@ -59,7 +63,7 @@ const forthRow = [
 ];
 const Footer = () => {
   return (
-    <div className="bg-[#0F4262] py-20">
+    <div className="bg-[#1E2228] py-20">
       <div className="container">
         <div className=" grid grid-cols-1 xs:grid-cols-2 lg:grid-cols-4 gap-5">
           <div className="flex flex-col gap-6">
@@ -98,7 +102,7 @@ const Footer = () => {
                     title={<span className="text-white">Pricing</span>}
                   >
                     <div className=" ps-1">
-                      <Link href={"/roof-cost-calculator"}>
+                      <Link href={"/pricing-cost-calculator/roofing"}>
                         <div
                           // className="cursor-pointer hover:text-red-primary hover:bg-slate-100 p-2 mb-2 rounded"
                           className={cn(
@@ -108,7 +112,7 @@ const Footer = () => {
                           Roof Cost Calculator
                         </div>
                       </Link>
-                      <Link href={"/siding-cost-calculator"}>
+                      <Link href={"/pricing-cost-calculator/siding"}>
                         <div
                           // className="cursor-pointer hover:text-red-primary hover:bg-slate-100 p-2 rounded"
                           className={cn(
@@ -118,7 +122,7 @@ const Footer = () => {
                           Siding Cost Calculator
                         </div>
                       </Link>
-                      <Link href={"/window-cost-calculator"}>
+                      <Link href={"/pricing-cost-calculator/window"}>
                         <div
                           // className="cursor-pointer hover:text-red-primary hover:bg-slate-100 p-2 rounded"
                           className={cn(

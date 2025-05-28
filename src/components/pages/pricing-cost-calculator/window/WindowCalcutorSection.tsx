@@ -14,6 +14,7 @@ import CalculatorRightShowCard from "@/components/cards/calculator/CalculatorRig
 import WindowCard from "@/components/cards/calculator/WindowCard";
 import { Button } from "antd";
 import Image from "next/image";
+import Link from "next/link";
 
 const WindowCalculatorSection = () => {
   return (
@@ -72,12 +73,13 @@ const WindowCalculatorSection = () => {
 
               <CalculatorRightShowCard />
 
+<Link href={"/free-estimate"}>
               <Button
                 size="large"
                 className="bg-red-primary w-full mt-8 border-none text-white hover:!text-red-primary p-6 text-lg"
               >
                 Free Estimate
-              </Button>
+              </Button></Link>
             </div>
           </div>
         </div>
