@@ -1,19 +1,15 @@
 "use client";
 
-import { setUser } from "@/redux/features/auth";
 import { UserOutlined } from "@ant-design/icons";
 import type { MenuProps } from "antd";
 import { Avatar, Button, Dropdown } from "antd";
 import Title from "antd/es/typography/Title";
 import Link from "next/link";
 import { MdOutlineLogout } from "react-icons/md";
-import { useDispatch } from "react-redux";
 
 const User = () => {
-  const dispatch = useDispatch();
   const handleLogout = () => {
     console.log("logout");
-    dispatch(setUser({ user: null, accessToken: null, refreshToken: null, }));
   };
   const items: MenuProps["items"] = [
     {
