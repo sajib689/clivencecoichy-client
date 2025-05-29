@@ -1,10 +1,11 @@
-import ScrollToTopButton from "@/components/ui/ScrollToTopButton/ScrollToTopButton";
-import { NextUiProvider } from "@/lib/providers/NextUIProvider";
-import ReduxStoreProvider from "@/redux/ReduxStoreProvider";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import { NextUiProvider } from "@/lib/providers/NextUIProvider";
+import Navbar from "@/components/shared/Navbar/Navbar";
+import ScrollToTopButton from "@/components/ui/ScrollToTopButton/ScrollToTopButton";
+import Footer from "@/components/shared/Footer/Footer";
+import ReduxStoreProvider from "@/redux/ReduxStoreProvider";
 import { Toaster } from "sonner";
-import "./globals.css";
 
 const inter = Inter({
   weight: ["300", "400", "500", "600", "700"],
@@ -35,7 +36,10 @@ export default function RootLayout({
           <ReduxStoreProvider>
             <>
               <div className="min-h-screen grid grid-rows-[auto_1fr_auto] max-w-[100vw] overflow-hidden">
+                <Navbar />
                 {children}
+
+                <Footer />
               </div>
               <ScrollToTopButton />
               <Toaster />
