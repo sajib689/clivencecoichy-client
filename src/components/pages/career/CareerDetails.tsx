@@ -96,94 +96,97 @@ export default function CareerDetails() {
       {/* Right Form Section */}
       <form
         onSubmit={handleSubmit}
-        className="mt-12 md:mt-0 md:w-1/2 bg-gray-50 p-8 rounded-lg shadow space-y-6"
+        className="mt-12 md:mt-0 md:w-1/2   "
       >
-        <h2 className="text-2xl font-semibold text-black">Apply Today</h2>
+        <div className='bg-gray-50 shadow space-y-6 p-8 rounded-lg'>
 
-        <div>
-          <label className="block text-black font-semibold">Name*</label>
-          <input
-            type="text"
-            name="name"
-            required
-            onChange={handleChange}
-            className="mt-1 w-full border border-gray-300 rounded p-2"
-          />
-        </div>
+          <h2 className="text-2xl font-semibold text-black">Apply Today</h2>
 
-        <div>
-          <label className="block text-black font-semibold">Email*</label>
-          <input
-            type="email"
-            name="email"
-            required
-            onChange={handleChange}
-            className="mt-1 w-full border border-gray-300 rounded p-2"
-          />
-        </div>
+          <div>
+            <label className="block text-black font-semibold">Name*</label>
+            <input
+              type="text"
+              name="name"
+              required
+              onChange={handleChange}
+              className="mt-1 w-full border border-gray-300 rounded p-2"
+            />
+          </div>
 
-        <div>
-          <label className="block text-black font-semibold">Phone*</label>
-          <input
-            type="tel"
-            name="phone"
-            required
-            onChange={handleChange}
-            className="mt-1 w-full border border-gray-300 rounded p-2"
-          />
-        </div>
+          <div>
+            <label className="block text-black font-semibold">Email*</label>
+            <input
+              type="email"
+              name="email"
+              required
+              onChange={handleChange}
+              className="mt-1 w-full border border-gray-300 rounded p-2"
+            />
+          </div>
 
-        <div>
-          <label className="block text-black font-semibold">Start Date</label>
-          <input
-            type="date"
-            name="startDate"
-            onChange={handleChange}
-            className="mt-1 w-full border border-gray-300 rounded p-2"
-          />
-        </div>
+          <div>
+            <label className="block text-black font-semibold">Phone*</label>
+            <input
+              type="tel"
+              name="phone"
+              required
+              onChange={handleChange}
+              className="mt-1 w-full border border-gray-300 rounded p-2"
+            />
+          </div>
 
-        <div>
-          <label className="block text-black font-semibold">Desired Position</label>
-          <select
-            name="position"
-            defaultValue="Outside Sales Rep"
-            onChange={handleChange}
-            className="mt-1 w-full border border-gray-300 rounded p-2"
+          <div>
+            <label className="block text-black font-semibold">Start Date</label>
+            <input
+              type="date"
+              name="startDate"
+              onChange={handleChange}
+              className="mt-1 w-full border border-gray-300 rounded p-2"
+            />
+          </div>
+
+          <div>
+            <label className="block text-black font-semibold">Desired Position</label>
+            <select
+              name="position"
+              defaultValue="Outside Sales Rep"
+              onChange={handleChange}
+              className="mt-1 w-full border border-gray-300 rounded p-2"
+            >
+              <option>Outside Sales Rep</option>
+              <option>Inside Sales Rep</option>
+              <option>Project Manager</option>
+            </select>
+          </div>
+
+          <div className="flex gap-4">
+            <div>
+              <label className="block text-gray-700">Upload Cover Letter</label>
+              <input
+                type="file"
+                name="coverLetter"
+                onChange={handleChange}
+                className="mt-1 block w-full text-sm text-gray-600"
+              />
+            </div>
+            <div>
+              <label className="block text-gray-700">Upload Resume</label>
+              <input
+                type="file"
+                name="resume"
+                onChange={handleChange}
+                className="mt-1 block w-full text-sm text-gray-600"
+              />
+            </div>
+          </div>
+
+          <button
+            type="submit"
+            className="w-full bg-red-600 text-white py-3 rounded hover:bg-red-700 transition"
           >
-            <option>Outside Sales Rep</option>
-            <option>Inside Sales Rep</option>
-            <option>Project Manager</option>
-          </select>
+            Submit
+          </button>
         </div>
-
-        <div className="flex gap-4">
-          <div>
-            <label className="block text-gray-700">Upload Cover Letter</label>
-            <input
-              type="file"
-              name="coverLetter"
-              onChange={handleChange}
-              className="mt-1 block w-full text-sm text-gray-600"
-            />
-          </div>
-          <div>
-            <label className="block text-gray-700">Upload Resume</label>
-            <input
-              type="file"
-              name="resume"
-              onChange={handleChange}
-              className="mt-1 block w-full text-sm text-gray-600"
-            />
-          </div>
-        </div>
-
-        <button
-          type="submit"
-          className="w-full bg-red-600 text-white py-3 rounded hover:bg-red-700 transition"
-        >
-          Submit
-        </button>
       </form>
     </div>
   );
