@@ -1,28 +1,30 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
+import { useState } from "react";
 
 export default function CareerDetails() {
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    startDate: '',
-    position: 'Outside Sales Rep',
+    name: "",
+    email: "",
+    phone: "",
+    startDate: "",
+    position: "Outside Sales Rep",
     coverLetter: null,
     resume: null,
   });
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
+  ) => {
     const { name, value } = e.target;
-    if (
-      e.target instanceof HTMLInputElement &&
-      e.target.type === 'file'
-    ) {
+    if (e.target instanceof HTMLInputElement && e.target.type === "file") {
       const input = e.target as HTMLInputElement;
-      setFormData(prev => ({ ...prev, [name]: input.files ? input.files[0] : null }));
+      setFormData((prev) => ({
+        ...prev,
+        [name]: input.files ? input.files[0] : null,
+      }));
     } else {
-      setFormData(prev => ({ ...prev, [name]: value }));
+      setFormData((prev) => ({ ...prev, [name]: value }));
     }
   };
 
@@ -37,28 +39,44 @@ export default function CareerDetails() {
       {/* Left Section */}
       <div className="md:w-1/2 space-y-8">
         <div>
-          <h1 className="text-3xl font-bold text-black">Project Advisor – Exterior Restoration Outside Sales</h1>
+          <h1 className="text-3xl font-bold text-black">
+            Project Advisor – Exterior Restoration Outside Sales
+          </h1>
           <div className="mt-4 text-gray-600 space-y-1">
-            <p><strong>Location:</strong> Greater Chicago or Cincinnati / Dayton</p>
-            <p><strong>Compensation:</strong> 100% Commission</p>
-            <p><strong>Type:</strong> Full-Time or Part Time</p>
+            <p>
+              <strong>Location:</strong> Greater Chicago or Cincinnati / Dayton
+            </p>
+            <p>
+              <strong>Compensation:</strong> 100% Commission
+            </p>
+            <p>
+              <strong>Type:</strong> Full-Time or Part Time
+            </p>
           </div>
         </div>
 
         <div>
-          <h2 className="text-xl font-semibold text-black mb-2">About the Role</h2>
+          <h2 className="text-xl font-semibold text-black mb-2">
+            About the Role
+          </h2>
           <p className="text-gray-700">
-            As a Project Advisor at ARC, you'll be the face of our company—building relationships with homeowners,
-            identifying storm-related damage, and guiding customers through the insurance restoration process...
+            As a Project Advisor at ARC, you&apos;ll be the face of our
+            company—building relationships with homeowners, identifying
+            storm-related damage, and guiding customers through the insurance
+            restoration process...
           </p>
         </div>
 
         <div>
-          <h2 className="text-xl font-semibold text-black mb-2">What You’ll Do</h2>
+          <h2 className="text-xl font-semibold text-black mb-2">
+            What You’ll Do
+          </h2>
           <ul className="list-disc list-inside text-gray-700 space-y-1">
             <li>Generate leads through door-to-door canvassing</li>
             <li>Educate homeowners on insurance restoration</li>
-            <li>Conduct property inspections (roof, siding, gutters, windows)</li>
+            <li>
+              Conduct property inspections (roof, siding, gutters, windows)
+            </li>
             <li>Assist with filing insurance claims</li>
             <li>Advocate with insurance adjusters</li>
             <li>Provide estimates and close deals</li>
@@ -67,7 +85,9 @@ export default function CareerDetails() {
         </div>
 
         <div>
-          <h2 className="text-xl font-semibold text-black mb-2">Who We’re Looking For</h2>
+          <h2 className="text-xl font-semibold text-black mb-2">
+            Who We’re Looking For
+          </h2>
           <ul className="list-disc list-inside text-gray-700 space-y-1">
             <li>A self-motivated go-getter</li>
             <li>Strong communicator</li>
@@ -80,23 +100,36 @@ export default function CareerDetails() {
           <h2 className="text-xl font-semibold text-black mb-2">Who You Get</h2>
           <ul className="list-disc list-inside text-gray-700 space-y-1">
             <li>Uncapped commissions with performance bonuses</li>
-            <li>  Paid training and support from experienced leaders</li>
-            <li>  High-quality marketing materials and branded gear</li>
+            <li> Paid training and support from experienced leaders</li>
+            <li> High-quality marketing materials and branded gear</li>
             <li> Opportunity for growth within a values-driven company</li>
-            <li> The satisfaction of helping homeowners when they need it most</li>
-            <li> Full-Time W-2 Employees are eligible for health insurance, 401k matching, and vehicle reimbursement</li>
+            <li>
+              {" "}
+              The satisfaction of helping homeowners when they need it most
+            </li>
+            <li>
+              {" "}
+              Full-Time W-2 Employees are eligible for health insurance, 401k
+              matching, and vehicle reimbursement
+            </li>
           </ul>
         </div>
         <div>
-          <h2 className="text-xl font-semibold text-black mb-2">Think you’re a fit?</h2>
-         <p>Join the ARC team and help us restore homes with integrity and purpose. Apply today and start making a difference—one roof at a time.</p>
+          <h2 className="text-xl font-semibold text-black mb-2">
+            Think you’re a fit?
+          </h2>
+          <p>
+            Join the ARC team and help us restore homes with integrity and
+            purpose. Apply today and start making a difference—one roof at a
+            time.
+          </p>
         </div>
       </div>
 
       {/* Right Form Section */}
       <form
         onSubmit={handleSubmit}
-        className="mt-12 md:mt-0 md:w-1/2 bg-gray-50 p-8 rounded-lg shadow space-y-6"
+        className="mt-12 md:mt-0 md:w-1/2 bg-gray-50 h-fit p-8 rounded-lg shadow space-y-6"
       >
         <h2 className="text-2xl font-semibold text-black">Apply Today</h2>
 
@@ -144,7 +177,9 @@ export default function CareerDetails() {
         </div>
 
         <div>
-          <label className="block text-black font-semibold">Desired Position</label>
+          <label className="block text-black font-semibold">
+            Desired Position
+          </label>
           <select
             name="position"
             defaultValue="Outside Sales Rep"
