@@ -65,24 +65,22 @@ const ForMobile = () => {
                         title="Other Service"
                       >
                         <div className=" ps-1">
-                          <Link
-                            href={"/gutter-fascia-soffit-repair-replacement"}
-                          >
+                          <Link href={"/gutters"}>
                             <div
                               className={cn(
                                 "cursor-pointer hover:text-red-primary hover:bg-slate-100 p-2 mb-2 rounded transition duration-200"
                               )}
                             >
-                              Gutter, Fascia & Soffit Repair/Replacement
+                              Gutter
                             </div>
                           </Link>{" "}
-                          <Link href={"/pressure-washing"}>
+                          <Link href={"/commercial"}>
                             <div
                               className={cn(
                                 "cursor-pointer hover:text-red-primary hover:bg-slate-100 p-2 mb-2 rounded transition duration-200"
                               )}
                             >
-                              Pressure Washing
+                              Commercial
                             </div>
                           </Link>
                         </div>
@@ -97,7 +95,7 @@ const ForMobile = () => {
                         title="Pricing"
                       >
                         <div className=" ps-1">
-                          <Link href={"/roof-cost-calculator"}>
+                          <Link href={"/pricing-cost-calculator/roofing"}>
                             <div
                               // className="cursor-pointer hover:text-red-primary hover:bg-slate-100 p-2 mb-2 rounded"
                               className={cn(
@@ -107,7 +105,7 @@ const ForMobile = () => {
                               Roof Cost Calculator
                             </div>
                           </Link>
-                          <Link href={"/siding-cost-calculator"}>
+                          <Link href={"/pricing-cost-calculator/siding"}>
                             <div
                               // className="cursor-pointer hover:text-red-primary hover:bg-slate-100 p-2 rounded"
                               className={cn(
@@ -117,7 +115,7 @@ const ForMobile = () => {
                               Siding Cost Calculator
                             </div>
                           </Link>
-                          <Link href={"/window-cost-calculator"}>
+                          <Link href={"/pricing-cost-calculator/window"}>
                             <div
                               // className="cursor-pointer hover:text-red-primary hover:bg-slate-100 p-2 rounded"
                               className={cn(

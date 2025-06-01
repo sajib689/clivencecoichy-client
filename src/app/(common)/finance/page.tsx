@@ -1,12 +1,14 @@
-import CareerBanner from '@/components/shared/commonBanner/CareerBanner'
-import React from 'react'
+import FinanceBanner from "@/components/pages/finance/FinanceBanner";
+import FinanceComponent from "@/components/pages/finance/FinanceComponent";
+import React from "react";
 
-const page = () => {
+const FinancePage = () => {
   return (
-    <main>
-        <CareerBanner title='Easy Payment Plans for Every Budget'/>
-    </main>
-  )
-}
+    <div>
+      <FinanceBanner />
+      <FinanceComponent />
+    </div>
+  );
+};
 
-export default page
+export default FinancePage;

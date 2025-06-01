@@ -1,6 +1,7 @@
 import BlogCard from "@/components/cards/BlogCard";
 import SectionHeader from "@/components/shared/SectionHeader/SectionHeader";
 import { Button } from "antd";
+import Link from "next/link";
 import React from "react";
 
 const BlogSection = () => {
@@ -17,12 +18,14 @@ const BlogSection = () => {
           >
             Insights & Inspiration: The ARC <br /> Archives
           </SectionHeader>
-          <Button
-            size="large"
-            className="bg-red-primary text-white hover:!text-red-primary hover:!border-red-primary"
-          >
-            Read All Blogs
-          </Button>
+          <Link href={"/blogs"}>
+            <Button
+              size="large"
+              className="bg-red-primary text-white hover:!text-red-primary hover:!border-red-primary"
+            >
+              Read All Blogs
+            </Button>
+          </Link>
         </div>
 
         {/* content  */}

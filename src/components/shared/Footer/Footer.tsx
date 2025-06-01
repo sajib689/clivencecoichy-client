@@ -11,6 +11,7 @@ import { PiBuildingOffice } from "react-icons/pi";
 import { RiHomeOfficeLine, RiLinkedinFill } from "react-icons/ri";
 import NavMenu from "../Navbar/NavMenu";
 import AreasWeServe from "./AreasWeServe";
+import { usePathname } from "next/navigation";
 
 const thirdRow = [
   {
@@ -19,23 +20,27 @@ const thirdRow = [
   },
   {
     title: "Blog",
-    link: "/blog",
+    link: "/blogs",
   },
   {
     title: "Reviews",
-    link: "/review",
+    link: "/reviews",
   },
-  {
-    title: "Certification",
-    link: "/certification",
-  },
+  // {
+  //   title: "Certification",
+  //   link: "/certification",
+  // },
   {
     title: "Careers",
     link: "/career",
   },
   {
     title: "Financing",
-    link: "/financing",
+    link: "/finance",
+  },
+  {
+    title: "Service Area",
+    link: "/service-area",
   },
 ];
 const forthRow = [
@@ -58,8 +63,9 @@ const forthRow = [
   },
 ];
 const Footer = () => {
+  const pathname = usePathname();
   return (
-    <div className="bg-[#0F4262] py-20">
+    <div className="bg-[#1E2228] py-20">
       <div className="container">
         <div className=" grid grid-cols-1 xs:grid-cols-2 lg:grid-cols-4 gap-5">
           <div className="flex flex-col gap-6">
@@ -90,6 +96,42 @@ const Footer = () => {
           <div>
             <div className=" w-full text-base text-white">
               <NavMenu className="flex-col mb-4" />
+              <div
+                className={cn("flex flex-col  gap-6  font-normal ps-3 mb-3")}
+              >
+                <Link href={"/gutters"}>
+                  <div
+                    className={cn(
+                      "cursor-pointer hover:text-red-primary transition duration-200",
+                      pathname === "/gutters" &&
+                        "text-red-primary font-semibold"
+                    )}
+                  >
+                    Gutters
+                  </div>
+                </Link>
+                <Link href={"/window"}>
+                  <div
+                    className={cn(
+                      "cursor-pointer hover:text-red-primary transition duration-200",
+                      pathname === "/window" && "text-red-primary font-semibold"
+                    )}
+                  >
+                    Windows
+                  </div>
+                </Link>
+                <Link href={"/commercial"}>
+                  <div
+                    className={cn(
+                      "cursor-pointer hover:text-red-primary transition duration-200",
+                      pathname === "/commercial" &&
+                        "text-red-primary font-semibold"
+                    )}
+                  >
+                    Commercial
+                  </div>
+                </Link>
+              </div>
               <div className="ps-1  w-full max-w-44">
                 <Accordion isCompact className="">
                   <AccordionItem
@@ -98,7 +140,7 @@ const Footer = () => {
                     title={<span className="text-white">Pricing</span>}
                   >
                     <div className=" ps-1">
-                      <Link href={"/roof-cost-calculator"}>
+                      <Link href={"/pricing-cost-calculator/roofing"}>
                         <div
                           // className="cursor-pointer hover:text-red-primary hover:bg-slate-100 p-2 mb-2 rounded"
                           className={cn(
@@ -108,7 +150,7 @@ const Footer = () => {
                           Roof Cost Calculator
                         </div>
                       </Link>
-                      <Link href={"/siding-cost-calculator"}>
+                      <Link href={"/pricing-cost-calculator/siding"}>
                         <div
                           // className="cursor-pointer hover:text-red-primary hover:bg-slate-100 p-2 rounded"
                           className={cn(
@@ -118,7 +160,7 @@ const Footer = () => {
                           Siding Cost Calculator
                         </div>
                       </Link>
-                      <Link href={"/window-cost-calculator"}>
+                      <Link href={"/pricing-cost-calculator/window"}>
                         <div
                           // className="cursor-pointer hover:text-red-primary hover:bg-slate-100 p-2 rounded"
                           className={cn(

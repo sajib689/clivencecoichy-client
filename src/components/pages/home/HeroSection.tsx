@@ -1,4 +1,5 @@
 import { Button } from "antd";
+import Link from "next/link";
 import React from "react";
 import { FaPlay } from "react-icons/fa6";
 
@@ -25,25 +26,29 @@ const HeroSection = () => {
             Our friendly, experienced team is ready to work with you.
           </p>
           <div className="mt-8 flex flex-wrap gap-8 items-center">
-            <Button
-              size="large"
-              className="bg-red-primary border-none text-white hover:!text-red-primary p-6 text-lg"
-            >
-              Free Estimate
-            </Button>
-            <Button
-              size="large"
-              type="text"
-              icon={
-                <FaPlay
-                  size={20}
-                  className="bg-white group-hover:bg-red-primary group-hover:text-white duration-500 w-12 p-3 text-red-primary rounded-full flex items-center justify-center h-12"
-                />
-              }
-              className=" border-none group hover:!text-red-primary text-white p-6 text-lg"
-            >
-              See How It Works
-            </Button>
+            <Link href={"/free-estimate"}>
+              <Button
+                size="large"
+                className="bg-red-primary border-none text-white hover:!text-red-primary text-lg"
+              >
+                Free Estimate
+              </Button>
+            </Link>
+            <Link href={"/insurance-claim/#insurance-video-section"}>
+              <Button
+                size="large"
+                type="text"
+                icon={
+                  <FaPlay
+                    size={20}
+                    className="bg-white group-hover:bg-red-primary group-hover:text-white duration-500 w-12 p-3 text-red-primary rounded-full flex items-center justify-center h-12"
+                  />
+                }
+                className=" border-none group hover:!text-red-primary text-white text-lg"
+              >
+                See How It Works
+              </Button>
+            </Link>
           </div>
         </div>
       </div>

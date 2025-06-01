@@ -1,6 +1,7 @@
 import logo from "@/assets/logo/aboutLogo.png";
 import { Button } from "antd";
 import Image from "next/image";
+import Link from "next/link";
 
 const WindowsDifferenceSection = () => {
   return (
@@ -9,12 +10,14 @@ const WindowsDifferenceSection = () => {
         {/* left */}
         <div className="flex flex-col items-center">
           <Image src={logo} alt="logo" />
-          <Button
-            size="large"
-            className="bg-red-whtie border-red-primary mt-10 text-red-primary hover:!bg-red-primary  hover:!text-white p-6 text-lg"
-          >
-            Calculate Window Cost
-          </Button>
+          <Link href={"/pricing-cost-calculator/window"}>
+            <Button
+              size="large"
+              className="bg-red-whtie border-red-primary mt-10 text-red-primary hover:!bg-red-primary  hover:!text-white p-6 text-lg"
+            >
+              Calculate Window Cost
+            </Button>
+          </Link>
         </div>
         {/* right  */}
         <div>

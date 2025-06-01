@@ -1,6 +1,7 @@
 import logo from "@/assets/freeEstimate.png";
 import { Button } from "antd";
 import Image from "next/image";
+import Link from "next/link";
 
 const FreeEstimateSection = () => {
   return (
@@ -20,12 +21,14 @@ const FreeEstimateSection = () => {
             complimentary roof inspection.
           </p>
 
-          <Button
-            size="large"
-            className="bg-red-primary mt-8 w-fit text-white hover:!text-red-primary hover:!border-red-primary"
-          >
-            Free Estimate
-          </Button>
+          <Link href={"/free-estimate"}>
+            <Button
+              size="large"
+              className="bg-red-primary mt-8 w-fit text-white hover:!text-red-primary hover:!border-red-primary"
+            >
+              Free Estimate
+            </Button>
+          </Link>
         </div>
       </div>
     </div>

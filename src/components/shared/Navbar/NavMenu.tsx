@@ -25,14 +25,14 @@ const NavMenu = ({
         </div>
       </Link>
       {isShowBorder && <div className="h-5 border "></div>}
-      <Link href={"/indurance-claims"}>
+      <Link href={"/insurance-claim"}>
         <div
           className={cn(
             "cursor-pointer hover:text-red-primary transition duration-200",
-            pathname === "/indurance-claims" && "text-red-primary font-semibold"
+            pathname === "/insurance-claim" && "text-red-primary font-semibold"
           )}
         >
-          Insurance Claims
+          Insurance Claim
         </div>
       </Link>
       {isShowBorder && <div className="h-5 border "></div>}

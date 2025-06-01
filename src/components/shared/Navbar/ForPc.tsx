@@ -52,28 +52,40 @@ const ForPc = () => {
             {/* Dropdown Menu */}
             {dropdownOpen && (
               <div className="absolute -left-1/2 top-14 mt-2 bg-white shadow-md rounded-md w-72 p-2 z-[999999]">
-                <Link href={"/gutter-fascia-soffit-repair-replacement"}>
+                <Link href={"/gutters"}>
                   <div
                     // className="cursor-pointer hover:text-red-primary hover:bg-slate-100 p-2 mb-2 rounded"
                     className={cn(
                       "cursor-pointer hover:text-red-primary hover:bg-slate-100 p-2 mb-2 rounded transition duration-200",
-                      pathname === "/gutter-fascia-soffit-repair-replacement" &&
+                      pathname === "/gutters" &&
                         "text-red-primary bg-slate-100 p-2 mb-2 rounded font-semibold"
                     )}
                   >
-                    Gutter, Fascia & Soffit Repair/Replacement
+                    Gutter
                   </div>
                 </Link>
-                <Link href={"/pressure-washing"}>
+                <Link href={"/window"}>
+                  <div
+                    // className="cursor-pointer hover:text-red-primary hover:bg-slate-100 p-2 mb-2 rounded"
+                    className={cn(
+                      "cursor-pointer hover:text-red-primary hover:bg-slate-100 p-2 mb-2 rounded transition duration-200",
+                      pathname === "/window" &&
+                        "text-red-primary bg-slate-100 p-2 mb-2 rounded font-semibold"
+                    )}
+                  >
+                    Windows
+                  </div>
+                </Link>
+                <Link href={"/commercial"}>
                   <div
                     // className="cursor-pointer hover:text-red-primary hover:bg-slate-100 p-2 rounded"
                     className={cn(
                       "cursor-pointer hover:text-red-primary hover:bg-slate-100 p-2 mb-2 rounded transition duration-200",
-                      pathname === "/pressure-washing" &&
+                      pathname === "/commercial" &&
                         "text-red-primary bg-slate-100 p-2 mb-2 rounded font-semibold"
                     )}
                   >
-                    Pressure Washing
+                    Commercial
                   </div>
                 </Link>
               </div>
@@ -90,9 +102,8 @@ const ForPc = () => {
 
               className={cn(
                 "cursor-pointer  hover:text-red-primary transition duration-200 flex gap-3 items-center",
-                pathname === "/gutter-fascia-soffit-repair-replacement" &&
-                  "text-red-primary ",
-                pathname === "/pressure-washing" && "text-red-primary "
+                pathname === "/pricing" && "text-red-primary ",
+                pathname === "/pricing" && "text-red-primary "
               )}
             >
               <p>Pricing</p>{" "}
@@ -104,36 +115,36 @@ const ForPc = () => {
             {/* Dropdown Menu */}
             {dropdownOpenPricing && (
               <div className="absolute -left-1/2 top-14 mt-2 bg-white shadow-md rounded-md w-72 p-2 z-[999999]">
-                <Link href={"/roof-cost-calculator"}>
+                <Link href={"/pricing-cost-calculator/roofing"}>
                   <div
                     // className="cursor-pointer hover:text-red-primary hover:bg-slate-100 p-2 mb-2 rounded"
                     className={cn(
                       "cursor-pointer hover:text-red-primary hover:bg-slate-100 p-2 mb-2 rounded transition duration-200",
-                      pathname === "/roof-cost-calculator" &&
+                      pathname === "/pricing-cost-calculator/roofing" &&
                         "text-red-primary bg-slate-100 p-2 mb-2 rounded font-semibold"
                     )}
                   >
                     Roof Cost Calculator
                   </div>
                 </Link>
-                <Link href={"/siding-cost-calculator"}>
+                <Link href={"/pricing-cost-calculator/siding"}>
                   <div
                     // className="cursor-pointer hover:text-red-primary hover:bg-slate-100 p-2 rounded"
                     className={cn(
                       "cursor-pointer hover:text-red-primary hover:bg-slate-100 p-2 mb-2 rounded transition duration-200",
-                      pathname === "/siding-cost-calculator" &&
+                      pathname === "/pricing-cost-calculator/siding" &&
                         "text-red-primary bg-slate-100 p-2 mb-2 rounded font-semibold"
                     )}
                   >
                     Siding Cost Calculator
                   </div>
                 </Link>
-                <Link href={"/window-cost-calculator"}>
+                <Link href={"/pricing-cost-calculator/window"}>
                   <div
                     // className="cursor-pointer hover:text-red-primary hover:bg-slate-100 p-2 rounded"
                     className={cn(
                       "cursor-pointer hover:text-red-primary hover:bg-slate-100 p-2 mb-2 rounded transition duration-200",
-                      pathname === "/window-cost-calculator" &&
+                      pathname === "/pricing-cost-calculator/window" &&
                         "text-red-primary bg-slate-100 p-2 mb-2 rounded font-semibold"
                     )}
                   >
@@ -146,7 +157,9 @@ const ForPc = () => {
         </div>
 
         <div className="">
-          <MyButton title="Free Estimate" />
+          <Link href={"/free-estimate"}>
+            <MyButton title="Free Estimate" />
+          </Link>
         </div>
       </div>
     </div>
