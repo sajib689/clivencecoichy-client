@@ -17,7 +17,7 @@ const CareerBanner = ({title}:{title:string}) => {
       {/* Optional: Overlay or content */}
       <div className="absolute bg-black/30 w-full z-10 flex items-center text-left h-full">
         <div className="container">
-          <h2 className="text-white font-bold text-4xl md:text-5xl lg:text-6xl ">
+          <h2 className="w-3/4 text-white font-bold text-4xl md:text-5xl lg:text-6xl ">
          {title}
           </h2>
           

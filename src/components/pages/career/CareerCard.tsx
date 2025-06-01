@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import React from 'react'
 
 
@@ -10,7 +11,7 @@ const CareerCard = () => {
                   <h1 className='font-semibold text-xl'>Project Advisor</h1>
                   <p className='text-[14px]'>Type: Full-Time, Part-Time</p>
               </div>
-            <button className='bg-red-700 text-white px-4 py-2 rounded-md'>Job Details</button>
+           <Link className='inline-block bg-red-700 text-white px-4 py-2 rounded-md' href={'/career/career-details'}> <button  >Job Details</button></Link>
           </div>
     </section>
   )
