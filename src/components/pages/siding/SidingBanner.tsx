@@ -34,12 +34,14 @@ const SidingBanner = () => {
                 Free Estimate
               </Button>
             </Link>
-            <Button
-              size="large"
-              className="bg-red-whtie border-none text-red-primary hover:!bg-red-primary  hover:!text-white p-6 text-lg"
-            >
-              Calculate Siding Cost
-            </Button>
+            <Link href={"/pricing-cost-calculator/siding"}>
+              <Button
+                size="large"
+                className="bg-red-whtie border-none text-red-primary hover:!bg-red-primary  hover:!text-white p-6 text-lg"
+              >
+                Calculate Siding Cost
+              </Button>
+            </Link>
           </div>
         </div>
       </div>

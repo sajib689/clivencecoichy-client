@@ -1,10 +1,12 @@
-import CareerBanner from '@/components/career/CareerBanner'
+import CareerBanner from '@/components/shared/commonBanner/CareerBanner'
+import CareerDetails from '@/components/pages/career/CareerDetails'
 import React from 'react'
 
 const page = () => {
   return (
       <main>
-          <CareerBanner title='Join Our Family of <br />Exterior Experts'  />
+      <CareerBanner title='Ready to Elevate Your Career?' />
+      <CareerDetails />
     </main>
   )
 }

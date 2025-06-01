@@ -11,6 +11,7 @@ import { PiBuildingOffice } from "react-icons/pi";
 import { RiHomeOfficeLine, RiLinkedinFill } from "react-icons/ri";
 import NavMenu from "../Navbar/NavMenu";
 import AreasWeServe from "./AreasWeServe";
+import { usePathname } from "next/navigation";
 
 const thirdRow = [
   {
@@ -62,6 +63,7 @@ const forthRow = [
   },
 ];
 const Footer = () => {
+  const pathname = usePathname();
   return (
     <div className="bg-[#1E2228] py-20">
       <div className="container">
@@ -94,6 +96,42 @@ const Footer = () => {
           <div>
             <div className=" w-full text-base text-white">
               <NavMenu className="flex-col mb-4" />
+              <div
+                className={cn("flex flex-col  gap-6  font-normal ps-3 mb-3")}
+              >
+                <Link href={"/gutters"}>
+                  <div
+                    className={cn(
+                      "cursor-pointer hover:text-red-primary transition duration-200",
+                      pathname === "/gutters" &&
+                        "text-red-primary font-semibold"
+                    )}
+                  >
+                    Gutters
+                  </div>
+                </Link>
+                <Link href={"/window"}>
+                  <div
+                    className={cn(
+                      "cursor-pointer hover:text-red-primary transition duration-200",
+                      pathname === "/window" && "text-red-primary font-semibold"
+                    )}
+                  >
+                    Windows
+                  </div>
+                </Link>
+                <Link href={"/commercial"}>
+                  <div
+                    className={cn(
+                      "cursor-pointer hover:text-red-primary transition duration-200",
+                      pathname === "/commercial" &&
+                        "text-red-primary font-semibold"
+                    )}
+                  >
+                    Commercial
+                  </div>
+                </Link>
+              </div>
               <div className="ps-1  w-full max-w-44">
                 <Accordion isCompact className="">
                   <AccordionItem

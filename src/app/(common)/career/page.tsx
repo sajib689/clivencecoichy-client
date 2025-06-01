@@ -1,16 +1,17 @@
-import CareerBanner from '@/components/career/CareerBanner'
-import CareerCard from '@/components/career/CareerCard'
-import TestimonialSection from '@/components/pages/home/TestimonialSection'
-import React from 'react'
+
+import CareerCard from "@/components/pages/career/CareerCard";
+import TestimonialSection from "@/components/pages/home/TestimonialSection";
+import CareerBanner from "@/components/shared/commonBanner/CareerBanner";
+import React from "react";
 
 const page = () => {
   return (
     <section>
-          <CareerBanner title='Join Our Family of <br />Exterior Experts'/>
-          <CareerCard />
-          <TestimonialSection/>
+      <CareerBanner title="<span className=` leading-tight`>Join Our Family of <br/>  Exterior Experts</span>" />
+      <CareerCard />
+      <TestimonialSection />
     </section>
-  )
-}
+  );
+};
 
-export default page
+export default page;

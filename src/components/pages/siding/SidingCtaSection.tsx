@@ -2,6 +2,7 @@ import Image from "next/image";
 import React from "react";
 import ctaImage from "@/assets/siding/sidingCta.png";
 import { Button } from "antd";
+import Link from "next/link";
 
 const SidingCtaSection = () => {
   return (
@@ -16,12 +17,14 @@ const SidingCtaSection = () => {
           <h2 className="text-3xl md:text-4xl lg:text-5xl text-white font-bold text-center leading-tight">
             How Much Does New <br /> Siding Cost?
           </h2>
-          <Button
-            size="large"
-            className="mt-10 bg-red-primary border-none text-white hover:!text-red-primary text-lg"
-          >
-            Calculate Siding Cost
-          </Button>
+          <Link href={"/pricing-cost-calculator/siding"}>
+            <Button
+              size="large"
+              className="mt-10 bg-red-primary border-none text-white hover:!text-red-primary text-lg"
+            >
+              Calculate Siding Cost
+            </Button>
+          </Link>
         </div>
       </div>
     </div>
