@@ -1,6 +1,7 @@
-import CareerBanner from "@/components/career/CareerBanner";
-import CareerCard from "@/components/career/CareerCard";
+
+import CareerCard from "@/components/pages/career/CareerCard";
 import TestimonialSection from "@/components/pages/home/TestimonialSection";
+import CareerBanner from "@/components/shared/commonBanner/CareerBanner";
 import React from "react";
 
 const page = () => {

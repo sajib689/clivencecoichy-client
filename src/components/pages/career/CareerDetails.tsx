@@ -33,7 +33,7 @@ export default function CareerDetails() {
   };
 
   return (
-    <div className="bg-white max-w-7xl mx-auto px-6 my-20 md:flex md:gap-12">
+    <div className="bg-white max-w-7xl mx-auto px-6 my-20 md:flex md:gap-12 relative">
       {/* Left Section */}
       <div className="md:w-1/2 space-y-8">
         <div>
