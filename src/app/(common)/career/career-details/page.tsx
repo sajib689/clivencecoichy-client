@@ -1,11 +1,10 @@
-import CareerBanner from "@/components/shared/commonBanner/CareerBanner";
 import CareerDetails from "@/components/pages/career/CareerDetails";
-import React from "react";
+import CareerDetailsBanner from "@/components/shared/commonBanner/CareerDetailsBanner";
 
 const page = () => {
   return (
     <div>
-      <CareerBanner title="Ready to Elevate Your Career?" />
+      <CareerDetailsBanner title="<span>Ready to Elevate Your <br/> Career?</span>" />
       <CareerDetails />
     </div>
   );
