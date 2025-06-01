@@ -34,19 +34,21 @@ const HeroSection = () => {
                 Free Estimate
               </Button>
             </Link>
-            <Button
-              size="large"
-              type="text"
-              icon={
-                <FaPlay
-                  size={20}
-                  className="bg-white group-hover:bg-red-primary group-hover:text-white duration-500 w-12 p-3 text-red-primary rounded-full flex items-center justify-center h-12"
-                />
-              }
-              className=" border-none group hover:!text-red-primary text-white text-lg"
-            >
-              See How It Works
-            </Button>
+            <Link href={"/insurance-claim/#insurance-video-section"}>
+              <Button
+                size="large"
+                type="text"
+                icon={
+                  <FaPlay
+                    size={20}
+                    className="bg-white group-hover:bg-red-primary group-hover:text-white duration-500 w-12 p-3 text-red-primary rounded-full flex items-center justify-center h-12"
+                  />
+                }
+                className=" border-none group hover:!text-red-primary text-white text-lg"
+              >
+                See How It Works
+              </Button>
+            </Link>
           </div>
         </div>
       </div>

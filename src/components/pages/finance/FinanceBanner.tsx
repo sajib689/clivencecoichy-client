@@ -1,4 +1,4 @@
-import bannerImage from "@/assets/gutters/gutterBanner.png";
+import bannerImage from "@/assets/financing/banner.png";
 import Image from "next/image";
 
 const FinanceBanner = () => {

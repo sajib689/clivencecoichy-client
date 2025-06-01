@@ -1,16 +1,15 @@
-import bannerImage from "@/assets/commercial/banner.png";
-import Image from "next/image";
 
 const InsuranceClaimBanner = () => {
   return (
     <div className="relative h-[60vh] overflow-hidden">
       {/* Background Video */}
-      <Image
+      <video
         className="absolute top-0 left-0 w-full h-full object-cover z-[1]"
-        src={bannerImage}
-        width={2000}
-        height={800}
-        alt="window Imge"
+        src="/insuranceClaimVideo.mov" // Replace with actual filename
+        autoPlay
+        muted
+        loop
+        playsInline
       />
 
       {/* Optional: Overlay or content */}

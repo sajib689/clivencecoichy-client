@@ -1,6 +1,7 @@
 import { Button } from "antd";
 import Image from "next/image";
 import bannerImage from "@/assets/windows/bannerImage.png";
+import Link from "next/link";
 
 const WindowBanner = () => {
   return (
@@ -31,12 +32,14 @@ const WindowBanner = () => {
             >
               Free Estimate
             </Button> */}
-            <Button
-              size="large"
-              className="bg-red-whtie border-none text-red-primary hover:!bg-red-primary  hover:!text-white p-6 text-lg"
-            >
-              Calculate Window Cost
-            </Button>
+            <Link href={"/pricing-cost-calculator/window"}>
+              <Button
+                size="large"
+                className="bg-red-whtie border-none text-red-primary hover:!bg-red-primary  hover:!text-white p-6 text-lg"
+              >
+                Calculate Window Cost
+              </Button>
+            </Link>
           </div>
         </div>
       </div>
