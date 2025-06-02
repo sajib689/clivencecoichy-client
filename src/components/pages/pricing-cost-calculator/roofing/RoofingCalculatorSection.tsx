@@ -26,11 +26,11 @@ const RoofingCalculatorSection = () => {
   const [homeSizeId, setHomeSizeId] = useState<string | null>(null);
 
   console.log(roofId, workableId, homeSizeId);
-  const { data } = useGetRoofingRoofQuery({});
   const { data: workable } = useGetRoofingWorkableQuery({});
   const { data: homeSize } = useGetRoofingHomeSizeQuery({});
   const [nRoofingData, setNRoofingData] = useState<any>([]);
-
+  
+  const { data } = useGetRoofingRoofQuery({});
   const { data: roofingPrice, refetch } = useGetSelectedRoofingPriceQuery(
     {
       roof: roofId || "",
