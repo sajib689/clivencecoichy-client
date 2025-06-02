@@ -1,12 +1,12 @@
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 import React from "react";
 
-type RoofType = {
-  _id: string;
+export type RoofType = {
+  _id: string | number;
   name: string;
-  image: string;
+  image: string | StaticImageData;
   description?: string;
-  __v: number;
+  __v?: number;
 };
 
 const RoofCard = ({

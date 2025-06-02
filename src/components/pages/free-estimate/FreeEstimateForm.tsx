@@ -1,10 +1,9 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 
-import Image from "next/image";
+import RoofCard, { RoofType } from "@/components/cards/calculator/RoofCard";
+import { Button, Col, Form, Input, Row, Select } from "antd";
 import { useState } from "react";
-import { Button, Col, DatePicker, Form, Input, Row, Select } from "antd";
-import RoofCard from "@/components/cards/calculator/RoofCard";
 
 import roofIcon1 from "@/assets/free-estimate/serviceIcon1.svg";
 import roofIcon2 from "@/assets/free-estimate/serviceIcon2.svg";
@@ -12,6 +11,7 @@ import roofIcon3 from "@/assets/free-estimate/serviceIcon3.svg";
 import roofIcon4 from "@/assets/free-estimate/serviceIcon4.svg";
 import roofIcon5 from "@/assets/free-estimate/serviceIcon5.svg";
 import roofIcon6 from "@/assets/free-estimate/serviceIcon6.svg";
+import { toast } from "sonner";
 
 const { TextArea } = Input;
 
@@ -28,7 +28,16 @@ const FreeEstimateForm = () => {
   };
 
   const onFinish = (values: any) => {
-    console.log("Form values:", values);
+    console.log("Form values:", values, selectedServices);
+
+    try {
+      
+    } catch (error) {
+      console.log(error)
+      toast.error(
+        "An error occurred while submitting the form. Please try again later."  
+      );
+    }
   };
 
   return (
@@ -135,10 +144,10 @@ const FreeEstimateForm = () => {
               <div className="mt-5 flex flex-wrap gap-4">
                 {roofingData.map((item) => (
                   <div
-                    key={item.id}
-                    onClick={() => toggleService(item.title)}
+                    key={item._id}
+                    onClick={() => toggleService(item.name)}
                     className={`cursor-pointer border-2 rounded-xl transition ${
-                      selectedServices.includes(item.title)
+                      selectedServices.includes(item.name)
                         ? "border-red-500"
                         : "border-gray-300"
                     }`}
@@ -161,7 +170,7 @@ const FreeEstimateForm = () => {
               extra="Most appointments take 60–90 minutes. Allow 48+ hours."
               rules={[{ required: true, message: "Please select a date" }]}
             >
-              <DatePicker style={{ width: "100%" }} />
+              <Input type="date" style={{ width: "100%" }} />
             </Form.Item>
           </Col>
 
@@ -176,6 +185,8 @@ const FreeEstimateForm = () => {
                 <Select.Option value="8-11">8 AM – 11 AM</Select.Option>
                 <Select.Option value="11-2">11 AM – 2 PM</Select.Option>
                 <Select.Option value="2-5">2 PM – 5 PM</Select.Option>
+                <Select.Option value="5-8">5 PM – 8 PM</Select.Option>
+                <Select.Option value="anytime">Anytime</Select.Option>
               </Select>
             </Form.Item>
           </Col>
@@ -214,35 +225,35 @@ const FreeEstimateForm = () => {
 
 export default FreeEstimateForm;
 
-const roofingData = [
+const roofingData: RoofType[] = [
   {
-    id: 1,
-    title: "Roofing",
-    icon: <Image src={roofIcon1} className="w-20" alt="roof icon" />,
+    _id: 1,
+    name: "Roofing",
+    image: roofIcon1,
   },
   {
-    id: 2,
-    title: "Windows",
-    icon: <Image src={roofIcon2} className="w-14" alt="roof icon" />,
+    _id: 2,
+    name: "Windows",
+    image: roofIcon2,
   },
   {
-    id: 3,
-    title: "Siding",
-    icon: <Image src={roofIcon3} className="w-20" alt="roof icon" />,
+    _id: 3,
+    name: "Siding",
+    image: roofIcon3,
   },
   {
-    id: 4,
-    title: "Doors",
-    icon: <Image src={roofIcon4} className="w-20" alt="roof icon" />,
+    _id: 4,
+    name: "Doors",
+    image: roofIcon4,
   },
   {
-    id: 5,
-    title: "Insulation",
-    icon: <Image src={roofIcon5} className="w-20" alt="roof icon" />,
+    _id: 5,
+    name: "Insulation",
+    image: roofIcon5,
   },
   {
-    id: 6,
-    title: "Gutters & Downspouts",
-    icon: <Image src={roofIcon6} className="w-20" alt="roof icon" />,
+    _id: 6,
+    name: "Gutters & Downspouts",
+    image: roofIcon6,
   },
 ];
