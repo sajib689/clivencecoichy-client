@@ -1,11 +1,31 @@
+"use client";
+
 import SectionHeader from "@/components/shared/SectionHeader/SectionHeader";
 import { Button, Divider, Input } from "antd";
 import Image from "next/image";
-import React from "react";
+import React, { useState } from "react";
 import logo from "@/assets/logo/redTextLogo.png";
 import { FaCalculator } from "react-icons/fa6";
 
 const FinanceComponent = () => {
+  const [inputValue, setInputValue] = useState("");
+
+  function getMonthlyPayment(cost: number, months: number): number {
+    const year = months / 12;
+    const totalCost = cost / months;
+    // const interestRate = year + year * 1.9733;
+    if (year >= 10) {
+      if (cost > 100) {
+        return totalCost + totalCost * 0.59 - 1;
+      }
+      return totalCost + totalCost * 0.59; // If interest rate is 0, return simple division
+    }
+    return cost / months;
+  }
+
+  const oneYEAR_PAYMENT = getMonthlyPayment(Number(inputValue), 12).toFixed(2);
+  const tenYEAR_PAYMENT = getMonthlyPayment(Number(inputValue), 120).toFixed(2);
+
   return (
     <div className="py-20">
       <div className="container">
@@ -112,6 +132,10 @@ const FinanceComponent = () => {
                 ${" "}
                 <Input
                   type="number"
+                  onChange={(e) => {
+                    setInputValue(e.target.value);
+                  }}
+                  value={inputValue}
                   placeholder="0.00"
                   className="focus:!border-red-primary hover:!border-red-primary max-w-[200px] "
                 />
@@ -125,7 +149,7 @@ const FinanceComponent = () => {
                   <span className="text-red-primary">$0</span> DOWN
                 </h2>
                 <h3 className="text-xl md:text-2xl text-title font-semibold">
-                  <span className="text-yellow-400">$1,250.00 </span>/{" "}
+                  <span className="text-yellow-400">${oneYEAR_PAYMENT} </span>/{" "}
                   <span className="text-[16px]">per month</span>
                 </h3>
               </div>
@@ -135,7 +159,7 @@ const FinanceComponent = () => {
                   <span className="text-red-primary">$0</span> DOWN
                 </h2>
                 <h3 className="text-xl md:text-2xl text-title font-semibold">
-                  <span className="text-yellow-400">$1,250.00 </span>/{" "}
+                  <span className="text-yellow-400">${tenYEAR_PAYMENT} </span>/{" "}
                   <span className="text-[16px]">per month</span>
                 </h3>
               </div>
