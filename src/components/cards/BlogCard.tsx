@@ -1,14 +1,21 @@
 import Image from "next/image";
 import React from "react";
 import blogImage from "@/assets/blogs/blog1.png";
+import { TBlog } from "@/interface/globalType";
+import Link from "next/link";
 
-const BlogCard = () => {
+const BlogCard = ({ data }: { data: TBlog }) => {
   return (
-    <div className="max-w-md overflow-hidden bg-white rounded-lg shadow-2xl cursor-pointer hover:shadow-none duration-300 mx-auto">
+    <Link
+      href={`/blogs/${data?._id}`}
+      className="max-w-md overflow-hidden bg-white rounded-lg shadow-2xl cursor-pointer hover:shadow-none duration-300 mx-auto"
+    >
       {/* Image */}
       <div className="w-full">
         <Image
-          src={blogImage}
+          src={data?.image?.url || blogImage}
+          width={500}
+          height={300}
           alt="Modern wooden house with black roof"
           className="w-full h-64 object-cover"
         />
@@ -30,7 +37,7 @@ const BlogCard = () => {
                 fill="currentColor"
               />
             </svg>
-            <span className="text-[15px]">James Charls</span>
+            <span className="text-[15px]">{data?.admin?.name}</span>
           </div>
 
           <div className="flex items-center text-blue-gray-400">
@@ -69,20 +76,22 @@ const BlogCard = () => {
                 strokeLinejoin="round"
               />
             </svg>
-            <span className="text-[15px]">12 July, 2024</span>
+            <span className="text-[15px]">
+              {new Date(data?.createdAt).toDateString()}
+            </span>
           </div>
         </div>
 
         {/* Title */}
         <h2 className="mb-3 text-2xl font-bold text-gray-900 leading-tight">
-          What Homeowners Need to Know After a Hailstorm
+          {data?.title || "How to Protect Your Roof After a Storm"}
         </h2>
 
         {/* Description */}
-        <p className="mb-5 text-blue-gray-500 leading-relaxed">
-          Don&apos;t wait until you see a leak — here&apos;s how to protect your
-          home, your roof, and your wallet after a storm.
-        </p>
+        <p
+          className="mb-5 text-blue-gray-500 leading-relaxed"
+          dangerouslySetInnerHTML={{ __html: data?.content || "" }}
+        />
 
         {/* Read More Link */}
         <div className="flex items-center">
@@ -115,7 +124,7 @@ const BlogCard = () => {
           </a>
         </div>
       </div>
-    </div>
+    </Link>
   );
 };
 

@@ -1,12 +1,36 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+"use client";
+
 import Image from "next/image";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import logo from "@/assets/about/aboutPeople.jpg";
+import { useGetAllOwnersQuery } from "@/redux/service/about/ownerApi";
 
 const AboutOwner = () => {
+  const [aboutOwner, setAboutOwner] = useState<any>(null);
+
+  const { data, isLoading } = useGetAllOwnersQuery({});
+
+  useEffect(() => {
+    if (data && data.length > 0) {
+      setAboutOwner(data[0]);
+    }
+  }, [data]);
+
+  if (isLoading) {
+    return (
+      <section className="pb-10">
+        <div className="container grid grid-cols-1 lg:grid-cols-2 items-center gap-10">
+          <div className="flex items-center justify-center">
+            <h2 className="text-title">Loading...</h2>
+          </div>
+        </div>
+      </section>
+    );
+  }
   return (
     <section className="pb-10">
       <div className="container grid grid-cols-1 lg:grid-cols-2 items-center gap-10">
-       
         {/* left  */}
         <div>
           <div className="flex items-center gap-4">
@@ -17,21 +41,25 @@ const AboutOwner = () => {
             About the Company
           </h3>
           <p className="text-md mt-5">
-            George has over 22 years of experience in exterior restoration. As a Public Adjuster himself, he has a unique skillset which allows him to use his experience and wisdom to work with insurance companies to achieve the absolute best outcomes for his clients. 
+            George has over 22 years of experience in exterior restoration. As a
+            Public Adjuster himself, he has a unique skillset which allows him
+            to use his experience and wisdom to work with insurance companies to
+            achieve the absolute best outcomes for his clients.
             <br />
             <br />
-            He is constantly reminding his children (especially his son) that knowledge is knowing that a tomato is a fruit and wisdom is knowing not to put it in a fruit salad.          </p>
-
-       
+            He is constantly reminding his children (especially his son) that
+            knowledge is knowing that a tomato is a fruit and wisdom is knowing
+            not to put it in a fruit salad.{" "}
+          </p>
         </div>
-         {/*right  */}
+        {/*right  */}
         <div className="flex flex-col items-center justify-center">
           <Image
-                src={logo}
-                alt="logo"
-                width={500}
-                height={500}
-                className="w-full max-h-[455px] rounded-md"
+            src={aboutOwner?.image?.url || logo}
+            alt="logo"
+            width={500}
+            height={500}
+            className="w-full max-h-[455px] rounded-md"
           />
           {/* <div className="bg-white  shadow-xl rounded-xl inline-block p-5 text-xl font-bold text-title">
             20+ years of <br /> experience

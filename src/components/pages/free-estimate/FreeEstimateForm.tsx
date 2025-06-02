@@ -12,12 +12,17 @@ import roofIcon4 from "@/assets/free-estimate/serviceIcon4.svg";
 import roofIcon5 from "@/assets/free-estimate/serviceIcon5.svg";
 import roofIcon6 from "@/assets/free-estimate/serviceIcon6.svg";
 import { toast } from "sonner";
+import { useSendApoinmentMutation } from "@/redux/service/appoinmentApi";
 
 const { TextArea } = Input;
 
 const FreeEstimateForm = () => {
   const [form] = Form.useForm();
   const [selectedServices, setSelectedServices] = useState<string[]>([]);
+
+  // api call
+
+  const [sendApoinment] = useSendApoinmentMutation();
 
   const toggleService = (service: string) => {
     const updatedServices = selectedServices.includes(service)
@@ -28,14 +33,42 @@ const FreeEstimateForm = () => {
   };
 
   const onFinish = (values: any) => {
-    console.log("Form values:", values, selectedServices);
+    const newData = {
+      firstName: values.firstName,
+      lastName: values.lastName,
+      phone: values.phone,
+      email: values.email,
+      address: values.address,
+      city: values.city,
+      state: values.state,
+      zip: values.zipcode,
+      service: selectedServices,
+      date: values.appointment,
+      timeSlot: values.time,
+      details: values.details,
+    };
 
     try {
-      
+      toast.promise(sendApoinment(newData).unwrap(), {
+        loading: "Submitting your request...",
+        success: (response) => {
+          console.log("Response:", response);
+          form.resetFields();
+          setSelectedServices([]);
+          return "Your request has been submitted successfully!";
+        },
+        error: (error) => {
+          console.error("Error:", error);
+          return (
+            error?.data?.message ||
+            "An error occurred while submitting your request. Please try again."
+          );
+        },
+      });
     } catch (error) {
-      console.log(error)
+      console.log(error);
       toast.error(
-        "An error occurred while submitting the form. Please try again later."  
+        "An error occurred while submitting the form. Please try again later."
       );
     }
   };

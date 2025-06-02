@@ -10,7 +10,7 @@ import roofIcon8 from "@/assets/Pricing-cost-calculator/window/windowIcon8.svg";
 // icon check mark
 import iIcon from "@/assets/Pricing-cost-calculator/roofing/alert-circle.png";
 import checkIcon from "@/assets/Pricing-cost-calculator/roofing/checkMarkFilled.svg";
-import CalculatorRightShowCard from "@/components/cards/calculator/CalculatorRightShowCard";
+// import CalculatorRightShowCard from "@/components/cards/calculator/CalculatorRightShowCard";
 import WindowCard from "@/components/cards/calculator/WindowCard";
 import { Button } from "antd";
 import Image from "next/image";
@@ -65,13 +65,13 @@ const WindowCalculatorSection = () => {
 
             {/* cards  */}
             <div className="mt-10">
-              <CalculatorRightShowCard />
+              {/* <CalculatorRightShowCard /> */}
 
               <h3 className="text-2xl font-bold text-title my-8">
                 You’ve Selected
               </h3>
 
-              <CalculatorRightShowCard />
+              {/* <CalculatorRightShowCard /> */}
 
 <Link href={"/free-estimate"}>
               <Button

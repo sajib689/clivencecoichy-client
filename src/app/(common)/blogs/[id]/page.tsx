@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image";
 import React from "react";
 import blogImage from "@/assets/blogs/blog1.png";
@@ -7,8 +9,13 @@ import {
   FaLinkedin,
   FaXTwitter,
 } from "react-icons/fa6";
+import { useGetSingleBlogQuery } from "@/redux/service/blog/blogApi";
+import { useParams } from "next/navigation";
 
 const BlogDetails = () => {
+  const { id } = useParams();
+  const { data } = useGetSingleBlogQuery(id, { skip: !id });
+  // console.log(data, "single blog data");
   return (
     <div>
       <div className="container py-20 pt-8 grid grid-cols-12 gap-12">
@@ -55,7 +62,7 @@ const BlogDetails = () => {
                   fill="currentColor"
                 />
               </svg>
-              <span className="text-[15px]">James Charls</span>
+              <span className="text-[15px]">{data?.data?.author}</span>
             </div>
 
             <div className="flex items-center text-blue-gray-400">
@@ -94,34 +101,19 @@ const BlogDetails = () => {
                   strokeLinejoin="round"
                 />
               </svg>
-              <span className="text-[15px]">12 July, 2024</span>
+              <span className="text-[15px]">
+                {new Date(data?.data?.createdAt).toDateString()}
+              </span>
             </div>
           </div>
           {/* title  */}
           <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-title mt-8">
-            What Homeowners Need to Know After a Hailstorm
+            {data?.data?.title}
           </h1>
-          <p className="mt-5">
-            Don’t wait until you see a leak — here’s how to protect your home,
-            your roof, and your wallet after a storm.
-          </p>
-
-          <h3 className="text-lg lg:text-xl mt-8 font-bold text-title">
-            A hailstorm just hit — now what?
-          </h3>
-          <p className="mt-4">
-            If you’ve just experienced a hailstorm, it’s completely normal to
-            look outside and think, “Well… everything looks fine.” But the truth
-            is, storm damage isn’t always obvious — and the longer it goes
-            unaddressed, the more costly it can become. <br />
-            <br />
-            At ARC (Allied Restoration Contractors), we’ve seen it all: roofs
-            that look perfectly fine from the street but are covered in hail
-            bruises, damaged vents, and weakened shingles that lead to major
-            leaks weeks or months later. <br />
-            <br />
-            So what should you do after a storm?
-          </p>
+          <p
+            className="mt-5"
+            dangerouslySetInnerHTML={{ __html: data?.data?.content || "" }}
+          />
         </div>
       </div>
     </div>
