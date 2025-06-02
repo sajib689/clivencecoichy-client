@@ -47,6 +47,17 @@ const NavMenu = ({
         </div>
       </Link>
       {isShowBorder && <div className="h-5 border "></div>}
+      <Link href={"/finance"}>
+        <div
+          className={cn(
+            "cursor-pointer hover:text-red-primary transition duration-200",
+            pathname === "/finance" && "text-red-primary font-semibold"
+          )}
+        >
+          Financing
+        </div>
+      </Link>
+      {isShowBorder && <div className="h-5 border "></div>}
     </div>
   );
 };
