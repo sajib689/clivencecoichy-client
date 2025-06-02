@@ -1,10 +1,10 @@
-import type { Metadata } from "next";
-import { Inter } from "next/font/google";
-import { NextUiProvider } from "@/lib/providers/NextUIProvider";
+import Footer from "@/components/shared/Footer/Footer";
 import Navbar from "@/components/shared/Navbar/Navbar";
 import ScrollToTopButton from "@/components/ui/ScrollToTopButton/ScrollToTopButton";
-import Footer from "@/components/shared/Footer/Footer";
-import ReduxStoreProvider from "@/redux/ReduxStoreProvider";
+import { NextUiProvider } from "@/lib/providers/NextUIProvider";
+import ReduxProvider from "@/redux/ReduxProvider";
+import type { Metadata } from "next";
+import { Inter } from "next/font/google";
 import { Toaster } from "sonner";
 
 const inter = Inter({
@@ -33,7 +33,7 @@ export default function RootLayout({
         className={`${inter.variable} antialiased !bg-white`}
       >
         <NextUiProvider>
-          <ReduxStoreProvider>
+          <ReduxProvider>
             <>
               <div className="min-h-screen grid grid-rows-[auto_1fr_auto] max-w-[100vw] overflow-hidden">
                 <Navbar />
@@ -44,7 +44,7 @@ export default function RootLayout({
               <ScrollToTopButton />
               <Toaster />
             </>
-          </ReduxStoreProvider>
+          </ReduxProvider>
         </NextUiProvider>
       </body>
     </html>

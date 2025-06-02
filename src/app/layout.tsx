@@ -1,6 +1,6 @@
 import ScrollToTopButton from "@/components/ui/ScrollToTopButton/ScrollToTopButton";
 import { NextUiProvider } from "@/lib/providers/NextUIProvider";
-import ReduxStoreProvider from "@/redux/ReduxStoreProvider";
+import ReduxProvider from "@/redux/ReduxProvider";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { Toaster } from "sonner";
@@ -32,7 +32,7 @@ export default function RootLayout({
         className={`${inter.variable} antialiased !bg-white`}
       >
         <NextUiProvider>
-          <ReduxStoreProvider>
+          <ReduxProvider>
             <>
               <div className="min-h-screen grid grid-rows-[auto_1fr_auto] max-w-[100vw] overflow-hidden">
                 {children}
@@ -40,7 +40,7 @@ export default function RootLayout({
               <ScrollToTopButton />
               <Toaster />
             </>
-          </ReduxStoreProvider>
+          </ReduxProvider>
         </NextUiProvider>
       </body>
     </html>

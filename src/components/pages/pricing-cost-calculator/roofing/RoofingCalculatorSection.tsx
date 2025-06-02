@@ -1,27 +1,80 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+"use client";
+
 import RoofCard from "@/components/cards/calculator/RoofCard";
-import roofIcon1 from "@/assets/Pricing-cost-calculator/roofing/roofIcon1.svg";
-import roofIcon2 from "@/assets/Pricing-cost-calculator/roofing/roofIcon2.svg";
-import roofIcon3 from "@/assets/Pricing-cost-calculator/roofing/roofIcon3.svg";
-import roofIcon4 from "@/assets/Pricing-cost-calculator/roofing/roofIcon4.svg";
-import roofIcon5 from "@/assets/Pricing-cost-calculator/roofing/roofIcon5.svg";
-import roofIcon6 from "@/assets/Pricing-cost-calculator/roofing/roofIcon6.svg";
-import workable1 from "@/assets/Pricing-cost-calculator/roofing/workableIcon1.svg";
-import workable2 from "@/assets/Pricing-cost-calculator/roofing/workableIcon2.svg";
-import workable3 from "@/assets/Pricing-cost-calculator/roofing/workableIcon3.svg";
-import homeSize1 from "@/assets/Pricing-cost-calculator/roofing/homeSizeIcon1.svg";
-import homeSize2 from "@/assets/Pricing-cost-calculator/roofing/homeSizeIcon2.svg";
-import homeSize3 from "@/assets/Pricing-cost-calculator/roofing/homeSizeIcon3.svg";
-import homeSize4 from "@/assets/Pricing-cost-calculator/roofing/homeSizeIcon4.svg";
 
 // icon check mark
-import checkIcon from "@/assets/Pricing-cost-calculator/roofing/checkMarkFilled.svg";
 import iIcon from "@/assets/Pricing-cost-calculator/roofing/alert-circle.png";
-import Image from "next/image";
+import checkIcon from "@/assets/Pricing-cost-calculator/roofing/checkMarkFilled.svg";
 import CalculatorRightShowCard from "@/components/cards/calculator/CalculatorRightShowCard";
+import { useGetRoofingRoofQuery } from "@/redux/service/roofCost/roofcostApi";
+import { useGetRoofingHomeSizeQuery } from "@/redux/service/roofCost/roofHomeSizeApi";
+import { useGetRoofingWorkableQuery } from "@/redux/service/roofCost/roofWorkableApi";
 import { Button } from "antd";
+import Image from "next/image";
 import Link from "next/link";
+import { useEffect, useState } from "react";
+import { useGetSelectedRoofingPriceQuery } from "@/redux/service/roofCost/roofPriceApi";
+import asphaltImage from "@/assets/Pricing-cost-calculator/roofing/asphaltSingles.png";
+import designer from "@/assets/Pricing-cost-calculator/roofing/designer.png";
+import composit from "@/assets/Pricing-cost-calculator/roofing/composit.png";
+import cader from "@/assets/Pricing-cost-calculator/roofing/cader.png";
 
 const RoofingCalculatorSection = () => {
+  const [roofId, setRoofId] = useState<string | null>(null);
+  const [workableId, setWorkableId] = useState<string | null>(null);
+  const [homeSizeId, setHomeSizeId] = useState<string | null>(null);
+
+  console.log(roofId, workableId, homeSizeId);
+  const { data } = useGetRoofingRoofQuery({});
+  const { data: workable } = useGetRoofingWorkableQuery({});
+  const { data: homeSize } = useGetRoofingHomeSizeQuery({});
+  const [nRoofingData, setNRoofingData] = useState<any>([]);
+
+  const { data: roofingPrice, refetch } = useGetSelectedRoofingPriceQuery(
+    {
+      roof: roofId || "",
+      walkability: workableId || "",
+      homeSize: homeSizeId || "",
+    },
+    { skip: !roofId || !workableId || !homeSizeId }
+  );
+
+  console.log(roofingPrice, "roofing price data");
+
+  useEffect(() => {
+    if (roofId && workableId && homeSizeId) {
+      refetch();
+      setNRoofingData(roofingPrice);
+    }
+  }, [roofId, workableId, homeSizeId, refetch, roofingPrice]);
+
+  const sidedeData = [
+    {
+      title: "Asphalt Shingles",
+      price: nRoofingData?.asphaltLow,
+      highPrice: nRoofingData?.asphaltHigh,
+      image: asphaltImage,
+    },
+    {
+      title: "Designer Shingles",
+      price: nRoofingData?.designerLow,
+      highPrice: nRoofingData?.designerHigh,
+      image: designer,
+    },
+    {
+      title: "Composite Shingles",
+      price: nRoofingData?.compositeLow,
+      highPrice: nRoofingData?.compositeHigh,
+      image: composit,
+    },
+    {
+      title: "Cedar Shakes",
+      price: nRoofingData?.cedarLow,
+      highPrice: nRoofingData?.cedarHigh,
+      image: cader,
+    },
+  ];
   return (
     <div className="py-20">
       <div className="container grid grid-cols-1 md:grid-cols-2">
@@ -36,8 +89,10 @@ const RoofingCalculatorSection = () => {
             {/* select 1  */}
             <div className="mt-10 flex items-center flex-wrap gap-5">
               {/* roof card  */}
-              {roofingData?.map((item) => (
-                <RoofCard key={item?.id} data={item} />
+              {data?.map((item: any, index: number) => (
+                <div key={index} onClick={() => setRoofId(item?._id)}>
+                  <RoofCard data={item} isSelect={item?._id === roofId} />
+                </div>
               ))}
             </div>
           </div>
@@ -51,8 +106,10 @@ const RoofingCalculatorSection = () => {
             {/* select 1  */}
             <div className="mt-10 flex items-center flex-wrap gap-5">
               {/* roof card  */}
-              {sidingData?.map((item) => (
-                <RoofCard key={item?.id} data={item} />
+              {workable?.map((item: any, index: number) => (
+                <div key={index} onClick={() => setWorkableId(item?._id)}>
+                  <RoofCard data={item} isSelect={item?._id === workableId} />
+                </div>
               ))}
             </div>
           </div>
@@ -66,8 +123,10 @@ const RoofingCalculatorSection = () => {
             {/* select 1  */}
             <div className="mt-10 flex items-center flex-wrap gap-5">
               {/* roof card  */}
-              {homeSizeData?.map((item) => (
-                <RoofCard key={item?.id} data={item} />
+              {homeSize?.map((item: any, index: number) => (
+                <div key={index} onClick={() => setHomeSizeId(item?._id)}>
+                  <RoofCard data={item} isSelect={item?._id === homeSizeId} />
+                </div>
               ))}
             </div>
           </div>
@@ -100,15 +159,15 @@ const RoofingCalculatorSection = () => {
 
             {/* cards  */}
             <div className="mt-10">
-              <CalculatorRightShowCard />
+              {/* <CalculatorRightShowCard /> */}
 
               <h3 className="text-2xl font-bold text-title my-8">
                 You’ve Selected
               </h3>
 
-              <CalculatorRightShowCard />
-              <CalculatorRightShowCard />
-              <CalculatorRightShowCard />
+              {sidedeData?.map((item, index) => (
+                <CalculatorRightShowCard key={index} data={item} />
+              ))}
 
               <Link href={"/free-estimate"}>
                 <Button
@@ -128,80 +187,80 @@ const RoofingCalculatorSection = () => {
 
 export default RoofingCalculatorSection;
 
-const roofingData = [
-  {
-    id: 1,
-    title: "Cross Hipped",
-    icon: <Image src={roofIcon1} className="w-20" alt="roof icon" />,
-  },
-  {
-    id: 2,
-    title: "Dormer",
-    icon: <Image src={roofIcon2} className="w-14" alt="roof icon" />,
-  },
-  {
-    id: 3,
-    title: "Hip",
-    icon: <Image src={roofIcon3} className="w-20" alt="roof icon" />,
-  },
-  {
-    id: 4,
-    title: "Hip & Valley",
-    icon: <Image src={roofIcon4} className="w-20" alt="roof icon" />,
-  },
-  {
-    id: 5,
-    title: "Intersecting/ Overlaid Hip",
-    icon: <Image src={roofIcon5} className="w-20" alt="roof icon" />,
-  },
-  {
-    id: 6,
-    title: "Open Gable",
-    icon: <Image src={roofIcon6} className="w-20" alt="roof icon" />,
-  },
-];
+// const roofingData = [
+//   {
+//     id: 1,
+//     title: "Cross Hipped",
+//     icon: <Image src={roofIcon1} className="w-20" alt="roof icon" />,
+//   },
+//   {
+//     id: 2,
+//     title: "Dormer",
+//     icon: <Image src={roofIcon2} className="w-14" alt="roof icon" />,
+//   },
+//   {
+//     id: 3,
+//     title: "Hip",
+//     icon: <Image src={roofIcon3} className="w-20" alt="roof icon" />,
+//   },
+//   {
+//     id: 4,
+//     title: "Hip & Valley",
+//     icon: <Image src={roofIcon4} className="w-20" alt="roof icon" />,
+//   },
+//   {
+//     id: 5,
+//     title: "Intersecting/ Overlaid Hip",
+//     icon: <Image src={roofIcon5} className="w-20" alt="roof icon" />,
+//   },
+//   {
+//     id: 6,
+//     title: "Open Gable",
+//     icon: <Image src={roofIcon6} className="w-20" alt="roof icon" />,
+//   },
+// ];
 
-const sidingData = [
-  {
-    id: 1,
-    title: "Walkable",
-    icon: <Image src={workable1} className="w-16" alt="roof icon" />,
-  },
-  {
-    id: 2,
-    title: "Slightly Walkable",
-    icon: <Image src={workable2} className="w-14" alt="roof icon" />,
-  },
-  {
-    id: 3,
-    title: "Too Steep to Walk",
-    icon: <Image src={workable3} className="w-14" alt="roof icon" />,
-  },
-];
+// const sidingData = [
+//   {
+//     id: 1,
+//     title: "Walkable",
+//     icon: <Image src={workable1} className="w-16" alt="roof icon" />,
+//   },
+//   {
+//     id: 2,
+//     title: "Slightly Walkable",
+//     icon: <Image src={workable2} className="w-14" alt="roof icon" />,
+//   },
+//   {
+//     id: 3,
+//     title: "Too Steep to Walk",
+//     icon: <Image src={workable3} className="w-14" alt="roof icon" />,
+//   },
+// ];
 
-const homeSizeData = [
-  {
-    id: 1,
-    title: "0 - 1000 Sq. Ft.",
-    description: "7% of USA Houses",
-    icon: <Image src={homeSize1} className="w-16" alt="roof icon" />,
-  },
-  {
-    id: 2,
-    title: "1000 - 1750 Sq. Ft.",
-    description: "36% of USA Houses",
-    icon: <Image src={homeSize2} className="w-20" alt="roof icon" />,
-  },
-  {
-    id: 3,
-    title: "1750 - 2500 Sq. Ft.",
-    description: "33% of USA Houses",
-    icon: <Image src={homeSize3} className="w-20" alt="roof icon" />,
-  },
-  {
-    id: 4,
-    title: "2500+ Sq. Ft.",
-    description: "28% of USA Houses",
-    icon: <Image src={homeSize4} className="w-28" alt="roof icon" />,
-  },
-];
+// const homeSizeData = [
+//   {
+//     id: 1,
+//     title: "0 - 1000 Sq. Ft.",
+//     description: "7% of USA Houses",
+//     icon: <Image src={homeSize1} className="w-16" alt="roof icon" />,
+//   },
+//   {
+//     id: 2,
+//     title: "1000 - 1750 Sq. Ft.",
+//     description: "36% of USA Houses",
+//     icon: <Image src={homeSize2} className="w-20" alt="roof icon" />,
+//   },
+//   {
+//     id: 3,
+//     title: "1750 - 2500 Sq. Ft.",
+//     description: "33% of USA Houses",
+//     icon: <Image src={homeSize3} className="w-20" alt="roof icon" />,
+//   },
+//   {
+//     id: 4,
+//     title: "2500+ Sq. Ft.",
+//     description: "28% of USA Houses",
+//     icon: <Image src={homeSize4} className="w-28" alt="roof icon" />,
+//   },
+// ];
