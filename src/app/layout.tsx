@@ -5,6 +5,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { Toaster } from "sonner";
 import "./globals.css";
+import FacebookPixel from "@/FacebookPixel";
 
 const inter = Inter({
   weight: ["300", "400", "500", "600", "700"],
@@ -27,6 +28,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4743849065459298"
+          crossOrigin="anonymous"
+        />
+      </head>
       <body
         suppressHydrationWarning={true}
         className={`${inter.variable} antialiased !bg-white`}
@@ -35,6 +43,7 @@ export default function RootLayout({
           <ReduxProvider>
             <>
               <div className="min-h-screen grid grid-rows-[auto_1fr_auto] max-w-[100vw] overflow-hidden">
+                <FacebookPixel />
                 {children}
               </div>
               <ScrollToTopButton />
