@@ -78,7 +78,13 @@ const ForgetPasswordForm: React.FC = () => {
         </div>
 
         <Form.Item>
-          <Button type="primary" htmlType="submit" block size="large">
+          <Button
+            type="primary"
+            className="bg-red-primary"
+            htmlType="submit"
+            block
+            size="large"
+          >
             Send
           </Button>
         </Form.Item>

@@ -2,17 +2,17 @@
 "use client";
 
 import { setUser, UserType } from "@/redux/features/auth";
+import { useLoginUserMutation } from "@/redux/service/auth/authApi";
 import { Button, Form, Input, Typography } from "antd";
+import Cookies from "js-cookie";
+import { jwtDecode } from "jwt-decode";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import React from "react";
 import { useDispatch } from "react-redux";
 import { toast } from "sonner";
-import { jwtDecode } from "jwt-decode";
-import Cookies from "js-cookie";
-import { useLoginUserMutation } from "@/redux/service/auth/authApi";
 
-const { Title, Paragraph } = Typography;
+const { Title } = Typography;
 
 type LoginFormValues = {
   email: string;
@@ -68,13 +68,13 @@ const LoginForm: React.FC = () => {
       <Title level={1} style={{ textAlign: "center", fontWeight: "bold" }}>
         Log in
       </Title>
-      <Paragraph style={{ textAlign: "center" }}>
+      {/* <Paragraph style={{ textAlign: "center" }}>
         If you have not created an account yet, then please{" "}
         <Link href="/signup" className="!text-primary !underline">
           sign up
         </Link>
         .
-      </Paragraph>
+      </Paragraph> */}
 
       <Form<LoginFormValues>
         name="login"
@@ -107,7 +107,13 @@ const LoginForm: React.FC = () => {
         </div>
 
         <Form.Item>
-          <Button type="primary" htmlType="submit" block size="large">
+          <Button
+            type="primary"
+            className="bg-red-primary"
+            htmlType="submit"
+            block
+            size="large"
+          >
             Log In
           </Button>
         </Form.Item>
