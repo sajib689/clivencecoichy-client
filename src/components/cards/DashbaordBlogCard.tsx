@@ -38,7 +38,7 @@ const DashboardBlogCard = ({ data }: { data: TBlog }) => {
     }
   };
   return (
-    <div className="max-w-md overflow-hidden !bg-white rounded-lg shadow-2xl cursor-pointer hover:shadow-none duration-300 mx-auto">
+    <div className="max-w-xl overflow-hidden !bg-white rounded-lg shadow-2xl cursor-pointer hover:shadow-none duration-300 mx-auto">
       {/* Image */}
       <div className="w-full">
         <Image
