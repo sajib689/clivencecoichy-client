@@ -18,6 +18,21 @@ const navItems: MenuItem[] = [
     "/dashboard/roofing",
     <LuLayoutDashboard />
   ),
+  getItem(
+    <Link href="/dashboard/blogs">Blogs</Link>,
+    "/dashboard/blogs",
+    <LuLayoutDashboard />
+  ),
+  getItem(
+    <Link href="/dashboard/about">About</Link>,
+    "/dashboard/about",
+    <LuLayoutDashboard />
+  ),
+  getItem(
+    <Link href="/dashboard/reviews">Reviews</Link>,
+    "/dashboard/reviews",
+    <LuLayoutDashboard />
+  ),
 ];
 
 const SuperAdminLayout = ({ children }: { children: ReactNode }) => {

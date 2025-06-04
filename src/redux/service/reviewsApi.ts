@@ -1,33 +1,33 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { baseApi } from "@/redux/api/baseApi";
 
-const aboutOwnerApi = baseApi.injectEndpoints({
+const aboutReviewApi = baseApi.injectEndpoints({
   endpoints: (builder) => ({
-    createOwner: builder.mutation({
+    createReview: builder.mutation({
       query: (data) => ({
-        url: "/about",
+        url: "/reviews",
         method: "POST",
         body: data,
       }),
       invalidatesTags: ["roofing"],
     }),
-    getAllOwners: builder.query({
+    getAllReviews: builder.query({
       query: () => ({
-        url: "/about",
+        url: "/reviews",
         method: "GET",
       }),
       providesTags: ["roofing"],
     }),
-    deleteOwner: builder.mutation({
+    deleteReview: builder.mutation({
       query: (id) => ({
-        url: `/about/${id}`,
+        url: `/reviews/${id}`,
         method: "DELETE",
       }),
       invalidatesTags: ["roofing"],
     }),
-    updateOwner: builder.mutation({
+    updateReview: builder.mutation({
       query: ({ data, id }) => ({
-        url: `/about/${id}`,
+        url: `/reviews/${id}`,
         method: "PUT",
         body: data,
       }),
@@ -37,9 +37,9 @@ const aboutOwnerApi = baseApi.injectEndpoints({
 });
 
 export const {
-  useCreateOwnerMutation,
-  useGetAllOwnersQuery,
-  useDeleteOwnerMutation,
-  useUpdateOwnerMutation,
-} = aboutOwnerApi;
-export const { endpoints: authEndpoints } = aboutOwnerApi;
+  useCreateReviewMutation,
+  useGetAllReviewsQuery,
+  useDeleteReviewMutation,
+  useUpdateReviewMutation,
+} = aboutReviewApi;
+export const { endpoints: authEndpoints } = aboutReviewApi;

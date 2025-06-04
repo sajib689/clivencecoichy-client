@@ -28,7 +28,7 @@ const aboutAdvisorApi = baseApi.injectEndpoints({
     updateAdvisor: builder.mutation({
       query: ({ data, id }) => ({
         url: `/advichor/${id}`,
-        method: "POST",
+        method: "PUT",
         body: data,
       }),
       invalidatesTags: ["roofing"],

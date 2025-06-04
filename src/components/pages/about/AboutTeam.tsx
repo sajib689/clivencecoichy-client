@@ -16,7 +16,7 @@ const AboutTeam = () => {
     }
   }, [data]);
 
-  console.log(aboutOwner, "team data");
+  // console.log(aboutOwner, "team data");
 
   if (isLoading) {
     return (

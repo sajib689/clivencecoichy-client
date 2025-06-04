@@ -35,7 +35,7 @@ const blogApi = baseApi.injectEndpoints({
     updateBlog: builder.mutation({
       query: ({ data, id }) => ({
         url: `/blog/${id}`,
-        method: "POST",
+        method: "PUT",
         body: data,
       }),
       invalidatesTags: ["roofing"],

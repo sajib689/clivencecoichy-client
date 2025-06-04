@@ -28,7 +28,7 @@ const aboutTeamApi = baseApi.injectEndpoints({
     updateTeam: builder.mutation({
       query: ({ data, id }) => ({
         url: `/employee/${id}`,
-        method: "POST",
+        method: "PUT",
         body: data,
       }),
       invalidatesTags: ["roofing"],

@@ -1,15 +1,44 @@
-import Image from "next/image";
-import React from "react";
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import blogImage from "@/assets/blogs/blog1.png";
 import { TBlog } from "@/interface/globalType";
+import { useDeleteBlogMutation } from "@/redux/service/blog/blogApi";
+import { Button } from "antd";
+import Image from "next/image";
 import Link from "next/link";
+import { toast } from "sonner";
+import Swal from "sweetalert2";
 
-const BlogCard = ({ data }: { data: TBlog }) => {
+const DashboardBlogCard = ({ data }: { data: TBlog }) => {
+  const [deleteBlogPost] = useDeleteBlogMutation();
+
+  const handleDelete = async (id: string) => {
+    console.log(id);
+
+    try {
+      const result = await Swal.fire({
+        title: "Are you sure?",
+        text: "You won't be able to revert this!",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Yes, delete it!",
+      });
+
+      if (result.isConfirmed) {
+        toast.promise(deleteBlogPost(id).unwrap(), {
+          loading: "Deleting...",
+          success: (data) => data?.message || "Deleted successfully",
+          error: (err) => err.message || "Error!",
+        });
+      }
+    } catch (error: any) {
+      console.log(error);
+      toast.error(error?.message || error?.data?.message);
+    }
+  };
   return (
-    <Link
-      href={`/blogs/${data?._id}`}
-      className="max-w-md overflow-hidden bg-white rounded-lg shadow-2xl cursor-pointer hover:shadow-none duration-300 mx-auto"
-    >
+    <div className="max-w-md overflow-hidden !bg-white rounded-lg shadow-2xl cursor-pointer hover:shadow-none duration-300 mx-auto">
       {/* Image */}
       <div className="w-full">
         <Image
@@ -94,38 +123,20 @@ const BlogCard = ({ data }: { data: TBlog }) => {
         />
 
         {/* Read More Link */}
-        <div className="flex items-center">
-          <Link
-            href="#"
-            className="inline-flex items-center text-red-600 font-medium"
-          >
-            Read More
-            <svg
-              className="w-5 h-5 ml-1"
-              viewBox="0 0 24 24"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M5 12H19"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-              <path
-                d="M12 5L19 12L12 19"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
+        <div className="flex items-center gap-4">
+          <Link href={`/dashboard/blogs/${data?._id}`}>
+            <Button>Update</Button>
           </Link>
+          <Button
+            onClick={() => handleDelete(data?._id)}
+            className="!bg-red-primary !text-white"
+          >
+            Delete
+          </Button>
         </div>
       </div>
-    </Link>
+    </div>
   );
 };
 
-export default BlogCard;
+export default DashboardBlogCard;
