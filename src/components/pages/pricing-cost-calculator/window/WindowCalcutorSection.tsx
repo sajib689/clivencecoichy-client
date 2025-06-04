@@ -1,22 +1,74 @@
-import roofIcon1 from "@/assets/Pricing-cost-calculator/window/windowIcon1.svg";
-import roofIcon2 from "@/assets/Pricing-cost-calculator/window/windowIcon2.svg";
-import roofIcon3 from "@/assets/Pricing-cost-calculator/window/windowIcon3.svg";
-import roofIcon4 from "@/assets/Pricing-cost-calculator/window/windowIcon4.svg";
-import roofIcon5 from "@/assets/Pricing-cost-calculator/window/windowIcon5.svg";
-import roofIcon6 from "@/assets/Pricing-cost-calculator/window/windowIcon6.svg";
-import roofIcon7 from "@/assets/Pricing-cost-calculator/window/windowIcon7.svg";
-import roofIcon8 from "@/assets/Pricing-cost-calculator/window/windowIcon8.svg";
+/* eslint-disable @typescript-eslint/no-explicit-any */
+"use client";
 
 // icon check mark
 import iIcon from "@/assets/Pricing-cost-calculator/roofing/alert-circle.png";
 import checkIcon from "@/assets/Pricing-cost-calculator/roofing/checkMarkFilled.svg";
-// import CalculatorRightShowCard from "@/components/cards/calculator/CalculatorRightShowCard";
+import asphaltImage1 from "@/assets/Pricing-cost-calculator/window/vinly1.png";
+import asphaltImage2 from "@/assets/Pricing-cost-calculator/window/vinly2.png";
+import CalculatorRightShowCard from "@/components/cards/calculator/CalculatorRightShowCard";
 import WindowCard from "@/components/cards/calculator/WindowCard";
+import { useGetWindowCalculationQuery } from "@/redux/service/windowCost/windowCostCalculatorApi";
 import { Button } from "antd";
 import Image from "next/image";
 import Link from "next/link";
+import { useState } from "react";
+
+type WindowSize = {
+  vinyl: {
+    low: number;
+    high: number;
+  };
+  premiumVinyl: {
+    low: number;
+    high: number;
+  };
+  sizeLabel: string;
+  _id: string;
+};
+
+export type WindowProduct = {
+  _id: string;
+  name: string;
+  image: string;
+  sizes: WindowSize[];
+  createdAt: string; // or `Date` if you parse it
+  updatedAt: string; // or `Date` if you parse it
+  __v: number;
+};
 
 const WindowCalculatorSection = () => {
+  const [windowIds, setWindowIds] = useState<string>("");
+  const [showingData, setShowingData] = useState<any>({});
+  console.log(showingData, "showingData");
+
+  const { data, isLoading } = useGetWindowCalculationQuery({});
+  console.log(data, "window cost data ");
+
+  const handleSelectWindow = (id: string) => {
+    console.log(id);
+    if (!windowIds?.includes(id)) {
+      setWindowIds(id);
+    } else {
+      setWindowIds("");
+      setShowingData({});
+    }
+  };
+
+  const sidedData = [
+    {
+      title: "Vinyl Windows",
+      price: showingData?.vinyl?.min,
+      highPrice: showingData?.vinyl?.max,
+      image: asphaltImage1,
+    },
+    {
+      title: "Premium Vinyl",
+      price: showingData?.premiumVinyl?.min,
+      highPrice: showingData?.premiumVinyl?.max,
+      image: asphaltImage2,
+    },
+  ];
   return (
     <div className="py-28">
       <div className="container grid grid-cols-1 md:grid-cols-2 gap-10">
@@ -31,9 +83,25 @@ const WindowCalculatorSection = () => {
             {/* select 1  */}
             <div className="mt-10 space-y-5">
               {/* roof card  */}
-              {roofingData?.map((item) => (
-                <WindowCard key={item?.id} data={item} />
-              ))}
+              {isLoading ? (
+                <div className="py-2 flex items-center justify-center">
+                  <h3>Loading..</h3>.
+                </div>
+              ) : (
+                data?.map((item: WindowProduct) => (
+                  <div
+                    key={item?._id}
+                    onClick={() => handleSelectWindow(item?._id)}
+                  >
+                    <WindowCard
+                      isSelected={windowIds === item?._id ? true : false}
+                      id={windowIds}
+                      setShowingData={setShowingData}
+                      data={item}
+                    />
+                  </div>
+                ))
+              )}
             </div>
           </div>
         </div>
@@ -71,15 +139,18 @@ const WindowCalculatorSection = () => {
                 You’ve Selected
               </h3>
 
-              {/* <CalculatorRightShowCard /> */}
+              {sidedData?.map((item, index) => (
+                <CalculatorRightShowCard key={index} data={item} />
+              ))}
 
-<Link href={"/free-estimate"}>
-              <Button
-                size="large"
-                className="bg-red-primary w-full mt-8 border-none text-white hover:!text-red-primary p-6 text-lg"
-              >
-                Free Estimate
-              </Button></Link>
+              <Link href={"/free-estimate"}>
+                <Button
+                  size="large"
+                  className="bg-red-primary w-full mt-8 border-none text-white hover:!text-red-primary p-6 text-lg"
+                >
+                  Free Estimate
+                </Button>
+              </Link>
             </div>
           </div>
         </div>
@@ -89,46 +160,3 @@ const WindowCalculatorSection = () => {
 };
 
 export default WindowCalculatorSection;
-
-const roofingData = [
-  {
-    id: 1,
-    title: "Double Hung",
-    icon: <Image src={roofIcon1} className="w-28" alt="roof icon" />,
-  },
-  {
-    id: 2,
-    title: "Slider",
-    icon: <Image src={roofIcon2} className="w-14" alt="roof icon" />,
-  },
-  {
-    id: 3,
-    title: "Casement",
-    icon: <Image src={roofIcon3} className="w-28" alt="roof icon" />,
-  },
-  {
-    id: 4,
-    title: "Awning",
-    icon: <Image src={roofIcon4} className="w-28" alt="roof icon" />,
-  },
-  {
-    id: 5,
-    title: "Twin Casemant",
-    icon: <Image src={roofIcon5} className="w-28" alt="roof icon" />,
-  },
-  {
-    id: 6,
-    title: "Picture",
-    icon: <Image src={roofIcon6} className="w-28" alt="roof icon" />,
-  },
-  {
-    id: 7,
-    title: "3 Lite Bay/Bow",
-    icon: <Image src={roofIcon7} className="w-28" alt="roof icon" />,
-  },
-  {
-    id: 8,
-    title: "4 Lite Bay/Bow",
-    icon: <Image src={roofIcon8} className="w-28" alt="roof icon" />,
-  },
-];

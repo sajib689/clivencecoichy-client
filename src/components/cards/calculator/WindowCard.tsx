@@ -1,43 +1,72 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 
-import { ReactNode, useState } from "react";
+import { WindowProduct } from "@/components/pages/pricing-cost-calculator/window/WindowCalcutorSection";
+import { usePricingWindowCostMutation } from "@/redux/service/windowCost/windowCostCalculatorApi";
+import Image from "next/image";
+import { useEffect, useState } from "react";
 import { FaChevronDown, FaX } from "react-icons/fa6";
 
-interface ProductSelectorProps {
-  id: number;
-  title: string;
-  icon: ReactNode;
-  quantity?: number;
-  selectedSize?: string;
-  sizes?: string[];
-}
-
-const WindowCard = ({ data }: { data: ProductSelectorProps }) => {
-  const [quantity, setQuantity] = useState(data.quantity || 1);
-  const [selectedSize, setSelectedSize] = useState(
-    data.selectedSize || "Medium (70-90)"
-  );
+const WindowCard = ({
+  data,
+  isSelected,
+  id,
+  setShowingData,
+}: {
+  data: WindowProduct;
+  isSelected: boolean;
+  id: string;
+  setShowingData: any;
+}) => {
+  const [quantity, setQuantity] = useState(1);
+  const [selectedSize, setSelectedSize] = useState("Small (50-70)");
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
-  const sizes = data.sizes || [
-    "Small (50-70)",
-    "Medium (70-90)",
-    "Large (90-110)",
-  ];
+  const [getCalculation] = usePricingWindowCostMutation();
+
+  useEffect(() => {
+    if (!id) {
+      setSelectedSize("Small (50-70)");
+    }
+  }, [id]);
+
+  useEffect(() => {
+    if (!id) return;
+
+    const payload = {
+      windowTypeId: id,
+      size: selectedSize?.split(" ")[0] || "Small", // extract "Small" from "Small (50-70)"
+      quantity,
+    };
+
+    const fetchData = async () => {
+      try {
+        const res = await getCalculation({ selectedWindows: [payload] });
+        console.log(res, "pricing result");
+        setShowingData(res?.data);
+      } catch (error) {
+        console.error("Error fetching pricing:", error);
+      }
+    };
+
+    fetchData();
+  }, [quantity, getCalculation, id, selectedSize, setShowingData]);
 
   return (
     <div
-      className={`flex flex-col lg:flex-row  w-full gap-5 p-5 cursor-pointer hover:border-red-primary duration-300 items-center justify-between border-2 border-gray-light rounded-xl`}
+      className={`flex flex-col lg:flex-row  w-full gap-5 p-5 cursor-pointer hover:border-red-primary duration-300 items-center justify-between border-2 border-gray-light rounded-xl ${
+        isSelected ? "!border-red-primary duration-300" : ""
+      }`}
     >
       {/* Icon Section */}
       <div className="flex flex-1 items-center gap-5 justify-center w-24 h-24  rounded-lg bg-white">
-        {data.icon}
+        <Image src={data?.image} width={100} height={100} alt="window image" />
       </div>
 
       {/* Title Section */}
       <div className="space-y-3">
         <div className="flex-1 text-left">
-          <h2 className="text-lg font-semibold text-gray-800">{data.title}</h2>
+          <h2 className="text-lg font-semibold text-gray-800">{data?.name}</h2>
         </div>
 
         {/* Add Size Button */}
@@ -55,6 +84,7 @@ const WindowCard = ({ data }: { data: ProductSelectorProps }) => {
               <span className="text-gray-600 font-medium">QTY</span>
               <FaX className="w-4 h-4 text-gray-400" />
               <input
+                onClick={(e) => e.stopPropagation()}
                 type="number"
                 value={quantity}
                 onChange={(e) =>
@@ -69,7 +99,7 @@ const WindowCard = ({ data }: { data: ProductSelectorProps }) => {
           {/* Size Dropdown Section */}
           <div className="flex items-center gap-2 space-x-3">
             <span className="text-gray-600 font-medium">UI:</span>
-            <div className="relative">
+            <div className="relative" onClick={(e) => e.stopPropagation()}>
               <button
                 onClick={() => setIsDropdownOpen(!isDropdownOpen)}
                 className="flex items-center justify-between w-40 h-fit px-4 py-1 border border-gray-300 rounded-lg bg-white text-gray-600 font-medium focus:outline-none focus:ring-2 focus:ring-blue-500"
@@ -80,16 +110,33 @@ const WindowCard = ({ data }: { data: ProductSelectorProps }) => {
 
               {isDropdownOpen && (
                 <div className="absolute top-full left-0 w-full mt-1 bg-white border border-gray-300 rounded-lg shadow-lg z-10">
-                  {sizes.map((size, index) => (
+                  {data?.sizes?.map((size, index) => (
                     <button
                       key={index}
                       onClick={() => {
-                        setSelectedSize(size);
+                        setSelectedSize(
+                          `${size?.sizeLabel} ${
+                            size?.sizeLabel === "Small"
+                              ? "(50-70)"
+                              : size?.sizeLabel === "Medium"
+                              ? "(70-90)"
+                              : size?.sizeLabel === "Large"
+                              ? "(90-110)"
+                              : ""
+                          }`
+                        );
                         setIsDropdownOpen(false);
                       }}
                       className="w-full px-4 py-1 text-md text-left text-gray-600 hover:bg-gray-50 first:rounded-t-lg last:rounded-b-lg"
                     >
-                      {size}
+                      {size?.sizeLabel}{" "}
+                      {size?.sizeLabel === "Small"
+                        ? "(50-70)"
+                        : size?.sizeLabel === "Medium"
+                        ? "(70-90)"
+                        : size?.sizeLabel === "Large"
+                        ? "(90-110)"
+                        : ""}
                     </button>
                   ))}
                 </div>
