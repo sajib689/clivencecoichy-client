@@ -54,11 +54,11 @@ const forthRow = [
   },
 
   {
-    title: "708-949-4553",
+    title: <a href="tel:708-949-4553">708-949-4553</a>,
     icon: <MdOutlineCall />,
   },
   {
-    title: " info@arcroofs.com",
+    title: <a href="mailto:info@arcroofs.com">info@arcroofs.com</a>,
     icon: <MdMailOutline />,
   },
 ];
