@@ -45,7 +45,14 @@ const thirdRow = [
 ];
 const forthRow = [
   {
-    title: "1655 South Oak Park Ave, Tinley Park, IL 60477",
+    title: (
+      <a
+        href="https://www.google.com/maps/search/?api=1&query=16555+South+Oak+Park+Ave,+Tinley+Park,+IL+60477"
+        target="_blank"
+      >
+        16555 South Oak Park Ave, Tinley Park, IL 60477
+      </a>
+    ),
     icon: <PiBuildingOffice />,
   },
   {
