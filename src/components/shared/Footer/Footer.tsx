@@ -10,7 +10,6 @@ import { MdMailOutline, MdOutlineCall } from "react-icons/md";
 import { PiBuildingOffice } from "react-icons/pi";
 import { RiHomeOfficeLine, RiLinkedinFill } from "react-icons/ri";
 import NavMenu from "../Navbar/NavMenu";
-import AreasWeServe from "./AreasWeServe";
 import { usePathname } from "next/navigation";
 
 const thirdRow = [
@@ -208,8 +207,6 @@ const Footer = () => {
             ))}
           </div>
         </div>
-        <div className="w-full border-t border-gray-400 my-10"></div>
-        <AreasWeServe />
       </div>
     </div>
   );
