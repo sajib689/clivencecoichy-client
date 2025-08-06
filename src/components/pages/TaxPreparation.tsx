@@ -72,7 +72,7 @@ const TaxPreparation = () => {
   ];
 
   return (
-    <div className="mt-20">
+    <div className="mt-20 min-h-screen">
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-7xl mx-auto">
         {cards.map((card, index) => (
           <div

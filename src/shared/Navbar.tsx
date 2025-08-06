@@ -1,106 +1,121 @@
 "use client";
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
 import logo from "@/assets/logo.png";
 import Image from "next/image";
+
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
-  const toggleMenu = () => {
-    setIsOpen(!isOpen);
-  };
+
+  const toggleMenu = () => setIsOpen((prev) => !prev);
+
+  // Lock body scroll when mobile menu is open
+  useEffect(() => {
+    document.body.style.overflow = isOpen ? "hidden" : "auto";
+    return () => {
+      document.body.style.overflow = "auto";
+    };
+  }, [isOpen]);
+
+  const closeMenu = () => setIsOpen(false);
+
   const links = (
     <>
-      <li>
+      <li onClick={closeMenu}>
         <Link
           href="/"
-          className="hover:text-[var(--textColor)] text-[var(--textColor)] font-[600]"
+          className="hover:text-[var(--textColor)] text-[var(--textColor)] font-[600] transition-colors"
         >
           Home
         </Link>
       </li>
-      <li>
+      <li onClick={closeMenu}>
         <Link
           href="/pages/tax-preparation"
-          className="hover:text-[var(--textColor)] text-[var(--textColor)] font-[600]"
+          className="hover:text-[var(--textColor)] text-[var(--textColor)] font-[600] transition-colors"
         >
           Tax Preparation
         </Link>
       </li>
-      <li>
+      <li onClick={closeMenu}>
         <Link
           href="#"
-          className="hover:text-[var(--textColor)] text-[var(--textColor)] font-[600]"
+          className="hover:text-[var(--textColor)] text-[var(--textColor)] font-[600] transition-colors"
         >
           Real Estate Services
         </Link>
       </li>
-      <li>
+      <li onClick={closeMenu}>
         <Link
-          href="/other-services"
-          className="hover:text-[var(--textColor)] text-[var(--textColor)] font-[600]"
+          href="#"
+          className="hover:text-[var(--textColor)] text-[var(--textColor)] font-[600] transition-colors"
         >
           Other Services
         </Link>
       </li>
-      <li>
+      <li onClick={closeMenu}>
         <Link
-          href="/about-us"
-          className="hover:text-[var(--textColor)] text-[var(--textColor)] font-[600]"
+          href="/contact-details/about-us"
+          className="hover:text-[var(--textColor)] text-[var(--textColor)] font-[600] transition-colors"
         >
           About Us
         </Link>
       </li>
-      {/* <li>
-        <Link href="/auth/sign-in" className="hover:text-[var(--textColor)] text-[var(--textColor)] font-[600]">
-          Sign In
-        </Link>
-      </li>
-      <li>
-        <Link href="/auth/sign-up" className="hover:text-[var(--textColor)] text-[var(--textColor)] font-[600]">
-          Sign Up
-        </Link>
-      </li>
-      */}
-      <div className="ms-12">
+      <li onClick={closeMenu}>
         <Link
           href="/contact-details/contact-us"
-          className="bg-[var(--primary-color)] text-white px-6 py-3 font-medium hover:bg-[var(--primary-color)] rounded-full transition-colors duration-300"
+          className="bg-[var(--primary-color)] text-white px-6 py-3 font-medium hover:opacity-90 rounded-full transition-all duration-300 inline-block"
         >
           Contact Us
         </Link>
-      </div>
+      </li>
     </>
   );
+
   return (
-    <nav className="bg-white p-4">
+    <nav className="sticky top-0 bg-white p-4 shadow-md z-50">
       <div className="max-w-7xl mx-auto flex items-center justify-between">
-        <div className="text-xl font-bold">
-          <Link href="/">
-            <Image
-              src={logo}
-              alt="Logo"
-              width={115}
-              height={80}
-              className="inline-block mr-2"
-            />
-          </Link>
-        </div>
+        <Link href="/" className="text-xl font-bold flex items-center">
+          <Image
+            src={logo}
+            alt="Logo"
+            width={115}
+            height={80}
+            className="inline-block mr-2"
+            priority
+          />
+        </Link>
 
         {/* Desktop menu */}
-        <ul className="hidden md:flex space-x-6">{links}</ul>
+        <ul className="hidden md:flex space-x-6 items-center">{links}</ul>
 
-        {/* Mobile hamburger button */}
+        {/* Hamburger */}
         <div className="md:hidden">
-          <button onClick={toggleMenu} aria-label="Toggle Menu">
+          <button
+            onClick={toggleMenu}
+            aria-label="Toggle Menu"
+            className="focus:outline-none focus:ring-2 focus:ring-[var(--primary-color)] rounded"
+          >
             {isOpen ? <FaTimes size={24} /> : <FaBars size={24} />}
           </button>
         </div>
       </div>
 
-      {/* Mobile menu */}
+      {/* Mobile Menu */}
       {isOpen && (
-        <ul className="md:hidden mt-4 space-y-4 text-center">{links}</ul>
+        <>
+          {/* Backdrop */}
+          <div
+            className="fixed inset-0 bg-opacity-40 z-30"
+            onClick={closeMenu}
+          />
+
+          {/* Slide-down menu */}
+          <ul className="md:hidden absolute top-full left-0 w-full bg-white z-40 p-6 space-y-4 shadow-md animate-slideDown">
+            {links}
+          </ul>
+        </>
       )}
     </nav>
   );

@@ -1,41 +1,53 @@
+import React from "react";
+import Image from "next/image";
+import Img from "@/assets/Group.png"
 
-const About = () => {
+
+export default function Component() {
   return (
-    <div className="min-h-screen bg-gray-100 text-gray-800 px-4 py-16">
-      <div className="max-w-5xl mx-auto text-center">
-        <h1 className="text-4xl font-bold mb-4">About Us</h1>
-        <p className="text-lg mb-8">
-          Welcome to our platform! We are dedicated to providing top-notch services
-          to help you achieve your goals. Our mission is to make your experience
-          seamless, efficient, and rewarding.
-        </p>
-
-        <div className="grid md:grid-cols-3 gap-8 text-left">
-          <div className="bg-white p-6 rounded-lg shadow">
-            <h2 className="text-xl font-semibold mb-2">Our Vision</h2>
-            <p>
-              To be a trusted and innovative platform that transforms the way users
-              engage with technology and services.
-            </p>
+    <section className="bg-gray-50 py-16 px-4 md:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto">
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
+          {/* Content */}
+          <div className="space-y-6">
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900">
+              Our Mission
+            </h2>
+            
+            <div className="space-y-4 text-gray-600 leading-relaxed">
+              <p>
+                To simplify the financial lives of our clients by delivering expert, 
+                transparent, and supportive services tailored to their individual 
+                and business needs.
+              </p>
+              
+              <p>
+                With a focus on tax preparation, notary services, business filings, 
+                and small business consulting, we provide the tools, expertise, 
+                and support you need to make confident financial and business 
+                decisions — all in one place.
+              </p>
+            </div>
+            
+            <button 
+              className="bg-emerald-700 hover:bg-emerald-800 text-white px-6 py-3 rounded-md font-medium transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2"
+            >
+              Get Started
+            </button>
           </div>
-          <div className="bg-white p-6 rounded-lg shadow">
-            <h2 className="text-xl font-semibold mb-2">Our Mission</h2>
-            <p>
-              Empower users through cutting-edge tools, reliable support, and
-              user-friendly solutions tailored to modern needs.
-            </p>
-          </div>
-          <div className="bg-white p-6 rounded-lg shadow">
-            <h2 className="text-xl font-semibold mb-2">Why Choose Us?</h2>
-            <p>
-              We blend creativity with technical excellence, ensuring every user
-              interaction is smooth, intuitive, and impactful.
-            </p>
+          
+          {/* Image */}
+          <div className="relative flex justify-end items-center">
+            <div className="relative w-full max-w-md">
+              <Image 
+                src={Img}
+                alt="Mission illustration showing a person with charts and business elements"
+                className="w-full h-auto"
+              />
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  );
-};
-
-export default About;
+    </section>
+  )
+}
