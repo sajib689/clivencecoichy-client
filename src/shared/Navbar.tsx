@@ -21,7 +21,7 @@ export default function Navbar() {
       </li>
       <li>
         <Link
-          href="/tax-preparation"
+          href="/pages/tax-preparation"
           className="hover:text-[var(--textColor)] text-[var(--textColor)] font-[600]"
         >
           Tax Preparation
