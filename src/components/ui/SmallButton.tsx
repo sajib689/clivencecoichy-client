@@ -6,7 +6,7 @@ interface ButtonProps {
   onClick?: () => void;
 }
 
-const Button: React.FC<ButtonProps> = ({
+const SmallButton: React.FC<ButtonProps> = ({
   text,
   bgColor = "bg-[var(--primary-color)]",
   hoverColor = "hover:bg-[var(--primary-color)]",
@@ -15,11 +15,11 @@ const Button: React.FC<ButtonProps> = ({
   return (
     <button
       onClick={onClick}
-      className={`px-5 py-2  text-white rounded-full transition cursor-pointer ${bgColor} ${hoverColor}`}
+      className={`px-2 py-2.5 w-40 text-white rounded-full transition cursor-pointer ${bgColor} ${hoverColor}`}
     >
       {text}
     </button>
   );
 };
 
-export default Button;
+export default SmallButton;
