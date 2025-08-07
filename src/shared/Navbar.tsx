@@ -4,21 +4,24 @@ import { useEffect, useState } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
 import logo from "@/assets/logo.png";
 import Image from "next/image";
+import { LuChevronDown } from "react-icons/lu"; // You can use any icon you prefer
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const [dropdownOpen, setDropdownOpen] = useState(false);
 
   const toggleMenu = () => setIsOpen((prev) => !prev);
+  const closeMenu = () => {
+    setIsOpen(false);
+    setDropdownOpen(false);
+  };
 
-  // Lock body scroll when mobile menu is open
   useEffect(() => {
     document.body.style.overflow = isOpen ? "hidden" : "auto";
     return () => {
       document.body.style.overflow = "auto";
     };
   }, [isOpen]);
-
-  const closeMenu = () => setIsOpen(false);
 
   const links = (
     <>
@@ -40,20 +43,65 @@ export default function Navbar() {
       </li>
       <li onClick={closeMenu}>
         <Link
-          href="#"
+          href="/pages/real-state-service"
           className="hover:text-[var(--textColor)] text-[var(--textColor)] font-[600] transition-colors"
         >
           Real Estate Services
         </Link>
       </li>
-      <li onClick={closeMenu}>
-        <Link
-          href="#"
-          className="hover:text-[var(--textColor)] text-[var(--textColor)] font-[600] transition-colors"
+
+      {/* Dropdown Item */}
+      <li
+        className="relative group"
+        onMouseEnter={() => setDropdownOpen(true)}
+        onMouseLeave={() => setDropdownOpen(false)}
+      >
+        <button
+          onClick={() => setDropdownOpen((prev) => !prev)}
+          className="flex items-center gap-1 hover:text-[var(--textColor)] text-[var(--textColor)] font-[600] transition-colors"
         >
           Other Services
-        </Link>
+          <LuChevronDown
+            className={`w-4 h-4 transition-transform duration-300 ${
+              dropdownOpen ? "rotate-180" : ""
+            }`}
+          />
+        </button>
+
+        {/* Dropdown Menu */}
+        {dropdownOpen && (
+          <ul className="absolute top-full left-0 mt-1 w-48 bg-white rounded-md shadow-lg z-50 border border-gray-200 overflow-hidden">
+            <li>
+              <Link
+                href="/pages/consulting"
+                className="block px-4 py-2 hover:bg-[var(--primary-color)] hover:text-white text-bold transition"
+                onClick={closeMenu}
+              >
+                Consulting
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/pages/book-appointment"
+                className="block px-4 py-2 hover:bg-[var(--primary-color)] hover:text-white text-sm transition"
+                onClick={closeMenu}
+              >
+                Book Appointment
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/pages/service-3"
+                className="block px-4 py-2 hover:bg-[var(--primary-color)] hover:text-white text-sm transition"
+                onClick={closeMenu}
+              >
+                Service 3
+              </Link>
+            </li>
+          </ul>
+        )}
       </li>
+
       <li onClick={closeMenu}>
         <Link
           href="/contact-details/about-us"
@@ -105,13 +153,10 @@ export default function Navbar() {
       {/* Mobile Menu */}
       {isOpen && (
         <>
-          {/* Backdrop */}
           <div
             className="fixed inset-0 bg-opacity-40 z-30"
             onClick={closeMenu}
           />
-
-          {/* Slide-down menu */}
           <ul className="md:hidden absolute top-full left-0 w-full bg-white z-40 p-6 space-y-4 shadow-md animate-slideDown">
             {links}
           </ul>

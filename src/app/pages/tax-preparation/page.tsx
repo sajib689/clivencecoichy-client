@@ -1,8 +1,8 @@
 import Testimonials from "@/components/Home/Testimonials";
-import CommitmentToExcellence from "@/components/pages/CommitmentToExcellence";
-import TaxPreparation from "@/components/pages/TaxPreparation";
-import TaxServiceSpecialties from "@/components/pages/TaxServiceSpecialties";
-import WhatDocuments from "@/components/pages/WhatDocuments";
+import CommitmentToExcellence from "@/components/pages-components/CommitmentToExcellence";
+import TaxPreparation from "@/components/pages-components/TaxPreparation";
+import TaxServiceSpecialties from "@/components/pages-components/TaxServiceSpecialties";
+import WhatDocuments from "@/components/pages-components/WhatDocuments";
 
 export default function page() {
   return (
