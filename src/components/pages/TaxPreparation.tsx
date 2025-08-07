@@ -73,7 +73,7 @@ const TaxPreparation = () => {
   ];
 
   return (
-    <section className="mt-20 px-4">
+    <section className="mt-20 max-w-7xl mx-auto">
       <h2 className="text-5xl font-bold text-center mb-20">
         Year-Round Tax Support
       </h2>
